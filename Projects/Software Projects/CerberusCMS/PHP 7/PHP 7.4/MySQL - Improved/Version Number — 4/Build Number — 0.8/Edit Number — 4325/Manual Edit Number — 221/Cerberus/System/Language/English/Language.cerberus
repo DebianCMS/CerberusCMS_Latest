@@ -1714,6 +1714,9 @@ $_Application_Module_Member_Message_Pages_ENTRIES_EMPTY									= "<CENTER>Cerbe
 */
 
 $_Application_Module_Member_Message_Profile_NO_COMMENTS									= "<CENTER>Cerberus: I was not able to Find any Comments.</CENTER>";
+$_Application_Module_Member_Message_Profile_SECTION_MARKED_PRIVATE							= "<B>Cerberus: This Registered Member Account Details Section Is Marked: Private</B><BR><BR>";
+$_Application_Module_Member_Message_Profile_SECTION_MARKED_FRIENDS							= "<B>Cerberus: This Registered Member Account Details Section Is Marked: Friends-Only</B><BR><BR>";
+$_Application_Module_Member_Message_Profile_SECTION_MARKED_ONLYME							= "<B>Cerberus: This Registered Member Account Details Section Is Marked: Account-Only</B><BR><BR>";
 
 /*
  ============================================================================================================
