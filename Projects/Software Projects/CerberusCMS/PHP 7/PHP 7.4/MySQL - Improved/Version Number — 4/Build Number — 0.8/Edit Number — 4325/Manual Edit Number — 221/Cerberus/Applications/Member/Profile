@@ -950,10 +950,9 @@ echo ("
 														<SELECT NAME=\"AMM_Profile_Services_Command_Type\">
 															<OPTION VALUE=\"0\">Integrity :: Flash :: Server :: Local</OPTION>
 															<OPTION VALUE=\"1\">Integrity :: Flash :: Server :: Master</OPTION>
-															<OPTION VALUE=\"2\">Integrity :: KeyRing :: Delete</OPTION>
-															<OPTION VALUE=\"3\">Integrity :: KeyRing :: Update</OPTION>
-															<OPTION VALUE=\"4\">Task :: Account :: Delete</OPTION>
-															<OPTION VALUE=\"5\">Task :: Message :: System-Wide</OPTION>
+															<OPTION VALUE=\"2\">Integrity :: KeyRing :: Manage</OPTION>
+															<OPTION VALUE=\"3\">Task :: Account :: Delete</OPTION>
+															<OPTION VALUE=\"4\">Task :: Message :: System-Wide</OPTION>
 														</SELECT><BR>
 														<TEXTAREA NAME=\"AMM_Profile_Services_Command_Receive\" MAXLENGTH=\"500\" ROWS=\"7\" COLS=\"50\"></TEXTAREA><BR>
 														<INPUT TYPE=\"SUBMIT\" VALUE=\"Send Command\">
