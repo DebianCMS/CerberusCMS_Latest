@@ -12,12 +12,12 @@
  + - Document Notes		 : View this file in a non-formatting text editor without word-wrap for the
  +				 : correct display of this programming code and its indentation.
  + ----------------------------------------------------------------------------------------------------------
- +    ()  ()()() ---
- +  ()  () --- ()  ()()()
+ +    () ()()() --- ()
+ +  ()  () () ()()()
  +  ------------------------------
- +  Services-Level Application Module
+ +  Administration-Level Application Module
  + ----------------------------------------------------------------------------------------------------------
- + - This File, Location	 : Root Directory => Applications => Services => Commander
+ + - This File, Location	 : Root Directory => Applications => Services => Control_Panel
  + - This File, Version		 : 0.7.1
  + - This File, Programming Code : Pure Pre-Hyper-Text-Post-Processor
  + - Programming Code Model	 : Procedural, Functional, Object Oriented :: Pre-Order Algebraic
@@ -45,24 +45,10 @@
 
 /*
  ============================================================================================================
- +~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
- +~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
- +---()-----()()()-()()()-()()()()-()()()()-()()()-()()()-()()()-()()()-()()()-------------- ()--------------
- +-()--()---()-----()--()-()-()-()-()-()-()-()--()-()--()-()--()-()-----()-()--------------()--()------------
- +---()-----()-----()--()-()-()-()-()-()-()-()()()-()--()-()()()-()()()-()()-----------------()-------()-----
- +----------()-----()--()-()----()-()----()-()--()-()--()-()--()-()-----()-()----------------------()-()-----
- +----------()()()-()()()-()----()-()----()-()--()-()--()-()()()-()()()-()--()-------------------------------
- +~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-Build-Number:-0.1---Final
- +~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-Edit-Number-:-104
- ============================================================================================================
-*/
-
-/*
- ============================================================================================================
  +
  +
  +
- + [ ^ ] Application Module :: Services :: Commander
+ + [ ^ ] Application Module :: Services :: Control Panel :: Services Root Administration-Level
  +
  +
  +
@@ -71,72 +57,41 @@
 
 /*
  ============================================================================================================
- + Application Module Header
- ============================================================================================================
-*/
-
-											echo ($_Application_Module_Services_Message_Commander_Header);
-
-/*
- ============================================================================================================
  +
  +
- + [ @ ] Commander :: Display :: Options
+ + [ @ ] Display :: Control Panel :: Services Root Administration-Level
  +
  +
  ============================================================================================================
 */
 
-/*
- ============================================================================================================
- +
- + IF: Internal Application: Display :: Options
- +
- ============================================================================================================
-*/
+echo ("
+										<CENTER>[ <A HREF=\"?$_INTERNAL_APPLICATION_MODULE_SERVICES&#61;Control_Panel&amp;$_GLOBAL_SYSTEM_SECURITY_CACHE_CIRCUMVENTION_HTR_RANDOM_STRING_GENERATION\" TITLE=\":: Close Open Applications ::\">Services Root Administration Control Panel</A> ]</CENTER>
 
-if ($_GET["Display"] == "Options") {
+										<HR>
 
-} // [ + ] IF: Internal Application: Display :: Options :: Is: Activated
+										<CENTER>
+											<A HREF=\"?$_INTERNAL_APPLICATION_MODULE_ADMINISTRATOR&#61;Command&amp;Display&#61;Options$_GLOBAL_SYSTEM_SECURITY_CACHE_CIRCUMVENTION_HTR_RANDOM_STRING_GENERATION\" TITLE=\":: Commander ::\"><IMG SRC=\"./Theme/$_GLOBAL_MEMBER_THEME_DIRECTORY/Image/Icon_Services/Icon_Commander.$_GLOBAL_SYSTEM_IMAGE_EXTENSION?$_GLOBAL_SYSTEM_SECURITY_CACHE_CIRCUMVENTION_IMAGE_RANDOM_STRING_GENERATION\" WIDTH=\"60\" HEIGHT=\"60\" BORDER=\"1\" ALT=\":: Commander ::\"></A>
+												&nbsp;
+											<A HREF=\"?$_INTERNAL_APPLICATION_MODULE_ADMINISTRATOR&#61;Integrity&amp;Display&#61;Options&amp;$_GLOBAL_SYSTEM_SECURITY_CACHE_CIRCUMVENTION_HTR_RANDOM_STRING_GENERATION\" TITLE=\":: Integrity ::\"><IMG SRC=\"./Theme/$_GLOBAL_MEMBER_THEME_DIRECTORY/Image/Icon_Services/Icon_Integrity.$_GLOBAL_SYSTEM_IMAGE_EXTENSION?$_GLOBAL_SYSTEM_SECURITY_CACHE_CIRCUMVENTION_IMAGE_RANDOM_STRING_GENERATION\" WIDTH=\"60\" HEIGHT=\"60\" BORDER=\"1\" ALT=\":: Integrity ::\"></A>
+												&nbsp;
+											<A HREF=\"?$_INTERNAL_APPLICATION_MODULE_ADMINISTRATOR&#61;Kernel&amp;Display&#61;Options&amp;$_GLOBAL_SYSTEM_SECURITY_CACHE_CIRCUMVENTION_HTR_RANDOM_STRING_GENERATION\" TITLE=\":: Kernel ::\"><IMG SRC=\"./Theme/$_GLOBAL_MEMBER_THEME_DIRECTORY/Image/Icon_Services/Icon_Kernel.$_GLOBAL_SYSTEM_IMAGE_EXTENSION?$_GLOBAL_SYSTEM_SECURITY_CACHE_CIRCUMVENTION_IMAGE_RANDOM_STRING_GENERATION\" WIDTH=\"60\" HEIGHT=\"60\" BORDER=\"1\" ALT=\":: Kernel ::\"></A>
+												&nbsp;
+											<A HREF=\"?$_INTERNAL_APPLICATION_MODULE_ADMINISTRATOR&#61;Loops&amp;Display&#61;Options&amp;$_GLOBAL_SYSTEM_SECURITY_CACHE_CIRCUMVENTION_HTR_RANDOM_STRING_GENERATION\" TITLE=\":: Loops ::\"><IMG SRC=\"./Theme/$_GLOBAL_MEMBER_THEME_DIRECTORY/Image/Icon_Services/Icon_Loops.$_GLOBAL_SYSTEM_IMAGE_EXTENSION?$_GLOBAL_SYSTEM_SECURITY_CACHE_CIRCUMVENTION_IMAGE_RANDOM_STRING_GENERATION\" WIDTH=\"60\" HEIGHT=\"60\" BORDER=\"1\" ALT=\":: Loops ::\"></A>
+										</CENTER>
 
-/*
- ============================================================================================================
- +
- +
- + [ @ ] Commander :: Command :: Receive
- +
- +
- ============================================================================================================
-*/
+										<HR>
 
-/*
- ============================================================================================================
- + Database Server Query: Select ALL Registered Member Account Entries
- ============================================================================================================
-*/
+										<CENTER><B>[ <A HREF=\"$_PROJECT_SERVER_URL_SECURE/Projects/$_PROJECT_STRING_NAME_UNIX/Validation/Validate.php?Version&#61;$_PROJECT_VERSION_SHORT\" TITLE=\":: Validate This $_PROJECT_STRING_NAME_EXTENDED Installation ::\">$_PROJECT_VERSION_EXTENDED</A> ]</B></CENTER>
 
-$_Application_Module_Services_Commander_RETRIEVE_COMMANDER_COMMANDS				= $_GLOBAL_DATABASE_MANAGEMENT_SYSTEM_SERVER_DATABASE_CONNECTION->query("SELECT * FROM {$_ACCESS_DATABASE_SERVER_DATABASE_TABLE_PREFIX}_services_commander");
-
-/*
- ============================================================================================================
- + WHILE: Retrieving Registered Member Account Entries
- ============================================================================================================
-*/
-
-while ($_Application_Module_Services_Commander_RETRIEVE_COMMANDER_COMMANDS_Fetch_Array = $_Application_Module_Services_Commander_RETRIEVE_COMMANDER_COMMANDS->fetch_array(MYSQLI_BOTH)) {
-
-$_Application_Module_Services_Commander_LIST_COMMAND_ID						= $_Application_Module_Services_Commander_RETRIEVE_COMMANDER_COMMANDS_Fetch_Array['id'];
-$_Application_Module_Services_Commander_LIST_COMMAND_EXECUTE					= $_Application_Module_Services_Commander_RETRIEVE_COMMANDER_COMMANDS_Fetch_Array['command_execute'];
-$_Application_Module_Services_Commander_LIST_COMMAND_RECEIVE					= $_Application_Module_Services_Commander_RETRIEVE_COMMANDER_COMMANDS_Fetch_Array['command_receive'];
-$_Application_Module_Services_Commander_LIST_COMMAND_SEND					= $_Application_Module_Services_Commander_RETRIEVE_COMMANDER_COMMANDS_Fetch_Array['command_send'];
-$_Application_Module_Services_Commander_LIST_COMMAND_TIMESTAMP					= $_Application_Module_Services_Commander_RETRIEVE_COMMANDER_COMMANDS_Fetch_Array['command_timestamp'];
-$_Application_Module_Services_Commander_LIST_COMMAND_TYPE					= $_Application_Module_Services_Commander_RETRIEVE_COMMANDER_COMMANDS_Fetch_Array['command_type'];
+										<HR>
+");
 
 /*
  ============================================================================================================
  +
  +
- + [ @ ] Commander :: Command :: Receive
+ + [ @ ] Internal Application :: Control Panel :: Applications :: Services Root Administration-Level
  +
  +
  ============================================================================================================
@@ -145,34 +100,75 @@ $_Application_Module_Services_Commander_LIST_COMMAND_TYPE					= $_Application_Mo
 /*
  ============================================================================================================
  +
- + IF: Internal Application: Commander :: Command :: Receive :: Is: 
+ + Applications Directory :: Services Root Administration
  +
  ============================================================================================================
 */
-
-if ($_Application_Module_Services_Commander_LIST_COMMAND_RECEIVE == "") {
 
 /*
  ============================================================================================================
- +
- +
- + [ @ ] Commander :: Command :: Execute
- +
- +
+ + Find and Open :: Directory :: Applications :: Services Root Administration-Level
  ============================================================================================================
 */
 
-} // [ + ] IF: Internal Application: Commander :: Command :: Receive :: Is:
-
-} // [ + ] WHILE: Retieving :: Commander :: Command Entires :: From The Database Management System Server Database
+$_FIND_DIRECTORY_APPLICATIONS_SERVICES_ROOT_ADMINISTRATION			= "./Applications/Services";
+$_OPEN_DIRECTORY_APPLICATIONS_SERVICES_ROOT_ADMINISTRATION			= opendir($_FIND_DIRECTORY_APPLICATIONS_SERVICES_ROOT_ADMINISTRATION);
 
 /*
  ============================================================================================================
- +
- +
- + [ @ ] Commander :: Command :: Send
- +
- +
+ + WHILE: Reading :: Directory :: Applications :: Services Root Administration-Level
  ============================================================================================================
 */
+
+while (($_READ_DIRECTORY_APPLICATIONS_SERVICES_ROOT_ADMINISTRATION = readdir($_OPEN_DIRECTORY_APPLICATIONS_SERVICES_ROOT_ADMINISTRATION))) {
+
+/*
+ ============================================================================================================
+ + IF: Stop :: Exploit :: Local-File-Inclusion and Remote-File-Inclusion
+ ============================================================================================================
+*/
+
+if ($_READ_DIRECTORY_APPLICATIONS_SERVICES_ROOT_ADMINISTRATION == "." || $_READ_DIRECTORY_APPLICATIONS_SERVICES_ROOT_ADMINISTRATION == ".." || $_READ_DIRECTORY_APPLICATIONS_SERVICES_ROOT_ADMINISTRATION == "index.php") {
+/**
+ * Do Nothing
+**/
+} else {
+
+/*
+ ============================================================================================================
+ + IF: Internal Application :: Action :: Is: Application Module :: Administration
+ ============================================================================================================
+*/
+
+if ($_GET["Action"] == "$_READ_DIRECTORY_APPLICATIONS_SERVICES_ROOT_ADMINISTRATION") {
+
+/*
+ ============================================================================================================
+ + IF: Registered Member Account :: Administrator :: Access Level :: Is: >= 3
+ ============================================================================================================
+*/
+
+if ($_GLOBAL_COOKIE_MEMBER_USERNAME && $_GLOBAL_COOKIE_MEMBER_PASSWORD != null && $_GLOBAL_MEMBER_ACCESS_LEVEL >= 5) {
+
+										include_once "$_FIND_DIRECTORY_APPLICATIONS_SERVICES_ROOT_ADMINISTRATION/$_READ_DIRECTORY_APPLICATIONS_SERVICES_ROOT_ADMINISTRATION";
+
+} else {
+
+	echo ($_Message_Kernel_APPLICATION_SERVICES_APPLICATION_ACCESS_RESTRICTED_SERVICES);
+
+} // [ + ] IF: Registered Member Account :: Cookies :: Credentials :: Exist, are Valid and Registered Member Account Access-Level Is: Services Root Administrator, >= 5
+
+} // [ + ] IF: Internal Application: Action :: Is: Activated
+
+} // [ + ] IF: Services Root Administration Applications Directory IS Anything ELSE Except The Services Root Administration Application
+
+} // [ + ] WHILE: Reading :: The Services Root Administration Applications Directory
+
+/*
+ ============================================================================================================
+ + Close :: Directory :: Applications :: Services Root Administration
+ ============================================================================================================
+*/
+
+closedir($_OPEN_DIRECTORY_APPLICATIONS_SERVICES_ROOT_ADMINISTRATION);
 ?>

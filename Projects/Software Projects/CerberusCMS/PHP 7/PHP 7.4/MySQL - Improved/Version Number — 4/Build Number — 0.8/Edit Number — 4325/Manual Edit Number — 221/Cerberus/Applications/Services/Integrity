@@ -70,18 +70,12 @@
 */
 
 /*
-
  ============================================================================================================
-
  + Application Module Header
-
  ============================================================================================================
-
 */
 
-
-
-											echo ("$_Application_Module_Services_Message_Integrity_Header");
+											echo ($_Application_Module_Services_Message_Integrity_Header);
 
 /*
  ============================================================================================================
@@ -106,16 +100,23 @@ if ($_GET["Display"] == "Options") {
 echo ("
 <B>Integrity :: Options</B><HR ALIGN=\"LEFT\" WIDTH=\"25%\">
 <B>Integrity :: Options :: Applications</B><BR>
-Options Note: Local Server Application Module Files can be flashed with these options. The Application Module Files can be re-installed either from the Local Server or from the Master Remote Server. The Master Remote Server is this Official Software Project Server.<BR><BR>
+Options Note: Local Server Application Module Files can be flashed with these options. The Application Module Files can be re-installed either from the Local Server or from the Master Remote Server. The Master Remote Server is this Official Software Project Server Repository.<BR><BR>
 
-* <A HREF=\"?$_INTERNAL_APPLICATION_MODULE_SERVICES&#61;Integrity&amp;Flash&#61;Applications&amp;$_GLOBAL_SYSTEM_SECURITY_CACHE_CIRCUMVENTION_HTR_RANDOM_STRING_GENERATION\" TITLE=\":: Open & Display :: The Internal Application :: Integrity :: Check & Flash :: Application Module Files :: Locally\">Integrity :: Flash :: Applications :: Local</A><BR>
-* <A HREF=\"?$_INTERNAL_APPLICATION_MODULE_SERVICES&#61;Integrity&amp;Flash&#61;Applications&amp;$_GLOBAL_SYSTEM_SECURITY_CACHE_CIRCUMVENTION_HTR_RANDOM_STRING_GENERATION\" TITLE=\":: Open & Display :: The Internal Application :: Integrity :: Check & Flash :: Application Module Files :: Remotely\">Integrity :: Flash :: Applications :: Remote</A><BR>
+* <A HREF=\"?$_INTERNAL_APPLICATION_MODULE_SERVICES&#61;Integrity&amp;Flash&#61;Applications&amp;$_GLOBAL_SYSTEM_SECURITY_CACHE_CIRCUMVENTION_HTR_RANDOM_STRING_GENERATION\" TITLE=\":: Open & Display :: The Internal Application :: Integrity :: Check & Flash :: Application Module Files :: Server :: Local ::\">Integrity :: Flash :: Applications :: Server :: Local</A><BR>
+* <A HREF=\"?$_INTERNAL_APPLICATION_MODULE_SERVICES&#61;Integrity&amp;Flash&#61;Applications&amp;$_GLOBAL_SYSTEM_SECURITY_CACHE_CIRCUMVENTION_HTR_RANDOM_STRING_GENERATION\" TITLE=\":: Open & Display :: The Internal Application :: Integrity :: Check & Flash :: Application Module Files :: Server :: Remote ::\">Integrity :: Flash :: Applications :: Server :: Remote</A><BR><BR>
+
+<B>Integrity :: Options :: Kernel</B><BR>
+Options Note: Local Server Kernel Module Files can be flashed with these options. The Kernel Module Files can be re-installed either from the Local Server or from the Master Remote Server. The Master Remote Server is this Official Software Project Server Repository.<BR><BR>
+
+* <A HREF=\"?$_INTERNAL_APPLICATION_MODULE_SERVICES&#61;Integrity&amp;Flash&#61;Kernel&amp;$_GLOBAL_SYSTEM_SECURITY_CACHE_CIRCUMVENTION_HTR_RANDOM_STRING_GENERATION\" TITLE=\":: Open & Display :: The Internal Application :: Integrity :: Check & Flash :: Kernel Module File :: Server :: Local ::\">Integrity :: Flash :: Applications :: Server :: Local</A><BR>
+* <A HREF=\"?$_INTERNAL_APPLICATION_MODULE_SERVICES&#61;Integrity&amp;Flash&#61;Kernel&amp;$_GLOBAL_SYSTEM_SECURITY_CACHE_CIRCUMVENTION_HTR_RANDOM_STRING_GENERATION\" TITLE=\":: Open & Display :: The Internal Application :: Integrity :: Check & Flash :: Kernel Module File :: Server :: Remote ::\">Integrity :: Flash :: Applications :: Server :: Remote</A><BR><BR>
+
 
 <B>Integrity :: Options :: KeyRing</B><BR>
-Options Note: Local Server Integrity KeyRings can be updated or deleted with these options. The Integrity KeyRings are stored in the Local Database Management System Server Database. Integrity KeyRings are the HASH Strings for each individual file used in this Software Project.<BR><BR>
+Options Note: Local Server Integrity KeyRings can be Updated or Deleted with these options. The Integrity KeyRings are stored in the Local Database Management System Server Database. Integrity KeyRings are the HASH Strings for each individual file used in this Software Project.<BR><BR>
 
 * <A HREF=\"?$_INTERNAL_APPLICATION_MODULE_SERVICES&#61;Integrity&amp;Flash&#61;Applications&amp;$_GLOBAL_SYSTEM_SECURITY_CACHE_CIRCUMVENTION_HTR_RANDOM_STRING_GENERATION\" TITLE=\":: Open & Display :: The Internal Application :: Integrity :: KeyRing :: Delete ::\">Integrity :: KeyRing :: Delete</A><BR>
-* <A HREF=\"?$_INTERNAL_APPLICATION_MODULE_SERVICES&#61;Integrity&amp;Flash&#61;Applications&amp;$_GLOBAL_SYSTEM_SECURITY_CACHE_CIRCUMVENTION_HTR_RANDOM_STRING_GENERATION\" TITLE=\":: Open & Display :: The Internal Application :: Integrity :: KeyRing :: Update ::\">Integrity :: KeyRing :: Update</A><BR>
+* <A HREF=\"?$_INTERNAL_APPLICATION_MODULE_SERVICES&#61;Integrity&amp;Flash&#61;Applications&amp;$_GLOBAL_SYSTEM_SECURITY_CACHE_CIRCUMVENTION_HTR_RANDOM_STRING_GENERATION\" TITLE=\":: Open & Display :: The Internal Application :: Integrity :: KeyRing :: Update ::\">Integrity :: KeyRing :: Update</A><BR><BR>
 ");
 
 } // [ + ] IF: Internal Application: Display :: Is: Options
@@ -140,6 +141,8 @@ if ($_GET["Flash"] == "Applications") {
  ============================================================================================================
 */
 
+echo ("<IMG SRC=\"./Theme/$_GLOBAL_SYSTEM_THEME_DIRECTORY/Image/Icon_Integrity/Integrity.png\" TITLE=\":: Integrity ::\" WIDTH=\"50\" HEIGHT=\"50\"></IMG> Integrity Message:<HR ALIGN=\"LEFT\" WIDTH=\"25%\">");
+
 /*
  ============================================================================================================
  + Database Server Query :: Retrieve :: All :: Applcication Module Entries :: Background-Level Applications
@@ -148,7 +151,7 @@ if ($_GET["Flash"] == "Applications") {
 
 $_Application_Module_Services_Integrity_DB_Query_List_Applications_Background				= $_GLOBAL_DATABASE_MANAGEMENT_SYSTEM_SERVER_DATABASE_CONNECTION->query("SELECT * FROM {$_ACCESS_DATABASE_SERVER_DATABASE_TABLE_PREFIX}_applications_background");
 
-while ($_Application_Module_Services_Integrity_DB_Query_List_Applications_Background_Fetch_Array = $_Application_Module_Services_Integrity_DB_Query_List_Applications_Background->fetch_array(MYSQLI_BOTH))) {
+while ($_Application_Module_Services_Integrity_DB_Query_List_Applications_Background_Fetch_Array = $_Application_Module_Services_Integrity_DB_Query_List_Applications_Background->fetch_array(MYSQLI_BOTH)) {
 
 $_Application_Module_Services_Integrity_LIST_APPLICATIONS_BACKGROUND_ID					= $_Application_Module_Services_Integrity_DB_Query_List_Applications_Background_Fetch_Array['id'];
 $_Application_Module_Services_Integrity_LIST_APPLICATIONS_BACKGROUND_FILE_NAME				= $_Application_Module_Services_Integrity_DB_Query_List_Applications_Background_Fetch_Array['application_file_name'];
@@ -165,7 +168,6 @@ $_Application_Module_Services_Integrity_LIST_APPLICATIONS_BACKGROUND_FILE_HASH_S
 if (file_exists("./Applications/Background/$_Application_Module_Services_Integrity_LIST_APPLICATIONS_BACKGROUND_FILE_NAME")) {
 
 echo ("
-<IMG SRC=\"./Theme/$_GLOBAL_SYSTEM_THEME_DIRECTORY/Image/Icon_Integrity/Integrity.png\" TITLE=\":: Integrity ::\" WIDTH=\"50\" HEIGHT=\"50\"></IMG> Integrity Message:<HR ALIGN=\"LEFT\" WIDTH=\"25%\">
 * Integrity: Checking For The Existence of Physical Application Module File: $_Application_Module_Services_Integrity_LIST_APPLICATIONS_BACKGROUND_FILE_NAME<BR>
 * Integrity :: File Exists: $_Application_Module_Services_Integrity_LIST_APPLICATIONS_BACKGROUND_FILE_NAME<BR>
 -- Exiting<BR><BR>
@@ -174,7 +176,6 @@ echo ("
 } else {
 
 echo ("
-<IMG SRC=\"./Theme/$_GLOBAL_SYSTEM_THEME_DIRECTORY/Image/Icon_Integrity/Integrity.png\" TITLE=\":: Integrity ::\" WIDTH=\"50\" HEIGHT=\"50\"></IMG> Integrity Message:<HR ALIGN=\"LEFT\" WIDTH=\"25%\">
 * Integrity: Physical Application Module File Is Missing: $_Application_Module_Services_Integrity_LIST_APPLICATIONS_BACKGROUND_FILE_NAME<BR>
 -- Re-Installing Now<BR><BR>
 ");
@@ -192,7 +193,6 @@ copy("./System/Security/Integrity/Backup/Applications/Background/$_Application_M
 if ($_Application_Module_Services_Integrity_LIST_APPLICATIONS_BACKGROUND_FILE_HASH_SHA256 != "$_Application_Module_Services_Integrity_LIST_APPLICATIONS_BACKGROUND_FILE_INTEGRITY") {
 
 echo ("
-<IMG SRC=\"./Theme/$_GLOBAL_SYSTEM_THEME_DIRECTORY/Image/Icon_Integrity/Integrity.png\" TITLE=\":: Integrity ::\" WIDTH=\"50\" HEIGHT=\"50\"></IMG> Integrity Message:<HR ALIGN=\"LEFT\" WIDTH=\"25%\">
 * Integrity: Physical File Integrity String Mismatch For Application Module File: ./Applications/Background/$_Application_Module_Services_Integrity_LIST_APPLICATIONS_BACKGROUND_FILE_NAME<BR>
 * Integrity :: File: $_Application_Module_Services_Integrity_LIST_APPLICATIONS_BACKGROUND_FILE_HASH_SHA256<BR>
 * Integrity :: Database: $_Application_Module_Services_Integrity_LIST_APPLICATIONS_BACKGROUND_FILE_INTEGRITY<BR>
@@ -204,7 +204,6 @@ copy("./System/Security/Integrity/Backup/Applications/Background/$_Application_M
 } else {
 
 echo ("
-<IMG SRC=\"./Theme/$_GLOBAL_SYSTEM_THEME_DIRECTORY/Image/Icon_Integrity/Integrity.png\" TITLE=\":: Integrity ::\" WIDTH=\"50\" HEIGHT=\"50\"></IMG> Integrity Message:<HR ALIGN=\"LEFT\" WIDTH=\"25%\">
 * Integrity: All Application Module File Integrity Checks Cleared For Application Module File: $_Application_Module_Services_Integrity_LIST_APPLICATIONS_BACKGROUND_FILE_NAME<BR>
 -- Exiting<BR><BR>");
 

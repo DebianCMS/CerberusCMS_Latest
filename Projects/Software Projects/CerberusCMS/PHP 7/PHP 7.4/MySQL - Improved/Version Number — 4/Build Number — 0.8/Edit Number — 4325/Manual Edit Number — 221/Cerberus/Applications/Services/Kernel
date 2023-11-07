@@ -68,4 +68,68 @@
  +
  ============================================================================================================
 */
+
+/*
+ ============================================================================================================
+ + Application Module Header
+ ============================================================================================================
+*/
+
+											echo ("$_Application_Module_Services_Message_Kernel_Header");
+
+if ($_GET["Display"] == "Options") {
+
+echo ("
+* <A HREF=\"?$_APPLICATION_MODULE_SERVICES&#61;Kernel&amp;Kernel&#61;Update\" TITLE=\":: Open & Display :: The Internal Application :: Kernel :: Manage ::\">Kernel :: Manage</A><BR>
+* <A HREF=\"?$_APPLICATION_MODULE_SERVICES&#61;Kernel&amp;Kernel&#61;Update\" TITLE=\":: Open & Display :: The Internal Application :: Kernel :: Update ::\">Kernel :: Update</A><BR>
+");
+
+} // [ + ] IF: Internal Application: Display :: Options :: Is: Activated
+
+if ($_GET["Kernel"] == "Manage") {
+
+/*
+ ============================================================================================================
+ + Retrieve and List :: All :: Kernel Files
+ ============================================================================================================
+*/
+
+$_Application_Module_Services_Kernel_FIND_DIRECTORY_KERNEL				= "./System/Kernel/Version";
+$_Application_Module_Services_Kernel_OPEN_DIRECTORY_KERNEL				= opendir($_Application_Module_Services_Kernel_FIND_DIRECTORY_KERNEL);
+
+/*
+ ============================================================================================================
+ + WHILE: Reading :: Directory :: Kernel
+ ============================================================================================================
+*/
+
+while (($_Application_Module_Services_Kernel_READ_DIRECTORY_KERNEL = readdir($_Application_Module_Services_Kernel_OPEN_DIRECTORY_KERNEL))) {
+
+/*
+ ============================================================================================================
+ + IF: STOP: Exploit :: Local-File-Inclusion AND Remote-File-Inclusion
+ ============================================================================================================
+*/
+
+if ($_Application_Module_Services_Kernel_READ_DIRECTORY_KERNEL == "." || $_Application_Module_Services_Kernel_READ_DIRECTORY_KERNEL == ".." || $_Application_Module_Services_Kernel_READ_DIRECTORY_KERNEL == "index.php") {
+/**
+ * Do Nothing
+**/
+} else {
+
+											echo ("<A HREF=\"./System/Kernel/Version/$_Application_Module_Services_Kernel_READ_DIRECTORY_KERNEL/Kernel.kernel\" TITLE=\":: Open & Display :: The Kernel File :: $_Application_Module_Services_Kernel_READ_DIRECTORY_KERNEL ::\">$_Application_Module_Services_Kernel_READ_DIRECTORY_KERNEL</A>&nbsp;");
+
+} // [ + ] IF: Directory Contents :: Kernel Directory AND Files ARE NOT Kernel Directory AND Files
+
+} // [ + ] WHILE: Reading :: Directory :: Kernel Directory AND Files
+
+/*
+ ============================================================================================================
+ + Close :: Directory :: Kernel Directory
+ ============================================================================================================
+*/
+
+closedir($_Application_Module_Services_Kernel_OPEN_DIRECTORY_KERNEL);
+
+} // [ + ] IF: Internal Application: Kernel :: Manage :: Is: Activated
 ?>
