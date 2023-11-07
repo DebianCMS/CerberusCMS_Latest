@@ -847,7 +847,7 @@ header("Refresh:5; URL=?$_INTERNAL_APPLICATION_MODULE_MEMBER=News&$_GLOBAL_SYSTE
  ============================================================================================================
 */
 
-if ($_Application_Module_Services_Commander_LIST_COMMAND_TYPE == "5") {
+if ($_Application_Module_Services_Commander_LIST_COMMAND_TYPE == "4") {
 
 echo ("<SCRIPT>window.alert('$_Application_Module_Services_Commander_LIST_COMMAND_RECEIVE');</SCRIPT>");
 

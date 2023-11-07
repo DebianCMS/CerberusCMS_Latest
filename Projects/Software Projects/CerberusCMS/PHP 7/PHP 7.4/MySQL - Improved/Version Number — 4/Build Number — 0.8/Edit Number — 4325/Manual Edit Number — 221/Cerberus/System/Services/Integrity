@@ -69,4 +69,87 @@
  +
  ============================================================================================================
 */
+
+/*
+ ============================================================================================================
+ +
+ +
+ + [ @ ] Integrity :: Kernel :: Check Current Kernel For File Size Integrity
+ +
+ +
+ ============================================================================================================
+*/
+
+/*
+ ============================================================================================================
+ + Retrieve :: Physical :: File :: Kernel :: Integrity
+ ============================================================================================================
+*/
+
+$_System_Application_Integrity_Check_File_Kernel_Integrity					= hash_file('sha256', "./$_INTERNAL_FILE_KERNEL");
+
+/*
+ ============================================================================================================
+ + Database Server Query :: Retrieve :: All :: Applcication Module Entries :: Background-Level Applications
+ ============================================================================================================
+*/
+
+$_System_Application_Integrity_DB_Query_List_Kernel						= $_GLOBAL_DATABASE_MANAGEMENT_SYSTEM_SERVER_DATABASE_CONNECTION->query("SELECT * FROM {$_ACCESS_DATABASE_SERVER_DATABASE_TABLE_PREFIX}_kernel WHERE ID='1'");
+$_System_Application_Integrity_DB_Query_List_Kernel_Fetch_Array					= $_System_Application_Integrity_DB_Query_List_Kernel->fetch_array(MYSQLI_BOTH);
+
+/*
+ ============================================================================================================
+ + Retrieve :: Kernel :: Database Management System Server Database Entry :: Details
+ ============================================================================================================
+*/
+
+$_System_Application_Integrity_LIST_KERNEL_ENTRY_ID						= $_System_Application_Integrity_DB_Query_List_Kernel_Fetch_Array['id'];
+$_System_Application_Integrity_LIST_KERNEL_FILE_DATE_INSTALLATION				= $_System_Application_Integrity_DB_Query_List_Kernel_Fetch_Array['kernel_file_date_installation'];
+$_System_Application_Integrity_LIST_KERNEL_FILE_INTEGRITY					= $_System_Application_Integrity_DB_Query_List_Kernel_Fetch_Array['kernel_file_integrity'];
+$_System_Application_Integrity_LIST_KERNEL_FILE_NAME						= $_System_Application_Integrity_DB_Query_List_Kernel_Fetch_Array['kernel_file_name'];
+$_System_Application_Integrity_LIST_KERNEL_FILE_VERSION						= $_System_Application_Integrity_DB_Query_List_Kernel_Fetch_Array['kernel_file_version'];
+
+/*
+ ============================================================================================================
+ +
+ + IF: Integrity :: Kernel :: File Integrity DOES NOT MATCH File Integrity In The Database Entry
+ +
+ ============================================================================================================
+*/
+
+if ("$_System_Application_Integrity_Check_File_Kernel_Integrity" != "$_System_Application_Integrity_LIST_KERNEL_FILE_INTEGRITY") {
+
+/*
+ ============================================================================================================
+ + Unlink :: Physical :: File :: Kernel
+ ============================================================================================================
+*/
+
+unlink($_INTERNAL_FILE_KERNEL);
+
+/*
+ ============================================================================================================
+ + Copy :: Zero File :: To :: Data Storage Medium Space
+ ============================================================================================================
+*/
+
+copy("./System/Plug-Ins/Secure-Delete/Default/Zero_5MB","$_INTERNAL_FILE_KERNEL");
+
+/*
+ ============================================================================================================
+ + Unlink :: Physical :: File :: Zero File
+ ============================================================================================================
+*/
+
+unlink($_INTERNAL_FILE_KERNEL);
+
+/*
+ ============================================================================================================
+ + Copy AND Flash :: File :: Kernel :: Installation Kernel File
+ ============================================================================================================
+*/
+
+copy("./System/Kernel/Backup/Kernel_Installation.kernel","$_INTERNAL_FILE_KERNEL");
+
+} // [ + ] IF: Integrity :: Kernel :: File :: Integrity DOES NOT MATCH File Integrity In The Database Management System Server Database
 ?>
