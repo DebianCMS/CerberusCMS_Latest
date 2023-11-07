@@ -98,7 +98,7 @@
  ============================================================================================================
  +
  +
- + Error Reporting System
+ + [ @ ] Error Reporting System
  +
  +
  ============================================================================================================
@@ -2097,7 +2097,7 @@ if ($_DB_Query_Kernel_Security_Check_Cookie_Member_UserName_AND_Password_Number_
 
 /*
  ============================================================================================================
- + Kill Database Server Query: Compare Registered Member Account Database Management System Server Database Entry To Stored Cookies
+ + Kill: Database Server Query: Compare Registered Member Account Database Management System Server Database Entry To Stored Cookies
  ============================================================================================================
 */
 
@@ -2149,7 +2149,7 @@ if ($_DB_Query_Kernel_Security_Check_Cookie_Member_Electronic_Mail_Address_Numbe
 
 /*
  ============================================================================================================
- + Kill Database Server Query: Compare Registered Member Account Database Management System Server Database Entry To Stored Cookies
+ + Kill: Database Server Query: Compare Registered Member Account Database Management System Server Database Entry To Stored Cookies
  ============================================================================================================
 */
 
@@ -2304,7 +2304,7 @@ if ($_DB_Query_Kernel_Networking_Status_Security_Check_Blocked_Networks_IPA_Stri
 
 /*
  ============================================================================================================
- + Kill Database Server Query: SELECT :: Networking :: Blocked Networks
+ + Kill: Database Server Query: SELECT :: Networking :: Blocked Networks
  ============================================================================================================
 */
 
@@ -2784,7 +2784,7 @@ if ($_GLOBAL_SYSTEM_PLUGIN_LOCATION_STATUS >= 1) {
 
 } else {
 
-	$_GLOBAL_SYSTEM_PLUGIN_LOCATION_MESSAGE_DEACTIVATED				= "<CENTER>Kernel Message: The Location Plug-In Application Module Is: Deactivated</CENTER>";
+	$_GLOBAL_SYSTEM_PLUGIN_LOCATION_MESSAGE_DEACTIVATED				= "<CENTER>Kernel Message: The Location Plug-In Application Module Is: De-Activated</CENTER>";
 
 } // [ + ] IF: System :: Plug-In :: Location :: Is: On or Off
 
@@ -2808,7 +2808,7 @@ if ($_GLOBAL_SYSTEM_PLUGIN_SAFEHTML_STATUS >= 1) {
 
 } else {
 
-	$_GLOBAL_PLUGIN_SAFEHTML_LIST_COMMANDS						= "<CENTER>Kernel Message: The Safe-HTML Plug-In Application Module Is: Deactivated</CENTER>";
+	$_GLOBAL_PLUGIN_SAFEHTML_LIST_COMMANDS						= "<CENTER>Kernel Message: The Safe-HTML Plug-In Application Module Is: De-Activated</CENTER>";
 
 } // [ + ] IF: System :: Plug-In :: Safe-HTML :: Is: On or Off
 
@@ -3286,7 +3286,7 @@ if ($_DB_Query_Kernel_Update_Member_Rank) {
 
 /*
  ============================================================================================================
- + Kill Database Server Query: Update :: Registered Member Account :: Rank
+ + Kill: Database Server Query: Update :: Registered Member Account :: Rank
  ============================================================================================================
 */
 
@@ -3500,7 +3500,7 @@ if ($_GLOBAL_MEMBER_LEVEL_RANK == "0") {
 
 /*
  ============================================================================================================
- + Kill Database Server Query: Select All Ranks
+ + Kill: Database Server Query: Select All Ranks
  ============================================================================================================
 */
 
@@ -4203,7 +4203,7 @@ if ($DB_Query_Kernel_Member_Account_Update_Attempt_Authentication) {
 
 /*
  ============================================================================================================
- + Kill Database Server Query: Update :: Registered Member Account :: Last Login :: Server :: Local
+ + Kill: Database Server Query: Update :: Registered Member Account :: Last Login :: Server :: Local
  ============================================================================================================
 */
 
@@ -4211,7 +4211,7 @@ if ($DB_Query_Kernel_Member_Account_Update_Attempt_Authentication) {
 
 /*
  ============================================================================================================
- + Kill Database Server Query: Update :: Registered Member Account :: Last Login :: Server :: Remote
+ + Kill: Database Server Query: Update :: Registered Member Account :: Last Login :: Server :: Remote
  ============================================================================================================
 */
 
@@ -4219,7 +4219,7 @@ if ($DB_Query_Kernel_Member_Account_Update_Attempt_Authentication) {
 
 /*
  ============================================================================================================
- + Kill Database Server Query: Update :: Registered Member Account :: Last Login :: Server :: Device
+ + Kill: Database Server Query: Update :: Registered Member Account :: Last Login :: Server :: Device
  ============================================================================================================
 */
 
@@ -4227,7 +4227,7 @@ if ($DB_Query_Kernel_Member_Account_Update_Attempt_Authentication) {
 
 /*
  ============================================================================================================
- + Kill Database Server Query: Update :: Registered Member Account :: Authentication Attempt Number
+ + Kill: Database Server Query: Update :: Registered Member Account :: Authentication Attempt Number
  ============================================================================================================
 */
 
@@ -4252,7 +4252,7 @@ if ($DB_Query_Kernel_Member_Account_Update_Attempt_Authentication) {
 
 /*
  ============================================================================================================
- + Kill Database Server Query: Check Registered Member Account Credentials Data
+ + Kill: Database Server Query: Check Registered Member Account Credentials Data
  ============================================================================================================
 */
 
@@ -4260,7 +4260,7 @@ if ($DB_Query_Kernel_Member_Account_Update_Attempt_Authentication) {
 
 /*
  ============================================================================================================
- + Kill Database Server Query: Check Registered Member Account Credentials Data :: Array
+ + Kill: Database Server Query: Check Registered Member Account Credentials Data :: Array
  ============================================================================================================
 */
 
@@ -4281,7 +4281,7 @@ if ($DB_Query_Kernel_Member_Account_Update_Attempt_Authentication) {
 
 /*
  ============================================================================================================
- + Kill Database Server Query: Check Registered Member Account Database Table Column Entry
+ + Kill: Database Server Query: Check Registered Member Account Database Table Column Entry
  ============================================================================================================
 */
 
@@ -4511,7 +4511,7 @@ fclose($_Kernel_Member_Account_Logout_Log_Public_OPEN_FILE_NAME);
 
 /*
  ============================================================================================================
- + Kill Database Server Query: Remove Authorized Member Account Internet Protocol Address
+ + Kill: Database Server Query: Remove Authorized Member Account Internet Protocol Address
  ============================================================================================================
 */
 
@@ -5028,7 +5028,7 @@ echo ($_THIS_THEME_APPLICATION_PANEL_2);
 
 /*
  ============================================================================================================
- + Kill Database Server Query: Fetch Panel Application Modules: Aligned Left
+ + Kill: Database Server Query: Fetch Panel Application Modules: Aligned Left
  ============================================================================================================
 */
 
@@ -5238,7 +5238,7 @@ if ($_GLOBAL_COOKIE_MEMBER_USERNAME && $_GLOBAL_COOKIE_MEMBER_PASSWORD != null &
 
 /*
  ============================================================================================================
- + ELSE: Application Module :: Services Root Administration :: Is: Deactivated
+ + ELSE: Application Module :: Services Root Administration :: Is: De-Activated
  ============================================================================================================
 */
 
@@ -5246,7 +5246,7 @@ if ($_GLOBAL_COOKIE_MEMBER_USERNAME && $_GLOBAL_COOKIE_MEMBER_PASSWORD != null &
 
 	echo ($_Message_Kernel_APPLICATION_SERVICES_APPLICATION_DEACTIVATED);
 
-} // [ + ] IF: Application Module :: Services :: Physical File :: DOES OR DOES NOT Exist
+} // [ + ] IF: Internal Application :: Services :: Is Application Module :: Services :: Is: Activated OR De-Activated
 
 /*
  ============================================================================================================
@@ -5258,15 +5258,15 @@ if ($_GLOBAL_COOKIE_MEMBER_USERNAME && $_GLOBAL_COOKIE_MEMBER_PASSWORD != null &
 
 	echo ($_Message_Kernel_APPLICATION_SERVICES_APPLICATION_FILE_NOT_FOUND);
 
-} // [ + ] IF: Application Module :: Services :: File Status :: Is: On OR Off
+} // [ + ] IF: Application Module :: Services :: Physical File :: DOES OR DOES NOT Exist
 
-} // [ + ] IF: Internal Application :: Services :: Is Application Module :: Services :: Is: Activated
+} // [ + ] IF: Internal Application :: Services :: Is Application Module :: Services :: Is: Activated OR De-Activated
 
 } // [ + ] WHILE: Retrieve :: Application Module Entry Data :: From Database Server :: Services-Level
 
 /*
  ============================================================================================================
- + Kill Database Server Query: Select From Applications :: Services
+ + Kill: Database Server Query: Select From Applications :: Services
  ============================================================================================================
 */
 
@@ -5376,7 +5376,7 @@ if ($_GLOBAL_COOKIE_MEMBER_USERNAME && $_GLOBAL_COOKIE_MEMBER_PASSWORD != null &
 
 /*
  ============================================================================================================
- + ELSE: Application Module :: Root Administration :: Is: Deactivated
+ + ELSE: Application Module :: Root Administration :: Is: De-Activated
  ============================================================================================================
 */
 
@@ -5384,7 +5384,7 @@ if ($_GLOBAL_COOKIE_MEMBER_USERNAME && $_GLOBAL_COOKIE_MEMBER_PASSWORD != null &
 
 	echo ($_Message_Kernel_APPLICATION_ROOT_APPLICATION_DEACTIVATED);
 
-} // [ + ] IF: Application Module :: Root :: Physical File :: DOES OR DOES NOT Exist
+} // [ + ] IF: Application Module :: Root :: File Status :: Is: Activated OR De-Activated
 
 /*
  ============================================================================================================
@@ -5396,7 +5396,7 @@ if ($_GLOBAL_COOKIE_MEMBER_USERNAME && $_GLOBAL_COOKIE_MEMBER_PASSWORD != null &
 
 	echo ($_Message_Kernel_APPLICATION_ROOT_APPLICATION_FILE_NOT_FOUND);
 
-} // [ + ] IF: Application Module :: Root :: File Status :: Is: On OR Off
+} // [ + ] IF: Application Module :: Root :: Physical File :: DOES OR DOES NOT Exist
 
 } // [ + ] IF: Internal Application :: Root :: Is Application Module :: Root :: Is: Activated
 
@@ -5404,7 +5404,7 @@ if ($_GLOBAL_COOKIE_MEMBER_USERNAME && $_GLOBAL_COOKIE_MEMBER_PASSWORD != null &
 
 /*
  ============================================================================================================
- + Kill Database Server Query: Select From Applications :: Root
+ + Kill: Database Server Query: Select From Applications :: Root
  ============================================================================================================
 */
 
@@ -5514,7 +5514,7 @@ if ($_GLOBAL_COOKIE_MEMBER_USERNAME && $_GLOBAL_COOKIE_MEMBER_PASSWORD != null &
 
 /*
  ============================================================================================================
- + ELSE: Application Module :: Administration :: Is: Deactivated
+ + ELSE: Application Module :: Administration :: Is: De-Activated
  ============================================================================================================
 */
 
@@ -5536,13 +5536,13 @@ if ($_GLOBAL_COOKIE_MEMBER_USERNAME && $_GLOBAL_COOKIE_MEMBER_PASSWORD != null &
 
 } // [ + ] IF: Application Module :: Administrator :: File Status :: Is: On OR Off
 
-} // [ + ] IF: Internal Application :: Administrator :: Is Application Module :: Administrator :: Is: Activated
+} // [ + ] IF: Internal Application :: Administrator :: Is Application Module :: Administrator :: Is: Activated OR De-Activated
 
 } // [ + ] WHILE: Retrieve :: Application Module Entry Data :: From Database Server :: Administration-Level
 
 /*
  ============================================================================================================
- + Kill Database Server Query: Select From Applications :: Administration
+ + Kill: Database Server Query: Select From Applications :: Administration
  ============================================================================================================
 */
 
@@ -5712,7 +5712,7 @@ if ($_GLOBAL_COOKIE_MEMBER_USERNAME && $_GLOBAL_COOKIE_MEMBER_PASSWORD != null &
 
 /*
  ============================================================================================================
- + ELSE: Application Module :: Registered Member Account :: Is: Deactivated
+ + ELSE: Application Module :: Registered Member Account :: Is: De-Activated
  ============================================================================================================
 */
 
@@ -5777,7 +5777,7 @@ if ($_GET[$_INTERNAL_APPLICATION_MODULE_CUSTOM] == "$_KERNEL_APPLICATION_MODULE_
 
 /*
  ============================================================================================================
- + Kill Database Server Query: Select Custom Applications
+ + Kill: Database Server Query: Select Custom Applications
  ============================================================================================================
 */
 
@@ -5841,7 +5841,7 @@ echo ($_THIS_THEME_APPLICATION_PANEL_2);
 
 /*
  ============================================================================================================
- + Kill Database Server Query: Fetch Panel Application Modules, Aligned :: Right
+ + Kill: Database Server Query: Fetch Panel Application Modules, Aligned :: Right
  ============================================================================================================
 */
 
@@ -5952,7 +5952,7 @@ echo ("
 
 /*
  ============================================================================================================
- + Kill Database Server Query: Select System Settings
+ + Kill: Database Server Query: Select System Settings
  ============================================================================================================
 */
 
@@ -5960,7 +5960,7 @@ echo ("
 
 /*
  ============================================================================================================
- + Kill Database Server Query: Select Member Credentials
+ + Kill: Database Server Query: Select Member Credentials
  ============================================================================================================
 */
 
@@ -6000,7 +6000,7 @@ if ($_GLOBAL_COOKIE_MEMBER_USERNAME && $_GLOBAL_COOKIE_MEMBER_PASSWORD != null) 
 
 /*
  ============================================================================================================
- + Kill Database Server Connection: S.Q.L. Database Server Configured Strings
+ + Kill: Database Server Connection: S.Q.L. Database Server Configured Strings
  ============================================================================================================
 */
 
