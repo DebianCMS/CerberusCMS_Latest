@@ -83,7 +83,7 @@ $_Application_Module_Member_System_Message_ADMINISTRATOR_NOTIFICATION			= $_GET[
 
 if ($_GET["Message"] == "Language") {
 
-											echo ("<CENTER>Cerberus: I Have Changed The Language To: <I>$_GLOBAL_COOKIE_MEMBER_LANGUAGE</I></CENTER>");
+											echo ("<CENTER>Kernel: I Have Changed The Language To: <I>$_GLOBAL_COOKIE_MEMBER_LANGUAGE</I></CENTER>");
 
 } // [ + ] IF: Internal Application: Message IS Language Is Activated
 

@@ -1295,7 +1295,7 @@ echo ("
 
 } else {
 
-echo ("Cerberus: Forum :: Quick Options :: Activated :: ?$_INTERNAL_APPLICATION_MODULE_MEMBER=Forum&$_Application_Module_Member_Forum_POST_QUICK_OPTIONS_JUMP_TO");
+echo ("Forum :: Quick Options :: Activated :: ?$_INTERNAL_APPLICATION_MODULE_MEMBER=Forum&$_Application_Module_Member_Forum_POST_QUICK_OPTIONS_JUMP_TO");
 
 	header("Location: ?$_INTERNAL_APPLICATION_MODULE_MEMBER=Forum&$_Application_Module_Member_Forum_POST_QUICK_OPTIONS_JUMP_TO");
 

@@ -774,8 +774,8 @@ echo ("
 														<INPUT TYPE=\"text\" NAME=\"AMM_Update_Account_Member_Name_Last\" VALUE=\"$_Application_Module_Member_Update_Account_LIST_MEMBER_NAME_LAST\" MAXLENGTH=\"100\"><BR><BR>
 													* Name :: Nick Name:<BR>
 														<INPUT TYPE=\"text\" NAME=\"AMM_Update_Account_Member_Name_Nickname\" VALUE=\"$_Application_Module_Member_Update_Account_LIST_MEMBER_NAME_NICKNAME\" MAXLENGTH=\"100\"><BR><BR>
-													* Birth-Date:<BR>
-														<INPUT TYPE=\"date\" NAME=\"AMM_Update_Account_Member_BirthDate\" VALUE=\"$_Application_Module_Member_Update_Account_LIST_MEMBER_BIRTHDATE\" MAXLENGTH=\"100\"><BR><BR>
+													* Birth-Date, Cannot Be Changed:<BR>
+														<INPUT TYPE=\"text\" VALUE=\"$_Application_Module_Member_Update_Account_LIST_MEMBER_BIRTHDATE\" MAXLENGTH=\"12\"><BR><BR>
 													* Gender:<BR>
 														<SELECT NAME=\"AMM_Update_Account_Member_Gender\" VALUE=\"$_GLOBAL_MEMBER_GENDER\" MAXLENGTH=\"1\">
 															<OPTION VALUE=\"0\">Non-Specified</OPTION>
@@ -1249,6 +1249,7 @@ echo ("
 													<OPTION VALUE=\"0\">Visiblity :: Public</OPTION>
 													<OPTION VALUE=\"1\">Visiblity :: Friends</OPTION>
 													<OPTION VALUE=\"2\">Visiblity :: Hidden</OPTION>
+													<OPTION VALUE=\"3\">Visiblity :: Only Me</OPTION>
 												</SELECT><BR><BR>
 
 													<B>Visiblity :: Profile :: Media Gallery :: Document</B><BR>
@@ -1256,6 +1257,7 @@ echo ("
 													<OPTION VALUE=\"0\">Visiblity :: Public</OPTION>
 													<OPTION VALUE=\"1\">Visiblity :: Friends</OPTION>
 													<OPTION VALUE=\"2\">Visiblity :: Hidden</OPTION>
+													<OPTION VALUE=\"3\">Visiblity :: Only Me</OPTION>
 												</SELECT><BR><BR>
 
 													<B>Visiblity :: Profile :: Media Gallery :: Image</B><BR>
@@ -1263,6 +1265,7 @@ echo ("
 													<OPTION VALUE=\"0\">Visiblity :: Public</OPTION>
 													<OPTION VALUE=\"1\">Visiblity :: Friends</OPTION>
 													<OPTION VALUE=\"2\">Visiblity :: Hidden</OPTION>
+													<OPTION VALUE=\"3\">Visiblity :: Only Me</OPTION>
 												</SELECT><BR><BR>
 
 													<B>Visiblity :: Profile :: Media Gallery :: Video</B><BR>
@@ -1270,6 +1273,7 @@ echo ("
 													<OPTION VALUE=\"0\">Visiblity :: Public</OPTION>
 													<OPTION VALUE=\"1\">Visiblity :: Friends</OPTION>
 													<OPTION VALUE=\"2\">Visiblity :: Hidden</OPTION>
+													<OPTION VALUE=\"3\">Visiblity :: Only Me</OPTION>
 												</SELECT><BR><BR>
 
 												<B>Personal Details</B><HR ALIGN=\"LEFT\" WIDTH=\"25%\">
@@ -1279,6 +1283,7 @@ echo ("
 													<OPTION VALUE=\"0\">Visiblity :: Public</OPTION>
 													<OPTION VALUE=\"1\">Visiblity :: Friends</OPTION>
 													<OPTION VALUE=\"2\">Visiblity :: Hidden</OPTION>
+													<OPTION VALUE=\"3\">Visiblity :: Only Me</OPTION>
 												</SELECT><BR><BR>
 
 													<B>Visiblity :: Profile :: Details</B><BR>
@@ -1286,6 +1291,7 @@ echo ("
 													<OPTION VALUE=\"0\">Visiblity :: Public</OPTION>
 													<OPTION VALUE=\"1\">Visiblity :: Friends</OPTION>
 													<OPTION VALUE=\"2\">Visiblity :: Hidden</OPTION>
+													<OPTION VALUE=\"3\">Visiblity :: Only Me</OPTION>
 												</SELECT><BR><BR>
 
 													<B>Visiblity :: Profile :: Contact</B><BR>
@@ -1293,6 +1299,7 @@ echo ("
 													<OPTION VALUE=\"0\">Visiblity :: Public</OPTION>
 													<OPTION VALUE=\"1\">Visiblity :: Friends</OPTION>
 													<OPTION VALUE=\"2\">Visiblity :: Hidden</OPTION>
+													<OPTION VALUE=\"3\">Visiblity :: Only Me</OPTION>
 												</SELECT><BR><BR>
 
 													<B>Visiblity :: Profile :: Contact :: Emergency</B><BR>
@@ -1300,6 +1307,7 @@ echo ("
 													<OPTION VALUE=\"0\">Visiblity :: Public</OPTION>
 													<OPTION VALUE=\"1\">Visiblity :: Friends</OPTION>
 													<OPTION VALUE=\"2\">Visiblity :: Hidden</OPTION>
+													<OPTION VALUE=\"3\">Visiblity :: Only Me</OPTION>
 												</SELECT><BR><BR>
 
 
@@ -1310,6 +1318,7 @@ echo ("
 													<OPTION VALUE=\"0\">Visiblity :: Public</OPTION>
 													<OPTION VALUE=\"1\">Visiblity :: Friends</OPTION>
 													<OPTION VALUE=\"2\">Visiblity :: Hidden</OPTION>
+													<OPTION VALUE=\"3\">Visiblity :: Only Me</OPTION>
 												</SELECT><BR><BR>
 
 													<B>Visiblity :: Location</B><BR>
@@ -1317,6 +1326,7 @@ echo ("
 													<OPTION VALUE=\"0\">Visiblity :: Public</OPTION>
 													<OPTION VALUE=\"1\">Visiblity :: Friends</OPTION>
 													<OPTION VALUE=\"2\">Visiblity :: Hidden</OPTION>
+													<OPTION VALUE=\"3\">Visiblity :: Only Me</OPTION>
 												</SELECT><BR><BR>
 
 													<B>Visiblity :: Profile :: Security</B><BR>
@@ -1324,6 +1334,7 @@ echo ("
 													<OPTION VALUE=\"0\">Visiblity :: Public</OPTION>
 													<OPTION VALUE=\"1\">Visiblity :: Friends</OPTION>
 													<OPTION VALUE=\"2\">Visiblity :: Hidden</OPTION>
+													<OPTION VALUE=\"3\">Visiblity :: Only Me</OPTION>
 												</SELECT><BR><BR>
 
 													<B>Visiblity :: Profile :: Account :: Activity</B><BR>
@@ -1331,6 +1342,7 @@ echo ("
 													<OPTION VALUE=\"0\">Visiblity :: Public</OPTION>
 													<OPTION VALUE=\"1\">Visiblity :: Friends</OPTION>
 													<OPTION VALUE=\"2\">Visiblity :: Hidden</OPTION>
+													<OPTION VALUE=\"3\">Visiblity :: Only Me</OPTION>
 												</SELECT><BR><BR>
 
 													<B>Visiblity :: Profile :: Account :: Friends List</B><BR>
@@ -1338,6 +1350,7 @@ echo ("
 													<OPTION VALUE=\"0\">Visiblity :: Public</OPTION>
 													<OPTION VALUE=\"1\">Visiblity :: Friends</OPTION>
 													<OPTION VALUE=\"2\">Visiblity :: Hidden</OPTION>
+													<OPTION VALUE=\"3\">Visiblity :: Only Me</OPTION>
 												</SELECT><BR><BR>
 
 												<B>Streams</B><HR ALIGN=\"LEFT\" WIDTH=\"25%\">
@@ -1347,6 +1360,7 @@ echo ("
 													<OPTION VALUE=\"0\">Visiblity :: Public</OPTION>
 													<OPTION VALUE=\"1\">Visiblity :: Friends</OPTION>
 													<OPTION VALUE=\"2\">Visiblity :: Hidden</OPTION>
+													<OPTION VALUE=\"3\">Visiblity :: Only Me</OPTION>
 												</SELECT><BR><BR>
 
 												<HR>
@@ -1363,7 +1377,6 @@ echo ("
 */
 
 $_Application_Module_Member_Update_Account_DB_Query_UPDATE_MEMBER_ACCOUNT	= $_GLOBAL_DATABASE_MANAGEMENT_SYSTEM_SERVER_DATABASE_CONNECTION->query("UPDATE {$_ACCESS_DATABASE_SERVER_DATABASE_TABLE_PREFIX}_members SET
-member_birthdate='$_Application_Module_Member_Update_Account_POST_UPDATE_MEMBER_ACCOUNT_BIRTHDATE',
 member_address_cryptocurrency_bitcoin='$_Application_Module_Member_Update_Account_POST_UPDATE_MEMBER_ACCOUNT_CRYPTOCURRENCY_ADDRESS_BITCOIN',
 member_address_cryptocurrency_bitcoin_gold='$_Application_Module_Member_Update_Account_POST_UPDATE_MEMBER_ACCOUNT_CRYPTOCURRENCY_ADDRESS_BITCOIN_GOLD',
 member_address_cryptocurrency_dogecoin='$_Application_Module_Member_Update_Account_POST_UPDATE_MEMBER_ACCOUNT_CRYPTOCURRENCY_ADDRESS_DOGECOIN',

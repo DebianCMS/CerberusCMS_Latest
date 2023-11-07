@@ -135,7 +135,7 @@ closedir($_Application_Module_Member_Friend_OPEN_DIRECTORY_FRIEND_LIST);
  ============================================================================================================
 */
 
-$_Application_Module_Member_Friend_DB_Query_SELECT_ALL_MEMBERS 						= $DB->query("SELECT * FROM {$_ACCESS_DATABASE_SERVER_DATABASE_TABLE_PREFIX}_members ORDER BY id ASC");
+$_Application_Module_Member_Friend_DB_Query_SELECT_ALL_MEMBERS 						= $_KERNEL_MYSQL_IMPROVED_DATABASE_SERVER_CONNECT->query("SELECT * FROM {$_ACCESS_DATABASE_SERVER_DATABASE_TABLE_PREFIX}_members ORDER BY id ASC");
 
 /*
  ============================================================================================================
@@ -143,7 +143,7 @@ $_Application_Module_Member_Friend_DB_Query_SELECT_ALL_MEMBERS 						= $DB->quer
  ============================================================================================================
 */
 
-while ($_Application_Module_Member_Friend_DB_Query_SELECT_ALL_MEMBERS_Fetch_Array = $DB->fetch_array($_Application_Module_Member_Friend_DB_Query_SELECT_ALL_MEMBERS)) {
+while ($_Application_Module_Member_Friend_DB_Query_SELECT_ALL_MEMBERS_Fetch_Array = $_Application_Module_Member_Friend_DB_Query_SELECT_ALL_MEMBERS->fetch_array(MYSQLI_BOTH)) {
 
 $_Application_Module_Member_Friend_LIST_MEMBER_ID							= $_Application_Module_Member_Friend_DB_Query_SELECT_ALL_MEMBERS_Fetch_Array['id'];
 $_Application_Module_Member_Friend_LIST_MEMBER_USERNAME							= $_Application_Module_Member_Friend_DB_Query_SELECT_ALL_MEMBERS_Fetch_Array['member_username'];
@@ -213,9 +213,9 @@ if (unlink("./Member/$_GLOBAL_COOKIE_MEMBER_USERNAME/Files/Document/Friends/$_Ap
 
 /*
  ============================================================================================================
- + Kill Database Server Query :: Select ALL Registered Member Account Entries From Database Server
+ + Kill: Database Server Query :: Select ALL Registered Member Account Entries From Database Server
  ============================================================================================================
 */
 
-$DB->free($_Application_Module_Member_Friend_DB_Query_SELECT_ALL_MEMBERS);
+// [ C ] $_Application_Module_Member_Friend_DB_Query_SELECT_ALL_MEMBERS->free_result();
 ?>
