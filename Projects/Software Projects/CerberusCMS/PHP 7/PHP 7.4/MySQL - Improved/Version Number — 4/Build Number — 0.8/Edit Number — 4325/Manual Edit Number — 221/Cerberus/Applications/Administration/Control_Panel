@@ -123,7 +123,7 @@ echo ("
 
 										<HR>
 
-										<CENTER><B>[ <A HREF=\"$_PROJECT_SERVER_URL_SECURE/Projects/CerberusCMS/Validation/Validate.php?Version&#61;$_PROJECT_VERSION_SHORT\" TITLE=\":: Validate This Cerberus Content Management System Installation ::\">$_PROJECT_VERSION_EXTENDED</A> ]</B></CENTER>
+										<CENTER><B>[ <A HREF=\"$_PROJECT_SERVER_URL_SECURE/Projects/$_PROJECT_STRING_NAME_UNIX/Validation/Validate.php?Version&#61;$_PROJECT_VERSION_SHORT\" TITLE=\":: Validate This $_PROJECT_STRING_NAME_EXTENDED Installation ::\">$_PROJECT_VERSION_EXTENDED</A> ]</B></CENTER>
 
 										<HR>
 ");
@@ -195,7 +195,7 @@ if ($_GLOBAL_COOKIE_MEMBER_USERNAME && $_GLOBAL_COOKIE_MEMBER_PASSWORD != null &
 
 } else {
 
-	echo ($_Message_Kernel_APPLICATION_ADMINISTRATOR_APPLICATION_ACCESS_RESTRICTED_ADMINISTRATOR);
+	echo ($_Message_Kernel_APPLICATION_ADMINISTRATION_APPLICATION_ACCESS_RESTRICTED_ADMINISTRATOR);
 
 } // [ + ] IF: Registered Member Account :: Cookies :: Credentials :: Exist, are Valid and Registered Member Account Access-Level Is: Administrator, >= 3
 
