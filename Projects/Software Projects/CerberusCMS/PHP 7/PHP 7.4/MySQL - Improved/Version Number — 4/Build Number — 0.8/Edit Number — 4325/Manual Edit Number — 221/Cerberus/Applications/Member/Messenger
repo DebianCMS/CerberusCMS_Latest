@@ -664,9 +664,7 @@ $_Application_Module_Member_Messenger_Encrypted_Text_File_Messenger_Encryption_T
  ============================================================================================================
 */
 
-$_Application_Module_Member_Messenger_POST_MESSAGE_MEMBER_IMAGE_PROFILE_DISPLAY									= "../../../../../../Member/$_GLOBAL_COOKIE_MEMBER_USERNAME/Files/Image/Profile/$_GLOBAL_MEMBER_IMAGE_PROFILE";
-
-if (file_exists($_Application_Module_Member_Messenger_POST_MESSAGE_MEMBER_IMAGE_PROFILE_DISPLAY)) {
+if (file_exists("$_Application_Module_Member_Messenger_POST_MESSAGE_MEMBER_IMAGE_PROFILE")) {
 
 $_Application_Module_Member_Messenger_POST_MESSAGE_MEMBER_IMAGE_PROFILE_DISPLAY									= "../../../../../../Member/$_GLOBAL_COOKIE_MEMBER_USERNAME/Files/Image/Profile/$_GLOBAL_MEMBER_IMAGE_PROFILE";
 
@@ -1011,7 +1009,7 @@ echo ("Messenger: Messenger Room Name Already Exists... Cannot create.");
 
 if ($_GET["Display"] == "VisibleTextFileMessenger") {
 
-											echo ("<B>Visible :: Non-Encrypted :: Clear-Text :: File :: Messenger Rooms</B><BR>");
+											echo ("<B>Visible :: Non-Encrypted :: Clear-Text :: File :: Messenger Rooms</B><HR ALIGN=\"LEFT\" WIDTH=\"50%\">");
 
 /*
  ============================================================================================================
@@ -2106,22 +2104,19 @@ if (fwrite($_Application_Module_Member_Messenger_FIND_VISIBILE_CLEAR_TEXT_MESSEN
 					<A HREF=\"$_Application_Module_Member_Messenger_POST_MESSAGE_MEMBER_IMAGE_PROFILE_DISPLAY\" TARGET=\"_NEW\" TITLE=\":: Open & Display :: This Registered Member Account :: Profile Image :: \"><IMG SRC=\"$_Application_Module_Member_Messenger_POST_MESSAGE_MEMBER_IMAGE_PROFILE_DISPLAY\" WIDTH=\"75\" HEIGHT=\"75\" CLASS=\"MessengerImageMemberProfile\"></A>
 						&nbsp;
 						<B><I><A HREF=\"../../../../../../$_INTERNAL_FILE_KERNEL?$_INTERNAL_APPLICATION_MODULE_MEMBER&#61;Profile&amp;Name&#61;$_GLOBAL_COOKIE_MEMBER_USERNAME\" TITLE=\":: Open & Display :: This Registered Member Account :: Profile ::\" TARGET=\"_NEW\">$_GLOBAL_COOKIE_MEMBER_USERNAME</A> Wrote This Message:</B></I><BR>
-							----------------------------------------------<BR>
+							<HR ALIGN=\"LEFT\" WIDTH=\"20%\">
 							<BIG>&ldquo;</BIG><I>$_Application_Module_Member_Messenger_POST_VISIBLE_CLEAR_TEXT_FILE_MESSENGER_MESSAGE</I><BIG>&rdquo;</BIG><BR>
-							----------------------------------------------<BR>
-							Message Details<BR>
-							----------------------------------------------<BR>
+							<HR ALIGN=\"LEFT\" WIDTH=\"20%\"><BR>
+
+							Message Details
+							<HR ALIGN=\"LEFT\" WIDTH=\"20%\">
 							<B>Timestamps</B><BR>
 							<B>* This Message Timestamp :: Server :: Local:</B>&nbsp;$_GLOBAL_LOCAL_SERVER_DATE_STANDARD<BR>
 							<B>* This Message Timestamp :: Server :: Remote:</B>&nbsp;$_GLOBAL_REMOTE_SERVER_DATE_STANDARD<BR><BR>
 
 							<B>Location :: Internet Protocol Address</B><BR>
-							<B>* Internet Protocol Address, Sent From :: Local:</B>&nbsp;<A HREF=\"$_SYSTEM_SERVER_NETWORKING_RESOLVER_WHOIS/$_GLOBAL_LOCAL_SERVER_ADDRESS\" TITLE=\":: Open & Display :: The Who-Is Information :: For This Internet Protocol Address ::\" TARGET=\"_NEW\">$_GLOBAL_LOCAL_SERVER_ADDRESS</A><BR>
+							<B>* Internet Protocol Address, Sent From :: Local:</B>&nbsp;<A HREF=\"$_SYSTEM_SERVER_NETWORKING_RESOLVER_WHOIS/$_GLOBAL_LOCAL_SERVER_ADDRESS\" TITLE=\":: Open & Display :: The Who-Is Information :: For This Internet Protocol Address ::\" TARGET=\"_NEW\">$_GLOBAL_LOCAL_SERVER_ADDRESS :: $_GLOBAL_LOCAL_SERVER_PORT</A><BR>
 							<B>* Internet Protocol Address, Sent From :: Remote:</B>&nbsp;<A HREF=\"$_SYSTEM_SERVER_NETWORKING_RESOLVER_WHOIS/$_GLOBAL_REMOTE_SERVER_ADDRESS\" TITLE=\":: Open & Display :: The Who-Is Information :: For This Internet Protocol Address ::\" TARGET=\"_NEW\">$_GLOBAL_REMOTE_SERVER_ADDRESS</A> :: $_GLOBAL_REMOTE_SERVER_PORT<BR><BR>
-
-							<B>Location :: Device-Reported :: Global-Positioning-System</B><BR>
-							&nbsp;*&nbsp;Location :: Last Exact Device-Reported :: From H.T.M.L. :: Global-Positioning-System In X, Y, Z: <A HREF=\"\" TITLE=\":: Open & Display :: The Log File For :: The Detailed Device-Reported :: From H.T.M.L. 5 :: Global-Positioning-System Coordinates In X, Y, Z ::\">$_Application_Module_Member_Profile_LIST_MEMBER_LOCATION_DEVICE_GPS_XYZ</A><BR>
-							&nbsp;*&nbsp;Location :: Last Exact Device-Reported :: From P.H.P. :: Global-Positioning-System In X, Y, Z: <A HREF=\"\" TITLE=\":: Open & Display :: The Log File For :: The Detailed Device-Reported :: From P.H.P. :: Global-Positioning-System Coordinates In X, Y, Z ::\">$_Application_Module_Member_Profile_LIST_MEMBER_LOCATION_DEVICE_GPS_XYZ</A><BR><BR>
 
 							<B>Device :: Details</B><BR>
 							<B>* Device, Sent From :: Remote:</B>&nbsp;$_GLOBAL_REMOTE_SERVER_HTTP_USER_AGENT_DISPLAY :: $_GLOBAL_REMOTE_SERVER_PORT<BR>
