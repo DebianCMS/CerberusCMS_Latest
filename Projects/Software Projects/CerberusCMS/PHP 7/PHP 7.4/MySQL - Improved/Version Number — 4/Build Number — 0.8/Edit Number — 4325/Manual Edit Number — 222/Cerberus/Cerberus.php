@@ -5001,7 +5001,7 @@ if ($_GLOBAL_COOKIE_MEMBER_USERNAME && $_GLOBAL_COOKIE_MEMBER_PASSWORD != null &
  ============================================================================================================
 */
 
-$_DB_Query_Kernel_Application_Panels_Aligned_Left 					= $_KERNEL_MYSQL_IMPROVED_DATABASE_SERVER_CONNECT->query("SELECT * FROM {$_ACCESS_DATABASE_SERVER_DATABASE_TABLE_PREFIX}_application_panels WHERE panel_alignment='0' AND panel_file_status='1' ORDER BY panel_row ASC");
+$_DB_Query_Kernel_Applications_Panel_Aligned_Left 					= $_KERNEL_MYSQL_IMPROVED_DATABASE_SERVER_CONNECT->query("SELECT * FROM {$_ACCESS_DATABASE_SERVER_DATABASE_TABLE_PREFIX}_applications_panel WHERE application_panel_alignment='0' AND application_panel_file_status='1' ORDER BY application_panel_row ASC");
 
 /*
  ============================================================================================================
@@ -5009,22 +5009,33 @@ $_DB_Query_Kernel_Application_Panels_Aligned_Left 					= $_KERNEL_MYSQL_IMPROVED
  ============================================================================================================
 */
 
-while ($_DB_Query_Kernel_Application_Panels_Aligned_Left_Fetch_Array = $_DB_Query_Kernel_Application_Panels_Aligned_Left->fetch_array(MYSQLI_BOTH)) {
+while ($_DB_Query_Kernel_Applications_Panel_Aligned_Left_Fetch_Array = $_DB_Query_Kernel_Applications_Panel_Aligned_Left->fetch_array(MYSQLI_BOTH)) {
 
-$_KERNEL_APPLICATION_PANEL_FILE_INTEGRITY_ALIGNED_LEFT					= $_DB_Query_Kernel_Application_Panels_Aligned_Left_Fetch_Array['panel_file_integrity'];
-$_KERNEL_APPLICATION_PANEL_FILE_INTEGRITY_INSTALLATION_ALIGNED_LEFT			= $_DB_Query_Kernel_Application_Panels_Aligned_Left_Fetch_Array['panel_file_integrity_installation'];
-$_KERNEL_APPLICATION_PANEL_FILE_NAME_ALIGNED_LEFT					= $_DB_Query_Kernel_Application_Panels_Aligned_Left_Fetch_Array['panel_file_name'];
-$_KERNEL_APPLICATION_PANEL_TITLE_ALIGNED_LEFT						= $_DB_Query_Kernel_Application_Panels_Aligned_Left_Fetch_Array['panel_title'];
-$_KERNEL_APPLICATION_PANEL_FILE_TIMESTAMP_INSTALLATION_ALIGNED_LEFT			= $_DB_Query_Kernel_Application_Panels_Aligned_Left_Fetch_Array['panel_file_timestamp_installation'];
+$_KERNEL_APPLICATION_PANEL_ALIGNED_LEFT_ID							= $_DB_Query_Kernel_Applications_Panel_Aligned_Left_Fetch_Array['id'];
+$_KERNEL_APPLICATION_PANEL_ALIGNED_LEFT_ALIGNMENT						= $_DB_Query_Kernel_Applications_Panel_Aligned_Left_Fetch_Array['application_panel_alignment'];
+$_KERNEL_APPLICATION_PANEL_ALIGNED_LEFT_FILE_INTEGRITY_PHYSICAL					= $_DB_Query_Kernel_Applications_Panel_Aligned_Left_Fetch_Array['application_panel_file_integrity'];
+$_KERNEL_APPLICATION_PANEL_ALIGNED_LEFT_FILE_INTEGRITY_INSTALLATION				= $_DB_Query_Kernel_Applications_Panel_Aligned_Left_Fetch_Array['application_panel_file_integrity_installation'];
+$_KERNEL_APPLICATION_PANEL_ALIGNED_LEFT_FILE_NAME						= $_DB_Query_Kernel_Applications_Panel_Aligned_Left_Fetch_Array['application_panel_file_name'];
+$_KERNEL_APPLICATION_PANEL_ALIGNED_LEFT_FILE_PERMISSION						= $_DB_Query_Kernel_Applications_Panel_Aligned_Left_Fetch_Array['application_panel_file_permission'];
+$_KERNEL_APPLICATION_PANEL_ALIGNED_LEFT_FILE_PERMISSION_CAMERA					= $_DB_Query_Kernel_Applications_Panel_Aligned_Left_Fetch_Array['application_panel_file_permission_camera'];
+$_KERNEL_APPLICATION_PANEL_ALIGNED_LEFT_FILE_PERMISSION_MICROPHONE				= $_DB_Query_Kernel_Applications_Panel_Aligned_Left_Fetch_Array['application_panel_file_permission_microphone'];
+$_KERNEL_APPLICATION_PANEL_ALIGNED_LEFT_FILE_PERMISSION_LOCATION_GPS				= $_DB_Query_Kernel_Applications_Panel_Aligned_Left_Fetch_Array['application_panel_file_permission_location_gps'];
+$_KERNEL_APPLICATION_PANEL_ALIGNED_LEFT_FILE_PERMISSION_LOCATION_GLO				= $_DB_Query_Kernel_Applications_Panel_Aligned_Left_Fetch_Array['application_panel_file_permission_location_glo'];
+$_KERNEL_APPLICATION_PANEL_ALIGNED_LEFT_FILE_PERMISSION_LOCATION_INTERNET_PROTOCOL_ADDRESS	= $_DB_Query_Kernel_Applications_Panel_Aligned_Left_Fetch_Array['application_panel_file_permission_location_ip_address'];
+$_KERNEL_APPLICATION_PANEL_ALIGNED_LEFT_FILE_STATUS						= $_DB_Query_Kernel_Applications_Panel_Aligned_Left_Fetch_Array['application_panel_file_status'];
+$_KERNEL_APPLICATION_PANEL_ALIGNED_LEFT_FILE_TIMESTAMP_INSTALLATION				= $_DB_Query_Kernel_Applications_Panel_Aligned_Left_Fetch_Array['application_panel_file_timestamp_installation'];
+$_KERNEL_APPLICATION_PANEL_ALIGNED_LEFT_FILE_VERSION						= $_DB_Query_Kernel_Applications_Panel_Aligned_Left_Fetch_Array['application_panel_file_version'];
+$_KERNEL_APPLICATION_PANEL_ALIGNED_LEFT_ROW							= $_DB_Query_Kernel_Applications_Panel_Aligned_Left_Fetch_Array['application_panel_row'];
+$_KERNEL_APPLICATION_PANEL_ALIGNED_LEFT_TITLE							= $_DB_Query_Kernel_Applications_Panel_Aligned_Left_Fetch_Array['application_panel_title'];
 
 echo ($_THIS_THEME_APPLICATION_PANEL_1);
-echo ($_KERNEL_APPLICATION_PANEL_TITLE_ALIGNED_LEFT);
+echo ($_KERNEL_APPLICATION_PANEL_ALIGNED_LEFT_TITLE);
 
-	include_once "./Applications/Panel/$_KERNEL_APPLICATION_PANEL_FILE_NAME_ALIGNED_LEFT.panel";
+	include_once "./Applications/Panel/$_KERNEL_APPLICATION_PANEL_ALIGNED_LEFT_FILE_NAME.panel";
 
 echo ($_THIS_THEME_APPLICATION_PANEL_2);
 
-} // [ + ] WHILE: Retrieving :: Panel Application Module Entries :: Aligned Left :: From The Database Management System Server Database
+} // [ + ] WHILE: Retrieving :: Application Module :: Panel :: Entries :: Aligned Left :: From The Database Management System Server Database
 
 /*
  ============================================================================================================
@@ -5032,7 +5043,7 @@ echo ($_THIS_THEME_APPLICATION_PANEL_2);
  ============================================================================================================
 */
 
-// [ C ] $_DB_Query_Kernel_Application_Panels_Aligned_Left->free_result();
+// [ C ] $_DB_Query_Kernel_Applications_Panel_Aligned_Left->free_result();
 
 /*
  ============================================================================================================
@@ -5179,6 +5190,7 @@ $_KERNEL_APPLICATION_MODULE_SERVICES_FILE_PERMISSION_LOCATION_GLO				= $_DB_Quer
 $_KERNEL_APPLICATION_MODULE_SERVICES_FILE_PERMISSION_LOCATION_INTERNET_PROTOCOL_ADDRESS		= $_DB_Query_Kernel_Select_Applications_Services_Fetch_Array['application_file_permission_location_internet_protocol_address'];
 $_KERNEL_APPLICATION_MODULE_SERVICES_FILE_STATUS						= $_DB_Query_Kernel_Select_Applications_Services_Fetch_Array['application_file_status'];
 $_KERNEL_APPLICATION_MODULE_SERVICES_FILE_TIMESTAMP_INSTALLATION				= $_DB_Query_Kernel_Select_Applications_Services_Fetch_Array['application_file_timestamp_installation'];
+$_KERNEL_APPLICATION_MODULE_SERVICES_FILE_VERSION						= $_DB_Query_Kernel_Select_Applications_Services_Fetch_Array['application_file_version'];
 
 /*
  ============================================================================================================
@@ -5317,6 +5329,7 @@ $_KERNEL_APPLICATION_MODULE_ROOT_FILE_PERMISSION_LOCATION_GLO				= $_DB_Query_Ke
 $_KERNEL_APPLICATION_MODULE_ROOT_FILE_PERMISSION_LOCATION_INTERNET_PROTOCOL_ADDRESS	= $_DB_Query_Kernel_Select_Applications_Root_Fetch_Array['application_file_permission_location_internet_protocol_address'];
 $_KERNEL_APPLICATION_MODULE_ROOT_FILE_STATUS						= $_DB_Query_Kernel_Select_Applications_Root_Fetch_Array['application_file_status'];
 $_KERNEL_APPLICATION_MODULE_ROOT_FILE_TIMESTAMP_INSTALLATION				= $_DB_Query_Kernel_Select_Applications_Root_Fetch_Array['application_file_timestamp_installation'];
+$_KERNEL_APPLICATION_MODULE_ROOT_FILE_VERSION						= $_DB_Query_Kernel_Select_Applications_Root_Fetch_Array['application_file_version'];
 
 /*
  ============================================================================================================
@@ -5455,6 +5468,7 @@ $_KERNEL_APPLICATION_MODULE_ADMINISTRATION_FILE_PERMISSION_LOCATION_GLO				= $_D
 $_KERNEL_APPLICATION_MODULE_ADMINISTRATION_FILE_PERMISSION_LOCATION_INTERNET_PROTOCOL_ADDRESS	= $_DB_Query_Kernel_Select_Applications_Administration_Fetch_Array['application_file_permission_location_internet_protocol_address'];
 $_KERNEL_APPLICATION_MODULE_ADMINISTRATION_FILE_STATUS						= $_DB_Query_Kernel_Select_Applications_Administration_Fetch_Array['application_file_status'];
 $_KERNEL_APPLICATION_MODULE_ADMINISTRATION_FILE_TIMESTAMP_INSTALLATION				= $_DB_Query_Kernel_Select_Applications_Administration_Fetch_Array['application_file_timestamp_installation'];
+$_KERNEL_APPLICATION_MODULE_ADMINISTRATION_FILE_VERSION						= $_DB_Query_Kernel_Select_Applications_Administration_Fetch_Array['application_file_version'];
 
 /*
  ============================================================================================================
@@ -5593,6 +5607,7 @@ $_KERNEL_APPLICATION_MODULE_MEMBER_FILE_PERMISSION_LOCATION_GLO					= $_DB_Query
 $_KERNEL_APPLICATION_MODULE_MEMBER_FILE_PERMISSION_LOCATION_INTERNET_PROTOCOL_ADDRESS		= $_DB_Query_Kernel_Select_Applications_Member_Fetch_Array['application_file_permission_location_internet_protocol_address'];
 $_KERNEL_APPLICATION_MODULE_MEMBER_FILE_STATUS							= $_DB_Query_Kernel_Select_Applications_Member_Fetch_Array['application_file_status'];
 $_KERNEL_APPLICATION_MODULE_MEMBER_FILE_TIMESTAMP_INSTALLATION					= $_DB_Query_Kernel_Select_Applications_Member_Fetch_Array['application_file_timestamp_installation'];
+$_KERNEL_APPLICATION_MODULE_MEMBER_FILE_VERSION							= $_DB_Query_Kernel_Select_Applications_Member_Fetch_Array['application_file_version'];
 
 /*
  ============================================================================================================
@@ -5813,7 +5828,7 @@ echo ($_GLOBAL_THEME_LAYOUT_3);
  ============================================================================================================
 */
 
-$_DB_Query_Kernel_Application_Panels_Aligned_Right 					= $_KERNEL_MYSQL_IMPROVED_DATABASE_SERVER_CONNECT->query("SELECT * FROM {$_ACCESS_DATABASE_SERVER_DATABASE_TABLE_PREFIX}_application_panels WHERE panel_alignment='1' AND panel_file_status='1' ORDER BY panel_row ASC");
+$_DB_Query_Kernel_Applications_Panel_Aligned_Right 					= $_KERNEL_MYSQL_IMPROVED_DATABASE_SERVER_CONNECT->query("SELECT * FROM {$_ACCESS_DATABASE_SERVER_DATABASE_TABLE_PREFIX}_applications_panel WHERE application_panel_alignment='1' AND application_panel_file_status='1' ORDER BY application_panel_row ASC");
 
 /*
  ============================================================================================================
@@ -5821,23 +5836,34 @@ $_DB_Query_Kernel_Application_Panels_Aligned_Right 					= $_KERNEL_MYSQL_IMPROVE
  ============================================================================================================
 */
 
-while ($_DB_Query_Kernel_Application_Panels_Aligned_Right_Fetch_Array = $_DB_Query_Kernel_Application_Panels_Aligned_Right->fetch_array(MYSQLI_BOTH)) {
+while ($_DB_Query_Kernel_Applications_Panel_Aligned_Right_Fetch_Array = $_DB_Query_Kernel_Applications_Panel_Aligned_Right->fetch_array(MYSQLI_BOTH)) {
 
-$_KERNEL_APPLICATION_PANEL_FILE_INTEGRITY_ALIGNED_RIGHT					= $_DB_Query_Kernel_Application_Panels_Aligned_Right_Fetch_Array['panel_file_integrity'];
-$_KERNEL_APPLICATION_PANEL_FILE_INTEGRITY_INSTALLATION_ALIGNED_RIGHT			= $_DB_Query_Kernel_Application_Panels_Aligned_Right_Fetch_Array['panel_file_integrity_installation'];
-$_KERNEL_APPLICATION_PANEL_FILE_NAME_ALIGNED_RIGHT					= $_DB_Query_Kernel_Application_Panels_Aligned_Right_Fetch_Array['panel_file_name'];
-$_KERNEL_APPLICATION_PANEL_TITLE_ALIGNED_RIGHT						= $_DB_Query_Kernel_Application_Panels_Aligned_Right_Fetch_Array['panel_title'];
-$_KERNEL_APPLICATION_PANEL_FILE_TIMESTAMP_INSTALLATION_ALIGNED_RIGHT			= $_DB_Query_Kernel_Application_Panels_Aligned_Right_Fetch_Array['panel_file_timestamp_installation'];
+$_KERNEL_APPLICATION_PANEL_ALIGNED_RIGHT_ID							= $_DB_Query_Kernel_Applications_Panel_Aligned_Right_Fetch_Array['id'];
+$_KERNEL_APPLICATION_PANEL_ALIGNED_RIGHT_ALIGNMENT						= $_DB_Query_Kernel_Applications_Panel_Aligned_Right_Fetch_Array['application_panel_alignment'];
+$_KERNEL_APPLICATION_PANEL_ALIGNED_RIGHT_FILE_INTEGRITY_PHYSICAL				= $_DB_Query_Kernel_Applications_Panel_Aligned_Right_Fetch_Array['application_panel_file_integrity'];
+$_KERNEL_APPLICATION_PANEL_ALIGNED_RIGHT_FILE_INTEGRITY_INSTALLATION				= $_DB_Query_Kernel_Applications_Panel_Aligned_Right_Fetch_Array['application_panel_file_integrity_installation'];
+$_KERNEL_APPLICATION_PANEL_ALIGNED_RIGHT_FILE_NAME						= $_DB_Query_Kernel_Applications_Panel_Aligned_Right_Fetch_Array['application_panel_file_name'];
+$_KERNEL_APPLICATION_PANEL_ALIGNED_RIGHT_FILE_PERMISSION					= $_DB_Query_Kernel_Applications_Panel_Aligned_Right_Fetch_Array['application_panel_file_permission'];
+$_KERNEL_APPLICATION_PANEL_ALIGNED_RIGHT_FILE_PERMISSION_CAMERA					= $_DB_Query_Kernel_Applications_Panel_Aligned_Right_Fetch_Array['application_panel_file_permission_camera'];
+$_KERNEL_APPLICATION_PANEL_ALIGNED_RIGHT_FILE_PERMISSION_MICROPHONE				= $_DB_Query_Kernel_Applications_Panel_Aligned_Right_Fetch_Array['application_panel_file_permission_microphone'];
+$_KERNEL_APPLICATION_PANEL_ALIGNED_RIGHT_FILE_PERMISSION_LOCATION_GPS				= $_DB_Query_Kernel_Applications_Panel_Aligned_Right_Fetch_Array['application_panel_file_permission_location_gps'];
+$_KERNEL_APPLICATION_PANEL_ALIGNED_RIGHT_FILE_PERMISSION_LOCATION_GLO				= $_DB_Query_Kernel_Applications_Panel_Aligned_Right_Fetch_Array['application_panel_file_permission_location_glo'];
+$_KERNEL_APPLICATION_PANEL_ALIGNED_RIGHT_FILE_PERMISSION_LOCATION_INTERNET_PROTOCOL_ADDRESS	= $_DB_Query_Kernel_Applications_Panel_Aligned_Right_Fetch_Array['application_panel_file_permission_location_ip_address'];
+$_KERNEL_APPLICATION_PANEL_ALIGNED_RIGHT_FILE_STATUS						= $_DB_Query_Kernel_Applications_Panel_Aligned_Right_Fetch_Array['application_panel_file_status'];
+$_KERNEL_APPLICATION_PANEL_ALIGNED_RIGHT_FILE_TIMESTAMP_INSTALLATION				= $_DB_Query_Kernel_Applications_Panel_Aligned_Right_Fetch_Array['application_panel_file_timestamp_installation'];
+$_KERNEL_APPLICATION_PANEL_ALIGNED_RIGHT_FILE_VERSION						= $_DB_Query_Kernel_Applications_Panel_Aligned_Right_Fetch_Array['application_panel_file_version'];
+$_KERNEL_APPLICATION_PANEL_ALIGNED_RIGHT_ROW							= $_DB_Query_Kernel_Applications_Panel_Aligned_Right_Fetch_Array['application_panel_row'];
+$_KERNEL_APPLICATION_PANEL_ALIGNED_RIGHT_TITLE							= $_DB_Query_Kernel_Applications_Panel_Aligned_Right_Fetch_Array['application_panel_title'];
 
 echo ($_THIS_THEME_APPLICATION_PANEL_1);
 
-echo ($_KERNEL_APPLICATION_PANEL_TITLE_ALIGNED_RIGHT);
+echo ($_KERNEL_APPLICATION_PANEL_ALIGNED_RIGHT_TITLE);
 
-	include_once "./Applications/Panel/$_KERNEL_APPLICATION_PANEL_FILE_NAME_ALIGNED_RIGHT.panel";
+	include_once "./Applications/Panel/$_KERNEL_APPLICATION_PANEL_ALIGNED_RIGHT_FILE_NAME.panel";
 
 echo ($_THIS_THEME_APPLICATION_PANEL_2);
 
-} // [ + ] WHILE: Retrieving :: Application Panel Module Entries :: Aligned Right :: From The Database Management System Server Database
+} // [ + ] WHILE: Retrieving :: Application Module :: Panel :: Entries :: Aligned Right :: From The Database Management System Server Database
 
 /*
  ============================================================================================================
@@ -5845,7 +5871,7 @@ echo ($_THIS_THEME_APPLICATION_PANEL_2);
  ============================================================================================================
 */
 
-// [ C ] $_DB_Query_Kernel_Application_Panels_Aligned_Right->free_result();
+// [ C ] $_DB_Query_Kernel_Applications_Panel_Aligned_Right->free_result();
 
 /*
  ============================================================================================================
