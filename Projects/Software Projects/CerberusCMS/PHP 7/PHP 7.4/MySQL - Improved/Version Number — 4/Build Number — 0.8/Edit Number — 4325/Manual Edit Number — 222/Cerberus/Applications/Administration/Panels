@@ -69,13 +69,23 @@
  ============================================================================================================
 */
 
+$_Application_Module_Administration_Panels_POST_INSTALL_APPLICATION_PANEL_ALIGNMENT				= $_POST['AMA_Panels_Install_Application_Panel_Alignment'];
 $_Application_Module_Administration_Panels_POST_INSTALL_APPLICATION_PANEL_FILE_INTEGRITY			= $_POST['AMA_Panels_Install_Application_Panel_File_Integrity'];
 $_Application_Module_Administration_Panels_POST_INSTALL_APPLICATION_PANEL_FILE_INTEGRITY_INSTALLATION		= $_POST['AMA_Panels_Install_Application_Panel_File_Integrity_Installation'];
 $_Application_Module_Administration_Panels_POST_INSTALL_APPLICATION_PANEL_FILE_NAME				= $_POST['AMA_Panels_Install_Application_Panel_File_Name'];
-$_Application_Module_Administration_Panels_POST_INSTALL_APPLICATION_PANEL_ALIGNMENT				= $_POST['AMA_Panels_Install_Application_Panel_File_Alignment'];
 $_Application_Module_Administration_Panels_POST_INSTALL_APPLICATION_PANEL_FILE_PERMISSION			= $_POST['AMA_Panels_Install_Application_Panel_File_Permission'];
+$_Application_Module_Administration_Panels_POST_INSTALL_APPLICATION_PANEL_FILE_PERMISSION_CAMERA		= $_POST['AMA_Panels_Install_Application_Panel_File_Permission_Camera'];
+$_Application_Module_Administration_Panels_POST_INSTALL_APPLICATION_PANEL_FILE_PERMISSION_MICROPHONE		= $_POST['AMA_Panels_Install_Application_Panel_File_Permission_Microphone'];
+$_Application_Module_Administration_Panels_POST_INSTALL_APPLICATION_PANEL_FILE_PERMISSION_LOCATION_GPS		= $_POST['AMA_Panels_Install_Application_Panel_File_Permission_Location_GPS'];
+$_Application_Module_Administration_Panels_POST_INSTALL_APPLICATION_PANEL_FILE_PERMISSION_LOCATION_GLO		= $_POST['AMA_Panels_Install_Application_Panel_File_Permission_Location_GLO'];
+$_Application_Module_Administration_Panels_POST_INSTALL_APPLICATION_PANEL_FILE_PERMISSION_LOCATION_IP_ADDRESS	= $_POST['AMA_Panels_Install_Application_Panel_File_Permission_Location_IP_Address'];
 $_Application_Module_Administration_Panels_POST_INSTALL_APPLICATION_PANEL_FILE_STATUS				= $_POST['AMA_Panels_Install_Application_Panel_File_Status'];
+$_Application_Module_Administration_Panels_POST_INSTALL_APPLICATION_PANEL_FILE_TIMESTAMP_INSTALLATION		= $_POST['AMA_Panels_Install_Application_Panel_File_Timestamp_Installation'];
+$_Application_Module_Administration_Panels_POST_INSTALL_APPLICATION_PANEL_FILE_VERSION				= $_POST['AMA_Panels_Install_Application_Panel_File_Version'];
+$_Application_Module_Administration_Panels_POST_INSTALL_APPLICATION_PANEL_ROW					= $_POST['AMA_Panels_Install_Application_Panel_Row'];
 $_Application_Module_Administration_Panels_POST_INSTALL_APPLICATION_PANEL_TITLE					= $_POST['AMA_Panels_Install_Application_Panel_File_Title'];
+
+$_Application_Module_Administration_Panels_INSTALL_APPLICATION_PANEL_FILE_INTEGRITY				= hash_file('sha256', "./Applications/Panel/$_Application_Module_Administration_Panels_POST_INSTALL_APPLICATION_PANEL_FILE_NAME.panel");
 
 /*
  ============================================================================================================
@@ -90,9 +100,12 @@ if (!$_Application_Module_Administration_Panels_POST_INSTALL_APPLICATION_PANEL_F
 echo ("
 													<CENTER><B>Install Application Panel</B></CENTER><HR>
 														<FORM ACTION=\"?$_INTERNAL_APPLICATION_MODULE_ADMINISTRATOR&#61;Control_Panel&amp;Action&#61;Panels&amp;$_GLOBAL_SYSTEM_SECURITY_CACHE_CIRCUMVENTION_HTR_RANDOM_STRING_GENERATION\" METHOD=\"post\">
-															Application Panel :: File Name:<BR>
+															Application Panel :: File :: Name:<BR>
 															Example: <I>Pictures</I> - Do not write .panel after the filename<BR>
 																<INPUT TYPE=\"text\" NAME=\"AMA_Panels_Install_Application_Panel_File_Name\" MAXLENGTH=\"250\"><BR><BR>
+
+															Application Panel :: File :: Version:<BR>
+																<INPUT TYPE=\"text\" NAME=\"AMA_Panels_Install_Application_Panel_File_Version\" MAXLENGTH=\"10\"><BR><BR>
 
 															Application Panel :: Permission:<BR>
 																<SELECT NAME=\"AMA_Panels_Install_Application_Panel_File_Permission\" MAXLENGTH=\"1\">
@@ -104,13 +117,46 @@ echo ("
 																	<OPTION VALUE=\"5\">Services Root Administration</OPTION>
 																</SELECT><BR><BR>
 
+															Application Module :: File :: Permission, Camera<BR>
+																<SELECT NAME=\"AMA_Panels_Install_Application_Panel_File_Permission_Camera\" MAXLENGTH=\"1\">
+																	<OPTION VALUE=\"0\">OFF</OPTION>
+																	<OPTION VALUE=\"1\">ON</OPTION>
+																</SELECT><BR><BR>
+
+															Application Module :: File :: Permission, Microphone<BR>
+																<SELECT NAME=\"AMA_Panels_Install_Application_Panel_File_Permission_Microphone\" MAXLENGTH=\"1\">
+																	<OPTION VALUE=\"0\">OFF</OPTION>
+																	<OPTION VALUE=\"1\">ON</OPTION>
+																</SELECT><BR><BR>
+
+															Application Module :: File :: Permission, Location By Global-Positioning-System<BR>
+																<SELECT NAME=\"AMA_Panels_Install_Application_Panel_File_Permission_Location_GPS\" MAXLENGTH=\"1\">
+																	<OPTION VALUE=\"0\">OFF</OPTION>
+																	<OPTION VALUE=\"1\">ON</OPTION>
+																</SELECT><BR><BR>
+
+															Application Module :: File :: Permission, Location By Geo-Localization-Objects<BR>
+																<SELECT NAME=\"AMA_Panels_Install_Application_Panel_File_Permission_Location_GLO\" MAXLENGTH=\"1\">
+																	<OPTION VALUE=\"0\">OFF</OPTION>
+																	<OPTION VALUE=\"1\">ON</OPTION>
+																</SELECT><BR><BR>
+
+															Application Module :: File :: Permission, Location By Internet Protocol Address<BR>
+																<SELECT NAME=\"AMA_Panels_Install_Application_Panel_File_Permission_Location_IP_Address\" MAXLENGTH=\"1\">
+																	<OPTION VALUE=\"0\">OFF</OPTION>
+																	<OPTION VALUE=\"1\">ON</OPTION>
+																</SELECT><BR><BR>
+
 															Application Panel :: Alignment:<BR>
-																<SELECT NAME=\"AMA_Panels_Install_Application_Panel_File_Alignment\" MAXLENGTH=\"1\">
+																<SELECT NAME=\"AMA_Panels_Install_Application_Panel_Alignment\" MAXLENGTH=\"1\">
 																	<OPTION VALUE=\"0\">LEFT</OPTION>
 																	<OPTION VALUE=\"1\">RIGHT</OPTION>
 																</SELECT><BR><BR>
 
-															Application Panel :: File Status:<BR>
+															Application Panel :: Row:<BR>
+																<INPUT TYPE=\"text\" NAME=\"AMA_Panels_Install_Application_Panel_Row\" VALUE=\"000\" MAXLENGTH=\"10\"><BR><BR>
+
+															Application Panel :: File :: Status:<BR>
 																<SELECT NAME=\"AMA_Panels_Install_Application_Panel_File_Status\" MAXLENGTH=\"1\">
 																	<OPTION VALUE=\"0\">OFF</OPTION>
 																	<OPTION VALUE=\"1\">ON</OPTION>
@@ -121,12 +167,12 @@ echo ("
 																<INPUT TYPE=\"text\" NAME=\"AMA_Panels_Install_Application_Panel_File_Title\" MAXLENGTH=\"250\"><BR><BR>
 
 															Application Panel :: File :: Integrity :: This Installation<BR>
-															Secure-Hash-Algorithm, 512<BR>
-																	<TEXTAREA ROWS=\"10\" COLS=\"50\" NAME=\"AMA_Panels_Install_Application_Panel_File_Integrity_Installation\" MAXLENGTH=\"512\">Paste-In The File Integrity of This Application Panel: Secure-Hash-Algorithm, 512 - This will automatically be recalculated.</TEXTAREA><BR><BR>
+															Secure-Hash-Algorithm, 256<BR>
+																	<TEXTAREA ROWS=\"10\" COLS=\"50\" NAME=\"AMA_Panels_Install_Application_Panel_File_Integrity_Installation\" MAXLENGTH=\"256\">Paste-In The File Integrity of This Application Panel: Secure-Hash-Algorithm, 256 - This will automatically be recalculated.</TEXTAREA><BR><BR>
 
-															Application Panel :: File :: Integrity<BR>
-															Secure-Hash-Algorithm, 512<BR>
-																	<TEXTAREA ROWS=\"10\" COLS=\"50\" NAME=\"AMA_Panels_Install_Application_Panel_File_Integrity\" MAXLENGTH=\"512\">Paste-In The File Integrity of This Application Panel: Secure-Hash-Algorithm, 512 - This will automatically be recalculated.</TEXTAREA><BR>
+															Application Panel :: File :: Integrity :: Physical<BR>
+															Secure-Hash-Algorithm, 256<BR>
+																	<TEXTAREA ROWS=\"10\" COLS=\"50\" NAME=\"AMA_Panels_Install_Application_Panel_File_Integrity\" MAXLENGTH=\"256\">Paste-In The File Integrity of This Application Panel: Secure-Hash-Algorithm, 256 - This will automatically be recalculated.</TEXTAREA><BR>
 																<INPUT TYPE=\"submit\" VALUE=\"Install Application Panel\">
 														</FORM><BR>
 ");
@@ -139,7 +185,39 @@ echo ("
  ============================================================================================================
 */
 
-$_Application_Module_Administration_Panels_DB_Query_Install_Application_Panel					= $_GLOBAL_DATABASE_MANAGEMENT_SYSTEM_SERVER_DATABASE_CONNECTION->query("INSERT INTO {$_ACCESS_DATABASE_SERVER_DATABASE_TABLE_PREFIX}_application_panels(panel_file_integrity,panel_file_integrity_installation,panel_file_name,panel_file_permission,panel_alignment,panel_row,panel_file_status,panel_title)VALUES('$_Application_Module_Administration_Panels_POST_INSTALL_APPLICATION_PANEL_FILE_INTEGRITY','$_Application_Module_Administration_Panels_POST_INSTALL_APPLICATION_PANEL_FILE_INTEGRITY_INSTALLATION','$_Application_Module_Administration_Panels_POST_INSTALL_APPLICATION_PANEL_FILE_NAME','$_Application_Module_Administration_Panels_POST_INSTALL_APPLICATION_PANEL_FILE_PERMISSION','$_Application_Module_Administration_Panels_POST_INSTALL_APPLICATION_PANEL_ALIGNMENT','0','$_Application_Module_Administration_Panels_POST_INSTALL_APPLICATION_PANEL_FILE_STATUS','$_Application_Module_Administration_Panels_POST_INSTALL_APPLICATION_PANEL_TITLE')");
+$_Application_Module_Administration_Panels_DB_Query_Install_Application_Panel					= $_GLOBAL_DATABASE_MANAGEMENT_SYSTEM_SERVER_DATABASE_CONNECTION->query("INSERT INTO {$_ACCESS_DATABASE_SERVER_DATABASE_TABLE_PREFIX}_applications_panel(
+application_panel_alignment,
+application_panel_file_integrity,
+application_panel_file_integrity_installation,
+application_panel_file_name,
+application_panel_file_permission,
+application_panel_file_permission_camera,
+application_panel_file_permission_microphone,
+application_panel_file_permission_location_gps,
+application_panel_file_permission_location_glo,
+application_panel_file_permission_location_ip_address,
+application_panel_file_status,
+application_panel_file_timestamp_installation,
+application_panel_file_version,
+application_panel_row,
+application_panel_title
+)VALUES(
+'$_Application_Module_Administration_Panels_POST_INSTALL_APPLICATION_PANEL_ALIGNMENT',
+'$_Application_Module_Administration_Panels_INSTALL_APPLICATION_PANEL_FILE_INTEGRITY',
+'$_Application_Module_Administration_Panels_INSTALL_APPLICATION_PANEL_FILE_INTEGRITY',
+'$_Application_Module_Administration_Panels_POST_INSTALL_APPLICATION_PANEL_FILE_NAME',
+'$_Application_Module_Administration_Panels_POST_INSTALL_APPLICATION_PANEL_FILE_PERMISSION',
+'$_Application_Module_Administration_Panels_POST_INSTALL_APPLICATION_PANEL_FILE_PERMISSION_CAMERA',
+'$_Application_Module_Administration_Panels_POST_INSTALL_APPLICATION_PANEL_FILE_PERMISSION_MICROPHONE',
+'$_Application_Module_Administration_Panels_POST_INSTALL_APPLICATION_PANEL_FILE_PERMISSION_LOCATION_GPS',
+'$_Application_Module_Administration_Panels_POST_INSTALL_APPLICATION_PANEL_FILE_PERMISSION_LOCATION_GLO',
+'$_Application_Module_Administration_Panels_POST_INSTALL_APPLICATION_PANEL_FILE_PERMISSION_LOCATION_IP_ADDRESS',
+'$_Application_Module_Administration_Panels_POST_INSTALL_APPLICATION_PANEL_FILE_STATUS',
+'$_GLOBAL_LOCAL_SERVER_DATE_STANDARD',
+'$_Application_Module_Administration_Panels_POST_INSTALL_APPLICATION_PANEL_FILE_VERSION',
+'$_Application_Module_Administration_Panels_POST_INSTALL_APPLICATION_PANEL_ROW',
+'$_Application_Module_Administration_Panels_POST_INSTALL_APPLICATION_PANEL_TITLE'
+)");
 
 /*
  ============================================================================================================
@@ -175,21 +253,29 @@ if ($_Application_Module_Administration_Panels_DB_Query_Install_Application_Pane
  ============================================================================================================
 */
 
-$_Application_Module_Administration_Panels_DB_Query_SELECT_APPLICATION_PANELS					= $_GLOBAL_DATABASE_MANAGEMENT_SYSTEM_SERVER_DATABASE_CONNECTION->query("SELECT * FROM {$_ACCESS_DATABASE_SERVER_DATABASE_TABLE_PREFIX}_application_panels ORDER BY panel_file_name ASC");
+$_Application_Module_Administration_Panels_DB_Query_SELECT_APPLICATION_PANELS					= $_GLOBAL_DATABASE_MANAGEMENT_SYSTEM_SERVER_DATABASE_CONNECTION->query("SELECT * FROM {$_ACCESS_DATABASE_SERVER_DATABASE_TABLE_PREFIX}_applications_panel ORDER BY application_panel_file_name ASC");
 
 													echo ("<HR><CENTER><B>Existing Application Panels</B></CENTER><HR>");
 
 while ($_Application_Module_Administration_Panels_DB_Query_SELECT_APPLICATION_PANELS_Fetch_Array = $_Application_Module_Administration_Panels_DB_Query_SELECT_APPLICATION_PANELS->fetch_array(MYSQLI_BOTH)) {
 
 $_Application_Module_Administration_Panels_LIST_APPLICATION_PANEL_ID						= $_Application_Module_Administration_Panels_DB_Query_SELECT_APPLICATION_PANELS_Fetch_Array['id'];
-$_Application_Module_Administration_Panels_LIST_APPLICATION_PANEL_FILE_INTEGRITY_INSTALLATION			= $_Application_Module_Administration_Panels_DB_Query_SELECT_APPLICATION_PANELS_Fetch_Array['panel_file_integrity_installation'];
-$_Application_Module_Administration_Panels_LIST_APPLICATION_PANEL_FILE_NAME					= $_Application_Module_Administration_Panels_DB_Query_SELECT_APPLICATION_PANELS_Fetch_Array['panel_file_name'];
-$_Application_Module_Administration_Panels_LIST_APPLICATION_PANEL_ALIGNMENT					= $_Application_Module_Administration_Panels_DB_Query_SELECT_APPLICATION_PANELS_Fetch_Array['panel_alignment'];
-$_Application_Module_Administration_Panels_LIST_APPLICATION_PANEL_ROW						= $_Application_Module_Administration_Panels_DB_Query_SELECT_APPLICATION_PANELS_Fetch_Array['panel_row'];
-$_Application_Module_Administration_Panels_LIST_APPLICATION_PANEL_FILE_NAME_STATUS				= $_Application_Module_Administration_Panels_DB_Query_SELECT_APPLICATION_PANELS_Fetch_Array['panel_file_status'];
-$_Application_Module_Administration_Panels_LIST_APPLICATION_PANEL_TITLE						= $_Application_Module_Administration_Panels_DB_Query_SELECT_APPLICATION_PANELS_Fetch_Array['panel_title'];
+$_Application_Module_Administration_Panels_LIST_APPLICATION_PANEL_FILE_INTEGRITY				= $_Application_Module_Administration_Panels_DB_Query_SELECT_APPLICATION_PANELS_Fetch_Array['application_panel_file_integrity'];
+$_Application_Module_Administration_Panels_LIST_APPLICATION_PANEL_FILE_INTEGRITY_INSTALLATION			= $_Application_Module_Administration_Panels_DB_Query_SELECT_APPLICATION_PANELS_Fetch_Array['application_panel_file_integrity_installation'];
+$_Application_Module_Administration_Panels_LIST_APPLICATION_PANEL_FILE_NAME					= $_Application_Module_Administration_Panels_DB_Query_SELECT_APPLICATION_PANELS_Fetch_Array['application_panel_file_name'];
+$_Application_Module_Administration_Panels_LIST_APPLICATION_PANEL_FILE_PERMISSION				= $_Application_Module_Administration_Panels_DB_Query_SELECT_APPLICATION_PANELS_Fetch_Array['application_panel_file_permission'];
+$_Application_Module_Administration_Panels_LIST_APPLICATION_PANEL_FILE_PERMISSION_CAMERA			= $_Application_Module_Administration_Panels_DB_Query_SELECT_APPLICATION_PANELS_Fetch_Array['application_panel_file_permission_camera'];
+$_Application_Module_Administration_Panels_LIST_APPLICATION_PANEL_FILE_PERMISSION_MICROPHONE			= $_Application_Module_Administration_Panels_DB_Query_SELECT_APPLICATION_PANELS_Fetch_Array['application_panel_file_permission_microphone'];
+$_Application_Module_Administration_Panels_LIST_APPLICATION_PANEL_FILE_PERMISSION_LOCATION_GPS			= $_Application_Module_Administration_Panels_DB_Query_SELECT_APPLICATION_PANELS_Fetch_Array['application_panel_file_permission_location_gps'];
+$_Application_Module_Administration_Panels_LIST_APPLICATION_PANEL_FILE_PERMISSION_LOCATION_GLO			= $_Application_Module_Administration_Panels_DB_Query_SELECT_APPLICATION_PANELS_Fetch_Array['application_panel_file_permission_location_glo'];
+$_Application_Module_Administration_Panels_LIST_APPLICATION_PANEL_FILE_PERMISSION_LOCATION_IP_ADDRESS		= $_Application_Module_Administration_Panels_DB_Query_SELECT_APPLICATION_PANELS_Fetch_Array['application_panel_file_permission_location_ip_address'];
+$_Application_Module_Administration_Panels_LIST_APPLICATION_PANEL_FILE_STATUS					= $_Application_Module_Administration_Panels_DB_Query_SELECT_APPLICATION_PANELS_Fetch_Array['application_panel_file_status'];
+$_Application_Module_Administration_Panels_LIST_APPLICATION_PANEL_FILE_TIMESTAMP_INSTALLATION			= $_Application_Module_Administration_Panels_DB_Query_SELECT_APPLICATION_PANELS_Fetch_Array['application_panel_file_version'];
+$_Application_Module_Administration_Panels_LIST_APPLICATION_PANEL_FILE_VERSION					= $_Application_Module_Administration_Panels_DB_Query_SELECT_APPLICATION_PANELS_Fetch_Array['application_panel_file_timestamp_installation'];
+$_Application_Module_Administration_Panels_LIST_APPLICATION_PANEL_ROW						= $_Application_Module_Administration_Panels_DB_Query_SELECT_APPLICATION_PANELS_Fetch_Array['application_panel_row'];
+$_Application_Module_Administration_Panels_LIST_APPLICATION_PANEL_TITLE						= $_Application_Module_Administration_Panels_DB_Query_SELECT_APPLICATION_PANELS_Fetch_Array['application_panel_title'];
 
-$_Application_Module_Administration_Panels_LIST_APPLICATION_PANEL_FILE_INTEGRITY				= hash_file('sha512', "./Applications/Panel/$_Application_Module_Administration_Panels_LIST_APPLICATION_PANEL_FILE_NAME.panel");
+$_Application_Module_Administration_Panels_LIST_APPLICATION_PANEL_FILE_INTEGRITY				= hash_file('sha256', "./Applications/Panel/$_Application_Module_Administration_Panels_LIST_APPLICATION_PANEL_FILE_NAME.panel");
 
 echo ("
 																Application Panel File Name: <B>$_Application_Module_Administration_Panels_LIST_APPLICATION_PANEL_FILE_NAME</B><HR>
@@ -215,7 +301,7 @@ if ($_GET["DeleteID"] == "$_Application_Module_Administration_Panels_LIST_APPLIC
  ============================================================================================================
 */
 
-$_Application_Module_Administration_Panels_DB_Query_Delete_PANEL_ID				= $_GLOBAL_DATABASE_MANAGEMENT_SYSTEM_SERVER_DATABASE_CONNECTION->query("DELETE FROM {$_ACCESS_DATABASE_SERVER_DATABASE_TABLE_PREFIX}_application_panels WHERE id='$_Application_Module_Administration_Panels_LIST_APPLICATION_PANEL_ID'");
+$_Application_Module_Administration_Panels_DB_Query_Delete_PANEL_ID				= $_GLOBAL_DATABASE_MANAGEMENT_SYSTEM_SERVER_DATABASE_CONNECTION->query("DELETE FROM {$_ACCESS_DATABASE_SERVER_DATABASE_TABLE_PREFIX}_applications_panel WHERE id='$_Application_Module_Administration_Panels_LIST_APPLICATION_PANEL_ID'");
 
 /*
  ============================================================================================================
@@ -279,12 +365,21 @@ if ($_GET["UpdateID"] == "$_Application_Module_Administration_Panels_LIST_APPLIC
  ============================================================================================================
 */
 
-$_Application_Module_Administration_Panels_POST_UPDATE_PANEL_FILE_INTEGRITY			= $_POST['AMA_Panels_Update_Application_Panel_File_Integrity'];
-$_Application_Module_Administration_Panels_POST_UPDATE_PANEL_FILE_NAME				= $_POST['AMA_Panels_Update_Application_Panel_File_Name'];
-$_Application_Module_Administration_Panels_POST_UPDATE_PANEL_FILE_PERMISSION			= $_POST['AMA_Panels_Update_Application_Panel_File_Permission'];
-$_Application_Module_Administration_Panels_POST_UPDATE_PANEL_ALIGNMENT				= $_POST['AMA_Panels_Update_Application_Panel_File_Alignment'];
-$_Application_Module_Administration_Panels_POST_UPDATE_PANEL_FILE_STATUS			= $_POST['AMA_Panels_Update_Application_Panel_File_Status'];
-$_Application_Module_Administration_Panels_POST_UPDATE_PANEL_FILE_TITLE				= $_POST['AMA_Panels_Update_Application_Panel_File_Title'];
+$_Application_Module_Administration_Panels_POST_UPDATE_APPLICATION_PANEL_ALIGNMENT				= $_POST['AMA_Panels_Update_Application_Panel_Alignment'];
+$_Application_Module_Administration_Panels_POST_UPDATE_APPLICATION_PANEL_FILE_INTEGRITY				= $_POST['AMA_Panels_Update_Application_Panel_File_Integrity'];
+$_Application_Module_Administration_Panels_POST_UPDATE_APPLICATION_PANEL_FILE_INTEGRITY_INSTALLATION		= $_POST['AMA_Panels_Update_Application_Panel_File_Integrity_Installation'];
+$_Application_Module_Administration_Panels_POST_UPDATE_APPLICATION_PANEL_FILE_NAME				= $_POST['AMA_Panels_Update_Application_Panel_File_Name'];
+$_Application_Module_Administration_Panels_POST_UPDATE_APPLICATION_PANEL_FILE_PERMISSION			= $_POST['AMA_Panels_Update_Application_Panel_File_Permission'];
+$_Application_Module_Administration_Panels_POST_UPDATE_APPLICATION_PANEL_FILE_PERMISSION_CAMERA			= $_POST['AMA_Panels_Update_Application_Panel_File_Permission_Camera'];
+$_Application_Module_Administration_Panels_POST_UPDATE_APPLICATION_PANEL_FILE_PERMISSION_MICROPHONE		= $_POST['AMA_Panels_Update_Application_Panel_File_Permission_Microphone'];
+$_Application_Module_Administration_Panels_POST_UPDATE_APPLICATION_PANEL_FILE_PERMISSION_LOCATION_GPS		= $_POST['AMA_Panels_Update_Application_Panel_File_Permission_Location_GPS'];
+$_Application_Module_Administration_Panels_POST_UPDATE_APPLICATION_PANEL_FILE_PERMISSION_LOCATION_GLO		= $_POST['AMA_Panels_Update_Application_Panel_File_Permission_Location_GLO'];
+$_Application_Module_Administration_Panels_POST_UPDATE_APPLICATION_PANEL_FILE_PERMISSION_LOCATION_IP_ADDRESS	= $_POST['AMA_Panels_Update_Application_Panel_File_Permission_Location_IP_Address'];
+$_Application_Module_Administration_Panels_POST_UPDATE_APPLICATION_PANEL_FILE_STATUS				= $_POST['AMA_Panels_Update_Application_Panel_File_Status'];
+$_Application_Module_Administration_Panels_POST_UPDATE_APPLICATION_PANEL_FILE_TIMESTAMP_INSTALLATION		= $_POST['AMA_Panels_Update_Application_Panel_File_Timestamp_Installation'];
+$_Application_Module_Administration_Panels_POST_UPDATE_APPLICATION_PANEL_FILE_VERSION				= $_POST['AMA_Panels_Update_Application_Panel_File_Version'];
+$_Application_Module_Administration_Panels_POST_UPDATE_APPLICATION_PANEL_ROW					= $_POST['AMA_Panels_Update_Application_Panel_Row'];
+$_Application_Module_Administration_Panels_POST_UPDATE_APPLICATION_PANEL_TITLE					= $_POST['AMA_Panels_Update_Application_Panel_File_Title'];
 
 /*
  ============================================================================================================
@@ -305,13 +400,14 @@ if (!$_Application_Module_Administration_Panels_POST_UPDATE_PANEL_FILE_TITLE) {
 echo ("
 													<BR><HR><CENTER><B>Currently Updating Application Panel: <I>$_Application_Module_Administration_Panels_LIST_APPLICATION_PANEL_FILE_NAME</I></B></CENTER><HR>
 														<FORM ACTION=\"?$_INTERNAL_APPLICATION_MODULE_ADMINISTRATOR&#61;Control_Panel&amp;Action&#61;Panels&UpdateID=$_Application_Module_Administration_Panels_LIST_APPLICATION_PANEL_ID&amp;$_GLOBAL_SYSTEM_SECURITY_CACHE_CIRCUMVENTION_HTR_RANDOM_STRING_GENERATION\" METHOD=\"post\">
-															Currently Updating Application Panel Name: <I>$_Application_Module_Administration_Panels_LIST_APPLICATION_PANEL_FILE_NAME</I> ID Number: <I>$_Application_Module_Administration_Panels_LIST_APPLICATION_PANEL_ID</I><BR><BR>
-
-															Application Panel :: File :: Name<BR>
+															Application Panel :: File :: Name:<BR>
 															Example: <I>Pictures</I> - Do not write .panel after the filename<BR>
 																<INPUT TYPE=\"text\" NAME=\"AMA_Panels_Update_Application_Panel_File_Name\" VALUE=\"$_Application_Module_Administration_Panels_LIST_APPLICATION_PANEL_FILE_NAME\" MAXLENGTH=\"250\"><BR><BR>
 
-															Application Panel :: Permission<BR>
+															Application Panel :: File :: Version:<BR>
+																<INPUT TYPE=\"text\" NAME=\"AMA_Panels_Update_Application_Panel_File_Version\" VALUE=\"$_Application_Module_Administration_Panels_LIST_APPLICATION_PANEL_FILE_VERSION\" MAXLENGTH=\"10\"><BR><BR>
+
+															Application Panel :: Permission:<BR>
 																<SELECT NAME=\"AMA_Panels_Update_Application_Panel_File_Permission\" MAXLENGTH=\"1\">
 																	<OPTION VALUE=\"0\">Public</OPTION>
 																	<OPTION VALUE=\"1\">Registered Member</OPTION>
@@ -321,32 +417,64 @@ echo ("
 																	<OPTION VALUE=\"5\">Services Root Administration</OPTION>
 																</SELECT><BR><BR>
 
-															Application Panel :: Alignment<BR>
-																<SELECT NAME=\"AMA_Panels_Update_Application_Panel_File_Alignment\" MAXLENGTH=\"1\">
-																	<OPTION VALUE=\"0\">LEFT</OPTION>
-																	<OPTION VALUE=\"1\">RIGHT</OPTION>
-																</SELECT><BR><BR>
-
-															Application Panel :: Status<BR>
-																<SELECT NAME=\"AMA_Panels_Update_Application_Panel_File_Status\" MAXLENGTH=\"1\">
+															Application Module :: File :: Permission, Camera<BR>
+																<SELECT NAME=\"AMA_Panels_Update_Application_Panel_File_Permission_Camera\" MAXLENGTH=\"1\">
 																	<OPTION VALUE=\"0\">OFF</OPTION>
 																	<OPTION VALUE=\"1\">ON</OPTION>
 																</SELECT><BR><BR>
 
-															Application Panel :: Title<BR>
+															Application Module :: File :: Permission, Microphone<BR>
+																<SELECT NAME=\"AMA_Panels_Update_Application_Panel_File_Permission_Microphone\" MAXLENGTH=\"1\">
+																	<OPTION VALUE=\"0\">OFF</OPTION>
+																	<OPTION VALUE=\"1\">ON</OPTION>
+																</SELECT><BR><BR>
+
+															Application Module :: File :: Permission, Location By Global-Positioning-System<BR>
+																<SELECT NAME=\"AMA_Panels_Update_Application_Panel_File_Permission_Location_GPS\" MAXLENGTH=\"1\">
+																	<OPTION VALUE=\"0\">OFF</OPTION>
+																	<OPTION VALUE=\"1\">ON</OPTION>
+																</SELECT><BR><BR>
+
+															Application Module :: File :: Permission, Location By Geo-Localization-Objects<BR>
+																<SELECT NAME=\"AMA_Panels_Update_Application_Panel_File_Permission_Location_GLO\" MAXLENGTH=\"1\">
+																	<OPTION VALUE=\"0\">OFF</OPTION>
+																	<OPTION VALUE=\"1\">ON</OPTION>
+																</SELECT><BR><BR>
+
+															Application Module :: File :: Permission, Location By Internet Protocol Address<BR>
+																<SELECT NAME=\"AMA_Panels_Update_Application_Panel_File_Permission_Location_IP_Address\" MAXLENGTH=\"1\">
+																	<OPTION VALUE=\"0\">OFF</OPTION>
+																	<OPTION VALUE=\"1\">ON</OPTION>
+																</SELECT><BR><BR>
+
+															Application Panel :: Alignment:<BR>
+																<SELECT NAME=\"AMA_Panels_Update_Application_Panel_Alignment\" MAXLENGTH=\"1\">
+																	<OPTION VALUE=\"0\">LEFT</OPTION>
+																	<OPTION VALUE=\"1\">RIGHT</OPTION>
+																</SELECT><BR><BR>
+
+															Application Panel :: Row:<BR>
+																<INPUT TYPE=\"text\" NAME=\"AMA_Panels_Update_Application_Panel_Row\" VALUE=\"$_Application_Module_Administration_Panels_LIST_APPLICATION_PANEL_ROW\" MAXLENGTH=\"10\"><BR><BR>
+
+															Application Panel :: File :: Status:<BR>
+																<SELECT NAME=\"AMA_Panels_Install_Application_Panel_File_Status\" MAXLENGTH=\"1\">
+																	<OPTION VALUE=\"0\">OFF</OPTION>
+																	<OPTION VALUE=\"1\">ON</OPTION>
+																</SELECT><BR><BR>
+
+															Application Panel :: Display Title:<BR>
 															Example: <I>My Pictures</I><BR>
 																<INPUT TYPE=\"text\" NAME=\"AMA_Panels_Update_Application_Panel_File_Title\" VALUE=\"$_Application_Module_Administration_Panels_LIST_APPLICATION_PANEL_TITLE\" MAXLENGTH=\"250\"><BR><BR>
 
-															Application Panel :: File :: Integrity :: From Installation<BR>
-															Secure-Hash-Algorithm, 512<BR>
-																	<TEXTAREA ROWS=\"10\" COLS=\"50\" MAXLENGTH=\"512\">$_Application_Module_Administration_Panels_LIST_APPLICATION_PANEL_FILE_INTEGRITY_INSTALLATION</TEXTAREA><BR><BR>
+															Application Panel :: File :: Integrity :: This Installation<BR>
+															Secure-Hash-Algorithm, 256<BR>
+																	<TEXTAREA ROWS=\"10\" COLS=\"50\" NAME=\"AMA_Panels_Update_Application_Panel_File_Integrity_Installation\" MAXLENGTH=\"256\">$_Application_Module_Administration_Panels_LIST_APPLICATION_PANEL_FILE_INTEGRITY_INSTALLATION</TEXTAREA><BR><BR>
 
-															Application Panel :: File :: Integrity<BR>
-															Secure-Hash-Algorithm, 512<BR>
-																	<TEXTAREA ROWS=\"10\" COLS=\"50\" NAME=\"AMA_Panels_Update_Application_Panel_File_Integrity\" MAXLENGTH=\"512\">$_Application_Module_Administration_Panels_LIST_APPLICATION_PANEL_FILE_INTEGRITY</TEXTAREA><BR>
-
+															Application Panel :: File :: Integrity :: Physical<BR>
+															Secure-Hash-Algorithm, 256<BR>
+																	<TEXTAREA ROWS=\"10\" COLS=\"50\" NAME=\"AMA_Panels_Update_Application_Panel_File_Integrity\" MAXLENGTH=\"256\">$_Application_Module_Administration_Panels_LIST_APPLICATION_PANEL_FILE_INTEGRITY</TEXTAREA><BR>
 																<INPUT TYPE=\"submit\" VALUE=\"Update Application Panel\">
-														</FORM><HR><BR>
+														</FORM><BR>
 ");
 
 } else {
@@ -357,14 +485,21 @@ echo ("
  ============================================================================================================
 */
 
-$_Application_Module_Administration_Panels_DB_Query_UPDATE_APPLICATION_PANEL			= $_GLOBAL_DATABASE_MANAGEMENT_SYSTEM_SERVER_DATABASE_CONNECTION->query("UPDATE {$_ACCESS_DATABASE_SERVER_DATABASE_TABLE_PREFIX}_application_panels SET 
-panel_file_integrity='$_Application_Module_Administration_Panels_POST_UPDATE_PANEL_FILE_INTEGRITY',
-panel_file_name='$_Application_Module_Administration_Panels_POST_UPDATE_PANEL_FILE_NAME',
-panel_file_permission='$_Application_Module_Administration_Panels_POST_UPDATE_PANEL_FILE_PERMISSION',
-panel_alignment='$_Application_Module_Administration_Panels_POST_UPDATE_PANEL_ALIGNMENT',
-panel_file_status='$_Application_Module_Administration_Panels_POST_UPDATE_PANEL_FILE_STATUS',
-panel_title='$_Application_Module_Administration_Panels_POST_UPDATE_PANEL_FILE_TITLE' 
-WHERE id='$_Application_Module_Administration_Panels_LIST_APPLICATION_PANEL_ID'");
+$_Application_Module_Administration_Panels_DB_Query_Update_Application_Panel			= $_GLOBAL_DATABASE_MANAGEMENT_SYSTEM_SERVER_DATABASE_CONNECTION->query("UPDATE {$_ACCESS_DATABASE_SERVER_DATABASE_TABLE_PREFIX}_applications_panel SET
+application_panel_alignment='$_Application_Module_Administration_Panels_POST_UPDATE_APPLICATION_PANEL_ALIGNMENT',
+application_panel_file_integrity='$_Application_Module_Administration_Panels_LIST_APPLICATION_PANEL_FILE_INTEGRITY',
+application_panel_file_name='$_Application_Module_Administration_Panels_POST_UPDATE_APPLICATION_PANEL_FILE_NAME',
+application_panel_file_permission='$_Application_Module_Administration_Panels_POST_UPDATE_APPLICATION_PANEL_FILE_PERMISSION',
+application_panel_file_permission_camera='$_Application_Module_Administration_Panels_POST_UPDATE_APPLICATION_PANEL_FILE_PERMISSION_CAMERA',
+application_panel_file_permission_microphone='$_Application_Module_Administration_Panels_POST_UPDATE_APPLICATION_PANEL_FILE_PERMISSION_MICROPHONE',
+application_panel_file_permission_location_gps='$_Application_Module_Administration_Panels_POST_UPDATE_APPLICATION_PANEL_FILE_PERMISSION_LOCATION_GPS',
+application_panel_file_permission_location_glo='$_Application_Module_Administration_Panels_POST_UPDATE_APPLICATION_PANEL_FILE_PERMISSION_LOCATION_GLO',
+application_panel_file_permission_location_ip_address='$_Application_Module_Administration_Panels_POST_UPDATE_APPLICATION_PANEL_FILE_PERMISSION_LOCATION_IP_ADDRESS',
+application_panel_file_status='$_Application_Module_Administration_Panels_POST_UPDATE_APPLICATION_PANEL_FILE_STATUS',
+application_panel_file_timestamp_installation='$_Application_Module_Administration_Panels_POST_UPDATE_APPLICATION_PANEL_FILE_TIMESTAMP_INSTALLATION',
+application_panel_file_version='$_Application_Module_Administration_Panels_POST_UPDATE_APPLICATION_PANEL_FILE_VERSION',
+application_panel_row='$_Application_Module_Administration_Panels_POST_UPDATE_APPLICATION_PANEL_ROW',
+application_panel_title='$_Application_Module_Administration_Panels_POST_UPDATE_APPLICATION_PANEL_TITLE' WHERE id='$_Application_Module_Administration_Panels_LIST_APPLICATION_PANEL_ID'");
 
 /*
  ============================================================================================================
@@ -372,7 +507,7 @@ WHERE id='$_Application_Module_Administration_Panels_LIST_APPLICATION_PANEL_ID'"
  ============================================================================================================
 */
 
-if ($_Application_Module_Administration_Panels_DB_Query_UPDATE_APPLICATION_PANEL) {
+if ($_Application_Module_Administration_Panels_DB_Query_Update_Application_Panel) {
 
 													echo ($_Application_Module_Administration_Message_Panels_UPDATE_SUCCESSFUL);
 
@@ -412,7 +547,7 @@ if ($_GET["MoveUp"] == "$_Application_Module_Administration_Panels_LIST_APPLICAT
 
 $_Application_Module_Administration_Panels_INCREMENT_APPLICATION_PANEL_ROW 			= $_Application_Module_Administration_Panels_LIST_APPLICATION_PANEL_ROW + 1;
 
-$_Application_Module_Administration_Panels_DB_Query_UPDATE_APPLICATION_PANEL_INCREMENT_ROW 	= $_GLOBAL_DATABASE_MANAGEMENT_SYSTEM_SERVER_DATABASE_CONNECTION->query("UPDATE {$_ACCESS_DATABASE_SERVER_DATABASE_TABLE_PREFIX}_application_panels SET panel_row='$_Application_Module_Administration_Panels_INCREMENT_APPLICATION_PANEL_ROW' WHERE id='$_Application_Module_Administration_Panels_LIST_APPLICATION_PANEL_ID'");
+$_Application_Module_Administration_Panels_DB_Query_UPDATE_APPLICATION_PANEL_INCREMENT_ROW 	= $_GLOBAL_DATABASE_MANAGEMENT_SYSTEM_SERVER_DATABASE_CONNECTION->query("UPDATE {$_ACCESS_DATABASE_SERVER_DATABASE_TABLE_PREFIX}_applications_panel SET application_panel_row='$_Application_Module_Administration_Panels_INCREMENT_APPLICATION_PANEL_ROW' WHERE id='$_Application_Module_Administration_Panels_LIST_APPLICATION_PANEL_ID'");
 
 /*
  ============================================================================================================
@@ -458,7 +593,7 @@ $_Application_Module_Administration_Panels_DECREMENT_APPLICATION_PANEL_ROW			= $
  ============================================================================================================
 */
 
-$_Application_Module_Administration_Panels_DB_Query_UPDATE_APPLICATION_PANEL_DECREMENT_ROW	= $_GLOBAL_DATABASE_MANAGEMENT_SYSTEM_SERVER_DATABASE_CONNECTION->query("UPDATE {$_ACCESS_DATABASE_SERVER_DATABASE_TABLE_PREFIX}_application_panels SET panel_row='$_Application_Module_Administration_Panels_DECREMENT_APPLICATION_PANEL_ROW' WHERE id='$_Application_Module_Administration_Panels_LIST_APPLICATION_PANEL_ID'");
+$_Application_Module_Administration_Panels_DB_Query_UPDATE_APPLICATION_PANEL_DECREMENT_ROW	= $_GLOBAL_DATABASE_MANAGEMENT_SYSTEM_SERVER_DATABASE_CONNECTION->query("UPDATE {$_ACCESS_DATABASE_SERVER_DATABASE_TABLE_PREFIX}_applications_panel SET appliction_panel_row='$_Application_Module_Administration_Panels_DECREMENT_APPLICATION_PANEL_ROW' WHERE id='$_Application_Module_Administration_Panels_LIST_APPLICATION_PANEL_ID'");
 
 /*
  ============================================================================================================

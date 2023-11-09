@@ -159,7 +159,7 @@ if ($_Application_Module_Administration_Networking_DB_Query_Block_Network_Intern
 */
 
 $_Application_Module_Administration_Networking_DB_Query_LIST_BLOCKED_NETWORKS			= $_GLOBAL_DATABASE_MANAGEMENT_SYSTEM_SERVER_DATABASE_CONNECTION->query("SELECT * FROM {$_ACCESS_DATABASE_SERVER_DATABASE_TABLE_PREFIX}_networking ORDER BY id ASC");
-$_Application_Module_Administration_Networking_DB_Query_LIST_BLOCKED_NETWORKS_NUMBER_OF_ROWS	= $_Application_Module_Administration_Networking_DB_Query_LIST_BLOCKED_NETWORKS->num_rows.
+$_Application_Module_Administration_Networking_DB_Query_LIST_BLOCKED_NETWORKS_NUMBER_OF_ROWS	= $_Application_Module_Administration_Networking_DB_Query_LIST_BLOCKED_NETWORKS->num_rows;
 
 													echo ("<HR><CENTER><B>Existing Blocked Networks</B></CENTER><HR>");
 

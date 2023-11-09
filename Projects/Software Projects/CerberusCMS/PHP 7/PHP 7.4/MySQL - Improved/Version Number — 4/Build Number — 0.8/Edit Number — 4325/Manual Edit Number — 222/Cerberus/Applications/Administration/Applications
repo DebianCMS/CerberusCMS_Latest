@@ -65,8 +65,8 @@
  ============================================================================================================
 */
 
-$_Application_Module_Administration_Applications_POST_INSTALL_APPLICATION_FILE_INTEGRITY		= $_POST['AMA_Applications_Install_Application_File_Integrity'];
-$_Application_Module_Administration_Applications_POST_INSTALL_APPLICATION_FILE_INTEGRITY_INSTALL	= $_POST['AMA_Applications_Install_Application_File_Integrity_Install'];
+//$_Application_Module_Administration_Applications_POST_INSTALL_APPLICATION_FILE_INTEGRITY_PHYSICAL	= $_POST['AMA_Applications_Install_Application_File_Integrity_Physical'];
+$_Application_Module_Administration_Applications_POST_INSTALL_APPLICATION_FILE_INTEGRITY_INSTALLATION	= $_POST['AMA_Applications_Install_Application_File_Integrity_Installation'];
 $_Application_Module_Administration_Applications_POST_INSTALL_APPLICATION_FILE_NAME 			= $_POST['AMA_Applications_Install_Application_File_Name'];
 $_Application_Module_Administration_Applications_POST_INSTALL_APPLICATION_FILE_PERMISSION 		= $_POST['AMA_Applications_Install_Application_File_Permission'];
 $_Application_Module_Administration_Applications_POST_INSTALL_APPLICATION_FILE_PERMISSION_CAMERA 	= $_POST['AMA_Applications_Install_Application_File_Permission_Camera'];
@@ -75,6 +75,9 @@ $_Application_Module_Administration_Applications_POST_INSTALL_APPLICATION_FILE_P
 $_Application_Module_Administration_Applications_POST_INSTALL_APPLICATION_FILE_PERMISSION_LOCATION_GLO 	= $_POST['AMA_Applications_Install_Application_File_Permission_Location_GLO'];
 $_Application_Module_Administration_Applications_POST_INSTALL_APPLICATION_FILE_PERMISSION_LOCATION_IP 	= $_POST['AMA_Applications_Install_Application_File_Permission_Location_IP'];
 $_Application_Module_Administration_Applications_POST_INSTALL_APPLICATION_FILE_STATUS 			= $_POST['AMA_Applications_Install_Application_File_Status'];
+$_Application_Module_Administration_Applications_POST_INSTALL_APPLICATION_FILE_VERSION 			= $_POST['AMA_Applications_Install_Application_File_Version'];
+
+$_Application_Module_Administration_Applications_POST_INSTALL_APPLICATION_FILE_INTEGRITY_PHYSICAL	= hash_file('sha256', "./Applications/Member/$_Application_Module_Administration_Applications_POST_INSTALL_APPLICATION_FILE_NAME");
 
 /*
  ============================================================================================================
@@ -109,8 +112,11 @@ if (!$_Application_Module_Administration_Applications_POST_INSTALL_APPLICATION_F
 echo ("
 											<CENTER><B>Install Application Entry</B></CENTER><HR>
 												<FORM ACTION=\"?$_INTERNAL_APPLICATION_MODULE_ADMINISTRATOR&#61;Control_Panel&amp;Action&#61;Applications&amp;$_GLOBAL_SYSTEM_SECURITY_CACHE_CIRCUMVENTION_HTR_RANDOM_STRING_GENERATION\" METHOD=\"post\">
-													Application Module :: File Name<BR>
+													Application Module :: File :: Name<BR>
 														<INPUT TYPE=\"text\" NAME=\"AMA_Applications_Install_Application_File_Name\" MAXLENGTH=\"100\"><BR><BR>
+
+													Application Module :: File :: Version<BR>
+														<INPUT TYPE=\"text\" NAME=\"AMA_Applications_Install_Application_File_Version\" MAXLENGTH=\"10\"><BR><BR>
 
 													Application Module :: Permissions :: Priviledge-Level<BR>
 														<SELECT NAME=\"AMA_Applications_Install_Application_File_Permission\" MAXLENGTH=\"1\">
@@ -165,12 +171,12 @@ echo ("
 														</SELECT><BR><BR>
 														
 													Application Module :: File :: Integrity<BR>
-													Secure-Hash-Algorithm, 512<BR>
-														<TEXTAREA ROWS=\"10\" COLS=\"50\" NAME=\"AMA_Applications_Install_Application_File_Integrity\" MAXLENGTH=\"512\">Integrity Will Automatically Be Recalculated</TEXTAREA><BR><BR>
+													Secure-Hash-Algorithm, 256<BR>
+														<TEXTAREA ROWS=\"10\" COLS=\"50\" NAME=\"AMA_Applications_Install_Application_File_Integrity_Physical\" MAXLENGTH=\"256\">Integrity Will Automatically Be Recalculated</TEXTAREA><BR><BR>
 
 													Application Module :: File :: Integrity :: From This Installation<BR>
-													Secure-Hash-Algorithm, 512<BR>
-														<TEXTAREA ROWS=\"10\" COLS=\"50\" NAME=\"AMA_Applications_Install_Application_File_Integrity_Install\" MAXLENGTH=\"512\">Integrity Will Automatically Be Recalculated</TEXTAREA><BR>
+													Secure-Hash-Algorithm, 256<BR>
+														<TEXTAREA ROWS=\"10\" COLS=\"50\" NAME=\"AMA_Applications_Install_Application_File_Integrity_Installation\" MAXLENGTH=\"256\">Integrity Will Automatically Be Recalculated</TEXTAREA><BR>
 													<INPUT TYPE=\"submit\" VALUE=\"Install Application\">
 												</FORM><BR><BR>
 ");
@@ -194,10 +200,11 @@ application_file_permission_location_gps,
 application_file_permission_location_glo,
 application_file_permission_location_internet_protocol_address,
 application_file_status,
-application_file_timestamp_installation
+application_file_timestamp_installation,
+application_file_version
 )VALUES(
-'$_Application_Module_Administration_Applications_POST_INSTALL_APPLICATION_FILE_INTEGRITY',
-'$_Application_Module_Administration_Applications_POST_INSTALL_APPLICATION_FILE_INTEGRITY_INSTALL',
+'$_Application_Module_Administration_Applications_POST_INSTALL_APPLICATION_FILE_INTEGRITY_PHYSICAL',
+'$_Application_Module_Administration_Applications_POST_INSTALL_APPLICATION_FILE_INTEGRITY_INSTALLATION',
 '$_Application_Module_Administration_Applications_POST_INSTALL_APPLICATION_FILE_NAME',
 '$_Application_Module_Administration_Applications_POST_INSTALL_APPLICATION_FILE_PERMISSION',
 '$_Application_Module_Administration_Applications_POST_INSTALL_APPLICATION_FILE_PERMISSION_CAMERA',
@@ -206,7 +213,8 @@ application_file_timestamp_installation
 '$_Application_Module_Administration_Applications_POST_INSTALL_APPLICATION_FILE_PERMISSION_LOCATION_GLO',
 '$_Application_Module_Administration_Applications_POST_INSTALL_APPLICATION_FILE_PERMISSION_LOCATION_IP',
 '$_Application_Module_Administration_Applications_POST_INSTALL_APPLICATION_FILE_STATUS',
-'$_GLOBAL_LOCAL_SERVER_DATE_STANDARD'
+'$_GLOBAL_LOCAL_SERVER_DATE_STANDARD',
+'$_Application_Module_Administration_Applications_POST_INSTALL_APPLICATION_FILE_VERSION'
 )");
 
 /*
@@ -341,8 +349,9 @@ $_Application_Module_Administration_Applications_LIST_APPLICATION_FILE_PERMISSIO
 $_Application_Module_Administration_Applications_LIST_APPLICATION_FILE_PERMISSION_LOCATION_GEO		= $_Application_Module_Administration_Applications_DB_Query_Select_Application_File_Fetch_Array['application_file_permission_location_geo'];
 $_Application_Module_Administration_Applications_LIST_APPLICATION_FILE_PERMISSION_LOCATION_IP		= $_Application_Module_Administration_Applications_DB_Query_Select_Application_File_Fetch_Array['application_file_permission_location_internet_protocol_address'];
 $_Application_Module_Administration_Applications_LIST_APPLICATION_FILE_STATUS 				= $_Application_Module_Administration_Applications_DB_Query_Select_Application_File_Fetch_Array['application_file_status'];
+$_Application_Module_Administration_Applications_LIST_APPLICATION_FILE_VERSION 				= $_Application_Module_Administration_Applications_DB_Query_Select_Application_File_Fetch_Array['application_file_version'];
 
-$_Application_Module_Administration_Applications_LIST_APPLICATION_FILE_INTEGRITY			= hash_file('sha512', "./Applications/Member/$_Application_Module_Administration_Applications_LIST_APPLICATION_FILE_NAME");
+$_Application_Module_Administration_Applications_LIST_APPLICATION_FILE_INTEGRITY_PHYSICAL		= hash_file('sha256', "./Applications/Member/$_Application_Module_Administration_Applications_LIST_APPLICATION_FILE_NAME");
 
 /*
  ============================================================================================================
@@ -444,6 +453,9 @@ $_Application_Module_Administration_Applications_POST_UPDATE_APPLICATION_FILE_PE
 $_Application_Module_Administration_Applications_POST_UPDATE_APPLICATION_FILE_PERMISSION_LOCATION_GLO 	= $_POST['AMA_Applications_Update_Application_File_Permission_Location_GLO'];
 $_Application_Module_Administration_Applications_POST_UPDATE_APPLICATION_FILE_PERMISSION_LOCATION_IP 	= $_POST['AMA_Applications_Update_Application_File_Permission_Location_IP'];
 $_Application_Module_Administration_Applications_POST_UPDATE_APPLICATION_FILE_STATUS 			= $_POST['AMA_Applications_Update_Application_File_Status'];
+$_Application_Module_Administration_Applications_POST_UPDATE_APPLICATION_FILE_VERSION 			= $_POST['AMA_Applications_Update_Application_File_Version'];
+
+$_Application_Module_Administration_Applications_LIST_UPDATE_APPLICATION_FILE_INTEGRITY			= hash_file('sha256', "./Applications/Member/$_Application_Module_Administration_Applications_POST_UPDATE_APPLICATION_FILE_NAME");
 
 /*
  ============================================================================================================
@@ -464,10 +476,13 @@ if (!$_Application_Module_Administration_Applications_POST_UPDATE_APPLICATION_FI
 echo ("
 											<BR><BR><HR><CENTER><B>Currently Updating Application: <I>$_Application_Module_Administration_Applications_LIST_APPLICATION_FILE_NAME</I></B></CENTER><HR>
 												<FORM ACTION=\"?$_INTERNAL_APPLICATION_MODULE_ADMINISTRATOR&#61;Control_Panel&amp;Action&#61;Applications&amp;Update&#61;$_Application_Module_Administration_Applications_LIST_APPLICATION_ID&amp;$_GLOBAL_SYSTEM_SECURITY_CACHE_CIRCUMVENTION_HTR_RANDOM_STRING_GENERATION\" METHOD=\"post\">
-													Application File Name<BR>
+													Application Module :: File :: Name<BR>
 														<INPUT TYPE=\"text\" NAME=\"AMA_Applications_Update_Application_File_Name\" VALUE=\"$_Application_Module_Administration_Applications_LIST_APPLICATION_FILE_NAME\" MAXLENGTH=\"100\"><BR><BR>
 
-													Application File Permissions<BR>
+													Application Module :: File :: Version<BR>
+														<INPUT TYPE=\"text\" NAME=\"AMA_Applications_Update_Application_File_Version\" VALUE=\"$_Application_Module_Administration_Applications_LIST_APPLICATION_FILE_VERSION\" MAXLENGTH=\"10\"><BR><BR>
+
+													Application Module ::File Permissions<BR>
 														<SELECT NAME=\"AMA_Applications_Update_Application_File_Permissions\" MAXLENGTH=\"1\">
 															<OPTION VALUE=\"0\">Public</OPTION>
 															<OPTION VALUE=\"1\">Member</OPTION>
@@ -477,37 +492,37 @@ echo ("
 															<OPTION VALUE=\"5\">Services Root Administrator</OPTION>
 														</SELECT><BR><BR>
 
-													Application File Permission, Camera<BR>
+													Application Module :: File :: Permission, Camera<BR>
 														<SELECT NAME=\"AMA_Applications_Update_Application_File_Permission_Camera\" MAXLENGTH=\"1\">
 															<OPTION VALUE=\"0\">OFF</OPTION>
 															<OPTION VALUE=\"1\">ON</OPTION>
 														</SELECT><BR><BR>
 
-													Application File Permission, Microphone<BR>
+													Application Module :: File :: Permission, Microphone<BR>
 														<SELECT NAME=\"AMA_Applications_Update_Application_File_Permission_Microphone\" MAXLENGTH=\"1\">
 															<OPTION VALUE=\"0\">OFF</OPTION>
 															<OPTION VALUE=\"1\">ON</OPTION>
 														</SELECT><BR><BR>
 
-													Application File Permission, Location By Global-Positioning-System<BR>
+													Application Module :: File :: Permission, Location By Global-Positioning-System<BR>
 														<SELECT NAME=\"AMA_Applications_Update_Application_File_Permission_Location_GPS\" MAXLENGTH=\"1\">
 															<OPTION VALUE=\"0\">OFF</OPTION>
 															<OPTION VALUE=\"1\">ON</OPTION>
 														</SELECT><BR><BR>
 
-													Application File Permission, Location By GEO<BR>
+													Application Module :: File :: Permission, Location By Geo-Localization-Objects<BR>
 														<SELECT NAME=\"AMA_Applications_Update_Application_File_Permission_Location_GLO\" MAXLENGTH=\"1\">
 															<OPTION VALUE=\"0\">OFF</OPTION>
 															<OPTION VALUE=\"1\">ON</OPTION>
 														</SELECT><BR><BR>
 
-													Application File Permission, Location By Internet Protocol Address<BR>
+													Application Module :: File :: Permission, Location By Internet Protocol Address<BR>
 														<SELECT NAME=\"AMA_Applications_Update_Application_File_Permission_Location_IP\" MAXLENGTH=\"1\">
 															<OPTION VALUE=\"0\">OFF</OPTION>
 															<OPTION VALUE=\"1\">ON</OPTION>
 														</SELECT><BR><BR>
 
-													Application File Status<BR>
+													Application Module :: File :: Status<BR>
 														<SELECT NAME=\"AMA_Applications_Update_Application_File_Status\" MAXLENGTH=\"1\">
 															<OPTION VALUE=\"0\">OFF</OPTION>
 															<OPTION VALUE=\"1\">ON</OPTION>
@@ -516,8 +531,8 @@ echo ("
 													Application Module :: File :: Integrity :: From Installation<BR>
 														<TEXTAREA ROWS=\"10\" COLS=\"50\" NAME=\"AMA_Applications_Update_Application_File_Integrity_Installation\" MAXLENGTH=\"512\">$_Application_Module_Administration_Applications_LIST_APPLICATION_FILE_INTEGRITY_INSTALLATION</TEXTAREA><BR><BR>
 
-													Application Module :: File :: Integrity :: Current<BR>
-														<TEXTAREA ROWS=\"10\" COLS=\"50\" MAXLENGTH=\"512\">$_Application_Module_Administration_Applications_LIST_APPLICATION_FILE_INTEGRITY</TEXTAREA><BR>
+													Application Module :: File :: Integrity :: Physical<BR>
+														<TEXTAREA ROWS=\"10\" COLS=\"50\" MAXLENGTH=\"512\">$_Application_Module_Administration_Applications_LIST_APPLICATION_FILE_INTEGRITY_PHYSICAL</TEXTAREA><BR>
 													<INPUT TYPE=\"submit\" VALUE=\"Update Application\">
 												</FORM><HR><BR><BR>
 ");
@@ -531,7 +546,7 @@ echo ("
 */
 
 $_Application_Module_Administration_Applications_DB_Query_Update_Application_ID				= $_GLOBAL_DATABASE_MANAGEMENT_SYSTEM_SERVER_DATABASE_CONNECTION->query("UPDATE {$_ACCESS_DATABASE_SERVER_DATABASE_TABLE_PREFIX}_applications SET 
-application_file_integrity='$_Application_Module_Administration_Applications_LIST_APPLICATION_FILE_INTEGRITY',
+application_file_integrity='$_Application_Module_Administration_Applications_LIST_UPDATE_APPLICATION_FILE_INTEGRITY',
 application_file_integrity_installation='$_Application_Module_Administration_Applications_POST_UPDATE_APPLICATION_FILE_INTEGRITY_INSTALLATION',
 application_file_name='$_Application_Module_Administration_Applications_POST_UPDATE_APPLICATION_FILE_NAME',
 application_file_permission='$_Application_Module_Administration_Applications_POST_UPDATE_APPLICATION_FILE_PERMISSIONS',
@@ -540,7 +555,8 @@ application_file_permission_microphone='$_Application_Module_Administration_Appl
 application_file_permission_location_gps='$_Application_Module_Administration_Applications_POST_UPDATE_APPLICATION_FILE_PERMISSION_LOCATION_GPS',
 application_file_permission_location_glo='$_Application_Module_Administration_Applications_POST_UPDATE_APPLICATION_FILE_PERMISSION_LOCATION_GLO',
 application_file_permission_location_internet_protocol_address='$_Application_Module_Administration_Applications_POST_UPDATE_APPLICATION_FILE_PERMISSION_LOCATION_IP',
-application_file_status='$_Application_Module_Administration_Applications_POST_UPDATE_APPLICATION_FILE_STATUS' WHERE id='$_Application_Module_Administration_Applications_LIST_APPLICATION_ID'");
+application_file_status='$_Application_Module_Administration_Applications_POST_UPDATE_APPLICATION_FILE_STATUS',
+application_file_version='$_Application_Module_Administration_Applications_POST_UPDATE_APPLICATION_FILE_VERSION' WHERE id='$_Application_Module_Administration_Applications_LIST_APPLICATION_ID'");
 
 /*
  ============================================================================================================

@@ -209,7 +209,7 @@ if ($_Application_Module_Administration_Forum_DB_Query_INSTALL_FORUM) {
 */
 
 $_Application_Module_Administration_Forum_DB_Query_SELECT_FORUMS 				= $_GLOBAL_DATABASE_MANAGEMENT_SYSTEM_SERVER_DATABASE_CONNECTION->query("SELECT * FROM {$_ACCESS_DATABASE_SERVER_DATABASE_TABLE_PREFIX}_forum_forum");
-$_Application_Module_Administration_Forum_DB_Query_SELECT_FORUMS_NUMBER_OF_ROWS			$_Application_Module_Administration_Forum_DB_Query_SELECT_FORUMS->num_rows;
+$_Application_Module_Administration_Forum_DB_Query_SELECT_FORUMS_NUMBER_OF_ROWS			= $_Application_Module_Administration_Forum_DB_Query_SELECT_FORUMS->num_rows;
 
 /*
  =============================================================================================================
@@ -229,7 +229,7 @@ if ($_Application_Module_Administration_Forum_DB_Query_SELECT_FORUMS_NUMBER_OF_R
  =============================================================================================================
 */
 
-while ($_Application_Module_Administration_Forum_DB_Query_SELECT_FORUMS_Fetch_Array = $_Application_Module_Administration_Forum_DB_Query_SELECT_FORUMS->fetch_array(MYSQLI_BOTH))) {
+while ($_Application_Module_Administration_Forum_DB_Query_SELECT_FORUMS_Fetch_Array = $_Application_Module_Administration_Forum_DB_Query_SELECT_FORUMS->fetch_array(MYSQLI_BOTH)) {
 
 /*
  =============================================================================================================
@@ -239,8 +239,8 @@ while ($_Application_Module_Administration_Forum_DB_Query_SELECT_FORUMS_Fetch_Ar
 
 $_Application_Module_Administration_Forum_LIST_FORUM_ID 					= $_Application_Module_Administration_Forum_DB_Query_SELECT_FORUMS_Fetch_Array['id'];
 $_Application_Module_Administration_Forum_LIST_FORUM_ACCESS_LEVEL				= $_Application_Module_Administration_Forum_DB_Query_SELECT_FORUMS_Fetch_Array['forum_access_level'];
-$_Application_Module_Administration_Forum_LIST_FORUM_DATE					= $_Application_Module_Administration_Forum_DB_Query_SELECT_FORUMS_Fetch_Array['forum_date'];
 $_Application_Module_Administration_Forum_LIST_FORUM_DESCRIPTION				= $_Application_Module_Administration_Forum_DB_Query_SELECT_FORUMS_Fetch_Array['forum_description'];
+$_Application_Module_Administration_Forum_LIST_FORUM_TIMESTAMP					= $_Application_Module_Administration_Forum_DB_Query_SELECT_FORUMS_Fetch_Array['forum_timestamp'];
 $_Application_Module_Administration_Forum_LIST_FORUM_TITLE					= $_Application_Module_Administration_Forum_DB_Query_SELECT_FORUMS_Fetch_Array['forum_title'];
 
 echo ("																Forum Name: <B>$_Application_Module_Administration_Forum_LIST_FORUM_TITLE</B><BR>
@@ -297,10 +297,10 @@ echo ("
 															<INPUT TYPE=\"TEXT\" NAME=\"AMA_Forum_Update_Forum_Title\" VALUE=\"$_Application_Module_Administration_Forum_LIST_FORUM_TITLE\" MAXLENGTH=\"250\"><BR><BR>
 
 														Update Forum :: Installation Timestamp<BR>
-															<INPUT TYPE=\"TEXT\" NAME=\"AMA_Forum_Update_Forum_Timestamp\" VALUE=\"$_Application_Module_Administration_Forum_LIST_FORUM_DATE\" MAXLENGTH=\"250\"><BR><BR>
+															<INPUT TYPE=\"TEXT\" NAME=\"AMA_Forum_Update_Forum_Timestamp\" VALUE=\"$_Application_Module_Administration_Forum_LIST_FORUM_TIMESTAMP\" MAXLENGTH=\"250\"><BR><BR>
 
 														Update Forum :: Access Level<BR>
-															<SELECT NAME=\"AMA_Forum_Update_Access_Level\">
+															<SELECT NAME=\"AMA_Forum_Update_Forum_Access_Level\">
 																<OPTION VALUE=\"0\">Non-Registered Visitor</OPTION>
 																<OPTION VALUE=\"1\">Registered Member</OPTION>
 																<OPTION VALUE=\"2\">Moderator</OPTION>
