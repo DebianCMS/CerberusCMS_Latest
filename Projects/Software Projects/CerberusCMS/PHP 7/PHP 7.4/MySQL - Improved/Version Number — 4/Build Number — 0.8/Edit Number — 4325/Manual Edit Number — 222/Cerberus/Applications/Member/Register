@@ -648,8 +648,8 @@ member_username
 'Unknown :: Race :: 4',
 'Account Profile :: Member Account',
 'Account Signature :: Member Account',
-'$_GLOBAL_LOCAL_SERVER_DATE_TIMESTAMP',
-'This Registered Member Account Was Registered From The Internet Protocol Address :: $_GLOBAL_REMOTE_SERVER_ADDRESS On: $_GLOBAL_LOCAL_SERVER_DATE_TIMESTAMP',
+'$_GLOBAL_LOCAL_SERVER_DATE_STANDARD',
+'This Registered Member Account Was Registered From The Internet Protocol Address :: $_GLOBAL_REMOTE_SERVER_ADDRESS On: $_GLOBAL_LOCAL_SERVER_DATE_STANDARD',
 'Unknown :: Fingerprint :: Clear-Text',
 'Unknown :: Fingerprint :: Hashed',
 'Empty Entry :: Password :: Panel :: Custom :: Private',
@@ -695,7 +695,7 @@ member_username
 '$_Application_Module_Member_Register_RANDOM_KEY_MD5',
 '0',
 '0',
-'$_GLOBAL_LOCAL_SERVER_DATE_TIMESTAMP',
+'$_GLOBAL_LOCAL_SERVER_DATE_STANDARD',
 '$_GLOBAL_LOCAL_SERVER_DATE_NUMERICAL_YEAR_FULL',
 '$_GLOBAL_LOCAL_SERVER_DATE_NUMERICAL_MONTH_FULL',
 '$_GLOBAL_LOCAL_SERVER_DATE_NUMERICAL_MONTH_DAY_FULL',
@@ -763,8 +763,8 @@ mkdir("./Member/$_Application_Module_Member_Register_POST_REGISTRAR_USERNAME/Fil
 mkdir("./Member/$_Application_Module_Member_Register_POST_REGISTRAR_USERNAME/Files/Document/GPS/GLO");
 mkdir("./Member/$_Application_Module_Member_Register_POST_REGISTRAR_USERNAME/Files/Document/GPS/Region");
 mkdir("./Member/$_Application_Module_Member_Register_POST_REGISTRAR_USERNAME/Files/Document/Messenger");
-mkdir("./Member/$_Application_Module_Member_Register_POST_REGISTRAR_USERNAME/Files/Document/Clear-Text");
-mkdir("./Member/$_Application_Module_Member_Register_POST_REGISTRAR_USERNAME/Files/Document/Encrypted");
+mkdir("./Member/$_Application_Module_Member_Register_POST_REGISTRAR_USERNAME/Files/Document/Messenger/Clear-Text");
+mkdir("./Member/$_Application_Module_Member_Register_POST_REGISTRAR_USERNAME/Files/Document/Messenger/Encrypted");
 mkdir("./Member/$_Application_Module_Member_Register_POST_REGISTRAR_USERNAME/Files/Document/Streams");
 mkdir("./Member/$_Application_Module_Member_Register_POST_REGISTRAR_USERNAME/Files/Document/Streams/Wall");
 
