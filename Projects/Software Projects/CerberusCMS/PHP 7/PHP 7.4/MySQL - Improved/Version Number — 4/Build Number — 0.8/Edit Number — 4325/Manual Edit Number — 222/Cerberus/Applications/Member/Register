@@ -762,6 +762,9 @@ mkdir("./Member/$_Application_Module_Member_Register_POST_REGISTRAR_USERNAME/Fil
 mkdir("./Member/$_Application_Module_Member_Register_POST_REGISTRAR_USERNAME/Files/Document/GPS/Coordinates");
 mkdir("./Member/$_Application_Module_Member_Register_POST_REGISTRAR_USERNAME/Files/Document/GPS/GLO");
 mkdir("./Member/$_Application_Module_Member_Register_POST_REGISTRAR_USERNAME/Files/Document/GPS/Region");
+mkdir("./Member/$_Application_Module_Member_Register_POST_REGISTRAR_USERNAME/Files/Document/Messenger");
+mkdir("./Member/$_Application_Module_Member_Register_POST_REGISTRAR_USERNAME/Files/Document/Clear-Text");
+mkdir("./Member/$_Application_Module_Member_Register_POST_REGISTRAR_USERNAME/Files/Document/Encrypted");
 mkdir("./Member/$_Application_Module_Member_Register_POST_REGISTRAR_USERNAME/Files/Document/Streams");
 mkdir("./Member/$_Application_Module_Member_Register_POST_REGISTRAR_USERNAME/Files/Document/Streams/Wall");
 
@@ -810,6 +813,9 @@ copy("./Member/Setup/Indexes/Files/Document/GPS/Coordinates/Coordinates.php","./
 copy("./Member/Setup/Indexes/Files/Document/GPS/GLO/GLO.php","./Member/$_Application_Module_Member_Register_POST_REGISTRAR_USERNAME/Files/Document/GPS/GLO/index.php");
 copy("./Member/Setup/Indexes/Files/Document/GPS/Region/Region.php","./Member/$_Application_Module_Member_Register_POST_REGISTRAR_USERNAME/Files/Document/GPS/Region/index.php");
 copy("./Member/Setup/Indexes/Files/Document/Friends/Friends.php","./Member/$_Application_Module_Member_Register_POST_REGISTRAR_USERNAME/Files/Document/Friends/index.php");
+copy("./Member/Setup/Indexes/Files/Document/Messenger/Messenger.php","./Member/$_Application_Module_Member_Register_POST_REGISTRAR_USERNAME/Files/Document/Messenger/index.php");
+copy("./Member/Setup/Indexes/Files/Document/Messenger/Clear-Text/Clear-Text.php","./Member/$_Application_Module_Member_Register_POST_REGISTRAR_USERNAME/Files/Document/Messenger/Clear-Text/index.php");
+copy("./Member/Setup/Indexes/Files/Document/Messenger/Encrypted/Encrypted.php","./Member/$_Application_Module_Member_Register_POST_REGISTRAR_USERNAME/Files/Document/Messenger/Encrypted/index.php");
 copy("./Member/Setup/Indexes/Files/Document/Streams/Streams.php","./Member/$_Application_Module_Member_Register_POST_REGISTRAR_USERNAME/Files/Document/Streams/index.php");
 copy("./Member/Setup/Indexes/Files/Document/Streams/Wall/Wall.php","./Member/$_Application_Module_Member_Register_POST_REGISTRAR_USERNAME/Files/Document/Streams/Wall/index.php");
 

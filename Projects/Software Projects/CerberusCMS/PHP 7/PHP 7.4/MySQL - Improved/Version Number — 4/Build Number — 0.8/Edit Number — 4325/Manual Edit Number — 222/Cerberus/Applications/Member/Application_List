@@ -195,7 +195,7 @@ $_Application_Module_Member_Application_List_DB_Query_List_Applications_Member		
  ============================================================================================================
 */
 
-$_Application_Module_Member_Application_List_DB_Query_List_Applications_Panel						= $_GLOBAL_DATABASE_MANAGEMENT_SYSTEM_SERVER_DATABASE_CONNECTION->query("SELECT * FROM {$_ACCESS_DATABASE_SERVER_DATABASE_TABLE_PREFIX}_application_panels");
+$_Application_Module_Member_Application_List_DB_Query_List_Applications_Panel						= $_GLOBAL_DATABASE_MANAGEMENT_SYSTEM_SERVER_DATABASE_CONNECTION->query("SELECT * FROM {$_ACCESS_DATABASE_SERVER_DATABASE_TABLE_PREFIX}_applications_panel");
 
 /*
  ============================================================================================================
@@ -234,7 +234,7 @@ echo ("
  ============================================================================================================
 */
 
-														echo ("<HR><CENTER><B>Application Modules :: Background-Level</B></CENTER><HR><BR>");
+														echo ("<HR ALIGN=\"CENTER\" WIDTH=\"50%\"><CENTER><B>Application Modules :: Background-Level</B></CENTER><HR ALIGN=\"CENTER\" WIDTH=\"50%\"><BR>");
 
 /*
  ============================================================================================================
@@ -256,7 +256,7 @@ $_Application_Module_Member_Application_List_LIST_APPLICATION_BACKGROUND_FILE_PE
 $_Application_Module_Member_Application_List_LIST_APPLICATION_BACKGROUND_FILE_PERMISSION_LOCATION_IP		= $_Application_Module_Member_Application_List_DB_Query_List_Applications_Background_Fetch_Array['application_file_permission_location_internet_protocol_address'];
 $_Application_Module_Member_Application_List_LIST_APPLICATION_BACKGROUND_FILE_STATUS				= $_Application_Module_Member_Application_List_DB_Query_List_Applications_Background_Fetch_Array['application_file_status'];
 $_Application_Module_Member_Application_List_LIST_APPLICATION_BACKGROUND_FILE_TIMESTAMP_INSTALLATION		= $_Application_Module_Member_Application_List_DB_Query_List_Applications_Background_Fetch_Array['application_file_timestamp_installation'];
-$_Application_Module_Member_Application_List_LIST_APPLICATION_BACKGROUND_FILE_VERSION				= $_Application_Module_Member_Application_List_DB_Query_List_Applications_Background_Fetch_Array['application_version'];
+$_Application_Module_Member_Application_List_LIST_APPLICATION_BACKGROUND_FILE_VERSION				= $_Application_Module_Member_Application_List_DB_Query_List_Applications_Background_Fetch_Array['application_file_version'];
 $_Application_Module_Member_Application_List_LIST_APPLICATION_BACKGROUND_FILE_SIZE				= filesize("./Applications/Background/$_Application_Module_Member_Application_List_LIST_APPLICATION_BACKGROUND_FILE_NAME");
 $_Application_Module_Member_Application_List_LIST_APPLICATION_BACKGROUND_FILE_SIZE_KILOBYTES			= $_Application_Module_Member_Application_List_LIST_APPLICATION_BACKGROUND_FILE_SIZE / 1024;
 $_Application_Module_Member_Application_List_LIST_APPLICATION_BACKGROUND_FILE_HASH_SHA256			= hash_file('sha256', "./Applications/Background/$_Application_Module_Member_Application_List_LIST_APPLICATION_BACKGROUND_FILE_NAME");
@@ -314,7 +314,7 @@ echo ("
  ============================================================================================================
 */
 
-														echo ("<HR><CENTER><B>Application Modules :: Services Root Administration-Level</B></CENTER><HR><BR>");
+														echo ("<HR ALIGN=\"CENTER\" WIDTH=\"50%\"><CENTER><B>Application Modules :: Services Root Administration-Level</B></CENTER><HR ALIGN=\"CENTER\" WIDTH=\"50%\"><BR>");
 
 /*
  ============================================================================================================
@@ -336,7 +336,7 @@ $_Application_Module_Member_Application_List_LIST_APPLICATION_ADMINISTRATION_ROO
 $_Application_Module_Member_Application_List_LIST_APPLICATION_ADMINISTRATION_ROOT_SERVICES_FILE_PERMISSION_LOCATION_IP		= $_Application_Module_Member_Application_List_DB_Query_List_Applications_Administration_Root_Services_Fetch_Array['application_file_permission_location_internet_protocol_address'];
 $_Application_Module_Member_Application_List_LIST_APPLICATION_ADMINISTRATION_ROOT_SERVICES_FILE_STATUS				= $_Application_Module_Member_Application_List_DB_Query_List_Applications_Administration_Root_Services_Fetch_Array['application_file_status'];
 $_Application_Module_Member_Application_List_LIST_APPLICATION_ADMINISTRATION_ROOT_SERVICES_FILE_TIMESTAMP_INSTALLATION		= $_Application_Module_Member_Application_List_DB_Query_List_Applications_Administration_Root_Services_Fetch_Array['application_file_timestamp_installation'];
-$_Application_Module_Member_Application_List_LIST_APPLICATION_ADMINISTRATION_ROOT_SERVICES_FILE_VERSION				= $_Application_Module_Member_Application_List_DB_Query_List_Applications_Administration_Root_Services_Fetch_Array['application_version'];
+$_Application_Module_Member_Application_List_LIST_APPLICATION_ADMINISTRATION_ROOT_SERVICES_FILE_VERSION				= $_Application_Module_Member_Application_List_DB_Query_List_Applications_Administration_Root_Services_Fetch_Array['application_file_version'];
 $_Application_Module_Member_Application_List_LIST_APPLICATION_ADMINISTRATION_ROOT_SERVICES_FILE_SIZE				= filesize("./Applications/Member/$_Application_Module_Member_Application_List_LIST_APPLICATION_ADMINISTRATION_ROOT_SERVICES_FILE_NAME");
 $_Application_Module_Member_Application_List_LIST_APPLICATION_ADMINISTRATION_ROOT_SERVICES_FILE_SIZE_KILOBYTES			= $_Application_Module_Member_Application_List_LIST_APPLICATION_ADMINISTRATION_ROOT_SERVICES_FILE_SIZE / 1024;
 $_Application_Module_Member_Application_List_LIST_APPLICATION_ADMINISTRATION_ROOT_SERVICES_FILE_HASH_SHA256			= hash_file('sha256', "./Applications/Services/$_Application_Module_Member_Application_List_LIST_APPLICATION_ADMINISTRATION_ROOT_SERVICES_FILE_NAME");
@@ -394,7 +394,7 @@ echo ("
  ============================================================================================================
 */
 
-														echo ("<HR><CENTER><B>Application Modules :: Root Administration-Level</B></CENTER><HR><BR>");
+														echo ("<HR ALIGN=\"CENTER\" WIDTH=\"50%\"><CENTER><B>Application Modules :: Root Administration-Level</B></CENTER><HR ALIGN=\"CENTER\" WIDTH=\"50%\"><BR>");
 
 
 /*
@@ -417,7 +417,7 @@ $_Application_Module_Member_Application_List_LIST_APPLICATION_ADMINISTRATION_ROO
 $_Application_Module_Member_Application_List_LIST_APPLICATION_ADMINISTRATION_ROOT_FILE_PERMISSION_LOCATION_IP		= $_Application_Module_Member_Application_List_DB_Query_List_Applications_Administration_Root_Fetch_Array['application_file_permission_location_internet_protocol_address'];
 $_Application_Module_Member_Application_List_LIST_APPLICATION_ADMINISTRATION_ROOT_FILE_STATUS				= $_Application_Module_Member_Application_List_DB_Query_List_Applications_Administration_Root_Fetch_Array['application_file_status'];
 $_Application_Module_Member_Application_List_LIST_APPLICATION_ADMINISTRATION_ROOT_FILE_TIMESTAMP_INSTALLATION		= $_Application_Module_Member_Application_List_DB_Query_List_Applications_Administration_Root_Fetch_Array['application_file_timestamp_installation'];
-$_Application_Module_Member_Application_List_LIST_APPLICATION_ADMINISTRATION_ROOT_FILE_VERSION				= $_Application_Module_Member_Application_List_DB_Query_List_Applications_Administration_Root_Fetch_Array['application_version'];
+$_Application_Module_Member_Application_List_LIST_APPLICATION_ADMINISTRATION_ROOT_FILE_VERSION				= $_Application_Module_Member_Application_List_DB_Query_List_Applications_Administration_Root_Fetch_Array['application_file_version'];
 $_Application_Module_Member_Application_List_LIST_APPLICATION_ADMINISTRATION_ROOT_FILE_SIZE				= filesize("./Applications/Member/$_Application_Module_Member_Application_List_LIST_APPLICATION_ADMINISTRATION_ROOT_FILE_NAME");
 $_Application_Module_Member_Application_List_LIST_APPLICATION_ADMINISTRATION_ROOT_FILE_SIZE_KILOBYTES			= $_Application_Module_Member_Application_List_LIST_APPLICATION_ADMINISTRATION_ROOT_FILE_SIZE / 1024;
 $_Application_Module_Member_Application_List_LIST_APPLICATION_ADMINISTRATION_ROOT_FILE_HASH_SHA256			= hash_file('sha256', "./Applications/Root/$_Application_Module_Member_Application_List_LIST_APPLICATION_ADMINISTRATION_ROOT_FILE_NAME");
@@ -475,7 +475,7 @@ echo ("
  ============================================================================================================
 */
 
-														echo ("<HR><CENTER><B>Application Modules :: Administration-Level</B></CENTER><HR><BR>");
+														echo ("<HR ALIGN=\"CENTER\" WIDTH=\"50%\"><CENTER><B>Application Modules :: Administration-Level</B></CENTER><HR ALIGN=\"CENTER\" WIDTH=\"50%\"><BR>");
 
 /*
  ============================================================================================================
@@ -497,7 +497,7 @@ $_Application_Module_Member_Application_List_LIST_APPLICATION_ADMINISTRATION_FIL
 $_Application_Module_Member_Application_List_LIST_APPLICATION_ADMINISTRATION_FILE_PERMISSION_LOCATION_IP		= $_Application_Module_Member_Application_List_DB_Query_List_Applications_Administration_Fetch_Array['application_file_permission_location_internet_protocol_address'];
 $_Application_Module_Member_Application_List_LIST_APPLICATION_ADMINISTRATION_FILE_STATUS				= $_Application_Module_Member_Application_List_DB_Query_List_Applications_Administration_Fetch_Array['application_file_status'];
 $_Application_Module_Member_Application_List_LIST_APPLICATION_ADMINISTRATION_FILE_TIMESTAMP_INSTALLATION		= $_Application_Module_Member_Application_List_DB_Query_List_Applications_Administration_Fetch_Array['application_file_timestamp_installation'];
-$_Application_Module_Member_Application_List_LIST_APPLICATION_ADMINISTRATION_FILE_VERSION				= $_Application_Module_Member_Application_List_DB_Query_List_Applications_Administration_Fetch_Array['application_version'];
+$_Application_Module_Member_Application_List_LIST_APPLICATION_ADMINISTRATION_FILE_VERSION				= $_Application_Module_Member_Application_List_DB_Query_List_Applications_Administration_Fetch_Array['application_file_version'];
 $_Application_Module_Member_Application_List_LIST_APPLICATION_ADMINISTRATION_FILE_SIZE					= filesize("./Applications/Member/$_Application_Module_Member_Application_List_LIST_APPLICATION_ADMINISTRATION_FILE_NAME");
 $_Application_Module_Member_Application_List_LIST_APPLICATION_ADMINISTRATION_FILE_SIZE_KILOBYTES			= $_Application_Module_Member_Application_List_LIST_APPLICATION_ADMINISTRATION_FILE_SIZE / 1024;
 $_Application_Module_Member_Application_List_LIST_APPLICATION_ADMINISTRATION_FILE_HASH_SHA256				= hash_file('sha256', "./Applications/Administration/$_Application_Module_Member_Application_List_LIST_APPLICATION_ADMINISTRATION_FILE_NAME");
@@ -561,7 +561,7 @@ echo ("
  ============================================================================================================
 */
 
-														echo ("<HR><CENTER><B>Application Modules :: Member-Level</B></CENTER><HR><BR>");
+														echo ("<HR ALIGN=\"CENTER\" WIDTH=\"50%\"><CENTER><B>Application Modules :: Member-Level</B></CENTER><HR ALIGN=\"CENTER\" WIDTH=\"50%\"><BR>");
 
 /*
  ============================================================================================================
@@ -583,7 +583,7 @@ $_Application_Module_Member_Application_List_LIST_APPLICATION_MEMBER_FILE_PERMIS
 $_Application_Module_Member_Application_List_LIST_APPLICATION_MEMBER_FILE_PERMISSION_LOCATION_IP		= $_Application_Module_Member_Application_List_DB_Query_List_Applications_Member_Fetch_Array['application_file_permission_location_internet_protocol_address'];
 $_Application_Module_Member_Application_List_LIST_APPLICATION_MEMBER_FILE_STATUS				= $_Application_Module_Member_Application_List_DB_Query_List_Applications_Member_Fetch_Array['application_file_status'];
 $_Application_Module_Member_Application_List_LIST_APPLICATION_MEMBER_FILE_TIMESTAMP_INSTALLATION		= $_Application_Module_Member_Application_List_DB_Query_List_Applications_Member_Fetch_Array['application_file_timestamp_installation'];
-$_Application_Module_Member_Application_List_LIST_APPLICATION_MEMBER_FILE_VERSION				= $_Application_Module_Member_Application_List_DB_Query_List_Applications_Member_Fetch_Array['application_version'];
+$_Application_Module_Member_Application_List_LIST_APPLICATION_MEMBER_FILE_VERSION				= $_Application_Module_Member_Application_List_DB_Query_List_Applications_Member_Fetch_Array['application_file_version'];
 $_Application_Module_Member_Application_List_LIST_APPLICATION_MEMBER_FILE_SIZE					= filesize("./Applications/Member/$_Application_Module_Member_Application_List_LIST_APPLICATION_MEMBER_FILE_NAME");
 $_Application_Module_Member_Application_List_LIST_APPLICATION_MEMBER_FILE_SIZE_KILOBYTES			= $_Application_Module_Member_Application_List_LIST_APPLICATION_MEMBER_FILE_SIZE / 1024;
 $_Application_Module_Member_Application_List_LIST_APPLICATION_MEMBER_FILE_HASH_SHA256				= hash_file('sha256', "./Applications/Member/$_Application_Module_Member_Application_List_LIST_APPLICATION_MEMBER_FILE_NAME");
@@ -639,7 +639,7 @@ echo ("
  ============================================================================================================
 */
 
-														echo ("<BR><BR><HR><CENTER><B>Application Panels</B></CENTER><HR><BR>");
+														echo ("<HR ALIGN=\"CENTER\" WIDTH=\"50%\"><CENTER><B>Application Modules :: Panels</B></CENTER><HR ALIGN=\"CENTER\" WIDTH=\"50%\"><BR>");
 
 /*
  ============================================================================================================
@@ -650,18 +650,18 @@ echo ("
 while ($_Application_Module_Member_Application_List_DB_Query_List_Applications_Panel_Fetch_Array = $_Application_Module_Member_Application_List_DB_Query_List_Applications_Panel->fetch_array(MYSQLI_BOTH)) {
 
 $_Application_Module_Member_Application_List_LIST_APPLICATION_PANEL_ID						= $_Application_Module_Member_Application_List_DB_Query_List_Applications_Panel_Fetch_Array['id'];
-$_Application_Module_Member_Application_List_LIST_APPLICATION_PANEL_FILE_NAME					= $_Application_Module_Member_Application_List_DB_Query_List_Applications_Panel_Fetch_Array['panel_file_name'];
-$_Application_Module_Member_Application_List_LIST_APPLICATION_PANEL_FILE_INTEGRITY				= $_Application_Module_Member_Application_List_DB_Query_List_Applications_Panel_Fetch_Array['panel_file_integrity'];
-$_Application_Module_Member_Application_List_LIST_APPLICATION_PANEL_FILE_INTEGRITY_INSTALLATION			= $_Application_Module_Member_Application_List_DB_Query_List_Applications_Panel_Fetch_Array['panel_file_integrity_installation'];
-$_Application_Module_Member_Application_List_LIST_APPLICATION_PANEL_FILE_PERMISSION				= $_Application_Module_Member_Application_List_DB_Query_List_Applications_Panel_Fetch_Array['panel_file_permission'];
-$_Application_Module_Member_Application_List_LIST_APPLICATION_PANEL_FILE_PERMISSION_CAMERA			= $_Application_Module_Member_Application_List_DB_Query_List_Applications_Panel_Fetch_Array['panel_file_permission_camera'];
-$_Application_Module_Member_Application_List_LIST_APPLICATION_PANEL_FILE_PERMISSION_MICROPHONE			= $_Application_Module_Member_Application_List_DB_Query_List_Applications_Panel_Fetch_Array['panel_file_permission_microphone'];
-$_Application_Module_Member_Application_List_LIST_APPLICATION_PANEL_FILE_PERMISSION_LOCATION_GPS		= $_Application_Module_Member_Application_List_DB_Query_List_Applications_Panel_Fetch_Array['panel_file_permission_location_gps'];
-$_Application_Module_Member_Application_List_LIST_APPLICATION_PANEL_FILE_PERMISSION_LOCATION_GLO		= $_Application_Module_Member_Application_List_DB_Query_List_Applications_Panel_Fetch_Array['panel_file_permission_location_glo'];
-$_Application_Module_Member_Application_List_LIST_APPLICATION_PANEL_FILE_PERMISSION_LOCATION_IP			= $_Application_Module_Member_Application_List_DB_Query_List_Applications_Panel_Fetch_Array['panel_file_permission_location_internet_protocol_address'];
-$_Application_Module_Member_Application_List_LIST_APPLICATION_PANEL_FILE_STATUS					= $_Application_Module_Member_Application_List_DB_Query_List_Applications_Panel_Fetch_Array['panel_file_status'];
-$_Application_Module_Member_Application_List_LIST_APPLICATION_PANEL_FILE_TIMESTAMP_INSTALLATION			= $_Application_Module_Member_Application_List_DB_Query_List_Applications_Panel_Fetch_Array['panel_file_timestamp_installation'];
-$_Application_Module_Member_Application_List_LIST_APPLICATION_PANEL_FILE_VERSION				= $_Application_Module_Member_Application_List_DB_Query_List_Applications_Panel_Fetch_Array['panel_version'];
+$_Application_Module_Member_Application_List_LIST_APPLICATION_PANEL_FILE_NAME					= $_Application_Module_Member_Application_List_DB_Query_List_Applications_Panel_Fetch_Array['application_panel_file_name'];
+$_Application_Module_Member_Application_List_LIST_APPLICATION_PANEL_FILE_INTEGRITY				= $_Application_Module_Member_Application_List_DB_Query_List_Applications_Panel_Fetch_Array['application_panel_file_integrity'];
+$_Application_Module_Member_Application_List_LIST_APPLICATION_PANEL_FILE_INTEGRITY_INSTALLATION			= $_Application_Module_Member_Application_List_DB_Query_List_Applications_Panel_Fetch_Array['application_panel_file_integrity_installation'];
+$_Application_Module_Member_Application_List_LIST_APPLICATION_PANEL_FILE_PERMISSION				= $_Application_Module_Member_Application_List_DB_Query_List_Applications_Panel_Fetch_Array['application_panel_file_permission'];
+$_Application_Module_Member_Application_List_LIST_APPLICATION_PANEL_FILE_PERMISSION_CAMERA			= $_Application_Module_Member_Application_List_DB_Query_List_Applications_Panel_Fetch_Array['application_panel_file_permission_camera'];
+$_Application_Module_Member_Application_List_LIST_APPLICATION_PANEL_FILE_PERMISSION_MICROPHONE			= $_Application_Module_Member_Application_List_DB_Query_List_Applications_Panel_Fetch_Array['application_panel_file_permission_microphone'];
+$_Application_Module_Member_Application_List_LIST_APPLICATION_PANEL_FILE_PERMISSION_LOCATION_GPS		= $_Application_Module_Member_Application_List_DB_Query_List_Applications_Panel_Fetch_Array['application_panel_file_permission_location_gps'];
+$_Application_Module_Member_Application_List_LIST_APPLICATION_PANEL_FILE_PERMISSION_LOCATION_GLO		= $_Application_Module_Member_Application_List_DB_Query_List_Applications_Panel_Fetch_Array['application_panel_file_permission_location_glo'];
+$_Application_Module_Member_Application_List_LIST_APPLICATION_PANEL_FILE_PERMISSION_LOCATION_IP			= $_Application_Module_Member_Application_List_DB_Query_List_Applications_Panel_Fetch_Array['application_panel_file_permission_location_ip_address'];
+$_Application_Module_Member_Application_List_LIST_APPLICATION_PANEL_FILE_STATUS					= $_Application_Module_Member_Application_List_DB_Query_List_Applications_Panel_Fetch_Array['application_panel_file_status'];
+$_Application_Module_Member_Application_List_LIST_APPLICATION_PANEL_FILE_TIMESTAMP_INSTALLATION			= $_Application_Module_Member_Application_List_DB_Query_List_Applications_Panel_Fetch_Array['application_panel_file_timestamp_installation'];
+$_Application_Module_Member_Application_List_LIST_APPLICATION_PANEL_FILE_VERSION				= $_Application_Module_Member_Application_List_DB_Query_List_Applications_Panel_Fetch_Array['application_panel_file_version'];
 $_Application_Module_Member_Application_List_LIST_APPLICATION_PANEL_FILE_SIZE					= filesize("./Applications/Panel/$_Application_Module_Member_Application_List_LIST_APPLICATION_PANEL_FILE_NAME.panel");
 $_Application_Module_Member_Application_List_LIST_APPLICATION_PANEL_FILE_SIZE_KILOBYTES				= $_Application_Module_Member_Application_List_LIST_APPLICATION_PANEL_FILE_SIZE / 1024;
 $_Application_Module_Member_Application_List_LIST_APPLICATION_PANEL_FILE_HASH_SHA256				= hash_file('sha256', "./Applications/Panel/$_Application_Module_Member_Application_List_LIST_APPLICATION_PANEL_FILE_NAME.panel");

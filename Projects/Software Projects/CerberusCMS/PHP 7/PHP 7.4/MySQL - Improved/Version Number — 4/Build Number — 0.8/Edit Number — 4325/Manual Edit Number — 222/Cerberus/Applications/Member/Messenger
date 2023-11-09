@@ -318,6 +318,41 @@ $_Application_Module_Member_Messenger_UPLOAD_FILE_VIDEO_CLEAR_TEXT_FILE_MESSENGE
 /*
  ============================================================================================================
  +
+ + Internal Application :: Variables :: P2P :: Clear-Text File :: Messenger Room
+ +
+ ============================================================================================================
+*/
+
+$_Application_Module_Member_Messenger_POST_P2P_CLEAR_TEXT_FILE_MESSENGER_ROOM_MESSAGE							= $_POST['AMM_Messenger_P2P_Clear_Text_File_Messenger_Room_Message'];
+
+/*
+ ============================================================================================================
+ + Variables :: P2P :: Clear-Text File Messenger Room :: Messenger Room Message :: Data Sanitization
+ ============================================================================================================
+*/
+
+$_Application_Module_Member_Messenger_POST_P2P_CLEAR_TEXT_FILE_MESSENGER_ROOM_MESSAGE							= str_replace("[image]", "<IMG SRC=\"", $_Application_Module_Member_Messenger_POST_P2P_CLEAR_TEXT_FILE_MESSENGER_ROOM_MESSAGE);
+$_Application_Module_Member_Messenger_POST_P2P_CLEAR_TEXT_FILE_MESSENGER_ROOM_MESSAGE							= str_replace("[/image]", "\" WIDTH=\"200\" HEIGHT=\"150\" CLASS=\"MessengerImageMessage\"></IMG>", $_Application_Module_Member_Messenger_POST_P2P_CLEAR_TEXT_FILE_MESSENGER_ROOM_MESSAGE);
+$_Application_Module_Member_Messenger_POST_P2P_CLEAR_TEXT_FILE_MESSENGER_ROOM_MESSAGE							= str_replace("[b]", "<B>", $_Application_Module_Member_Messenger_POST_P2P_CLEAR_TEXT_FILE_MESSENGER_ROOM_MESSAGE);
+$_Application_Module_Member_Messenger_POST_P2P_CLEAR_TEXT_FILE_MESSENGER_ROOM_MESSAGE							= str_replace("[/b]", "</B>", $_Application_Module_Member_Messenger_POST_P2P_CLEAR_TEXT_FILE_MESSENGER_ROOM_MESSAGE);
+$_Application_Module_Member_Messenger_POST_P2P_CLEAR_TEXT_FILE_MESSENGER_ROOM_MESSAGE							= str_replace("[u]", "<U>", $_Application_Module_Member_Messenger_POST_P2P_CLEAR_TEXT_FILE_MESSENGER_ROOM_MESSAGE);
+$_Application_Module_Member_Messenger_POST_P2P_CLEAR_TEXT_FILE_MESSENGER_ROOM_MESSAGE							= str_replace("[/u]", "</U>", $_Application_Module_Member_Messenger_POST_P2P_CLEAR_TEXT_FILE_MESSENGER_ROOM_MESSAGE);
+$_Application_Module_Member_Messenger_POST_P2P_CLEAR_TEXT_FILE_MESSENGER_ROOM_MESSAGE							= str_replace("[i]", "<I>", $_Application_Module_Member_Messenger_POST_P2P_CLEAR_TEXT_FILE_MESSENGER_ROOM_MESSAGE);
+$_Application_Module_Member_Messenger_POST_P2P_CLEAR_TEXT_FILE_MESSENGER_ROOM_MESSAGE							= str_replace("[/i]", "</I>", $_Application_Module_Member_Messenger_POST_P2P_CLEAR_TEXT_FILE_MESSENGER_ROOM_MESSAGE);
+$_Application_Module_Member_Messenger_POST_P2P_CLEAR_TEXT_FILE_MESSENGER_ROOM_MESSAGE							= str_replace("[center]", "<CENTER>", $_Application_Module_Member_Messenger_POST_P2P_CLEAR_TEXT_FILE_MESSENGER_ROOM_MESSAGE);
+$_Application_Module_Member_Messenger_POST_P2P_CLEAR_TEXT_FILE_MESSENGER_ROOM_MESSAGE							= str_replace("[/center]", "</CENTER>", $_Application_Module_Member_Messenger_POST_P2P_CLEAR_TEXT_FILE_MESSENGER_ROOM_MESSAGE);
+$_Application_Module_Member_Messenger_POST_P2P_CLEAR_TEXT_FILE_MESSENGER_ROOM_MESSAGE							= str_replace("[br]", "<BR>", $_Application_Module_Member_Messenger_POST_P2P_CLEAR_TEXT_FILE_MESSENGER_ROOM_MESSAGE);
+$_Application_Module_Member_Messenger_POST_P2P_CLEAR_TEXT_FILE_MESSENGER_ROOM_MESSAGE							= str_replace("[video]", "<VIDEO WIDTH=\"150\" HEIGHT=\"75\" CONTROLS><SOURCE SRC=\"", $_Application_Module_Member_Messenger_POST_P2P_CLEAR_TEXT_FILE_MESSENGER_ROOM_MESSAGE);
+$_Application_Module_Member_Messenger_POST_P2P_CLEAR_TEXT_FILE_MESSENGER_ROOM_MESSAGE							= str_replace("[/video]", "\" TYPE=\"VIDEO/MP4\"></VIDEO>", $_Application_Module_Member_Messenger_POST_P2P_CLEAR_TEXT_FILE_MESSENGER_ROOM_MESSAGE);
+$_Application_Module_Member_Messenger_POST_P2P_CLEAR_TEXT_FILE_MESSENGER_ROOM_MESSAGE							= str_replace("[link]", "<A HREF=\"\">", $_Application_Module_Member_Messenger_POST_P2P_CLEAR_TEXT_FILE_MESSENGER_ROOM_MESSAGE);
+$_Application_Module_Member_Messenger_POST_P2P_CLEAR_TEXT_FILE_MESSENGER_ROOM_MESSAGE							= str_replace("[/link]", "\" TITLE=\":: Open & Display This Inserted Uniform-Resource-Location Link ::\">Inserted Uniform-Resource-Location Link</A>", $_Application_Module_Member_Messenger_POST_P2P_CLEAR_TEXT_FILE_MESSENGER_ROOM_MESSAGE);
+$_Application_Module_Member_Messenger_POST_P2P_CLEAR_TEXT_FILE_MESSENGER_ROOM_MESSAGE							= str_replace("[link]", " ", $_Application_Module_Member_Messenger_POST_P2P_CLEAR_TEXT_FILE_MESSENGER_ROOM_MESSAGE);
+$_Application_Module_Member_Messenger_POST_P2P_CLEAR_TEXT_FILE_MESSENGER_ROOM_MESSAGE							= str_replace("[/link]", " ", $_Application_Module_Member_Messenger_POST_P2P_CLEAR_TEXT_FILE_MESSENGER_ROOM_MESSAGE);
+$_Application_Module_Member_Messenger_POST_P2P_CLEAR_TEXT_FILE_MESSENGER_ROOM_MESSAGE							= stripslashes($_Application_Module_Member_Messenger_POST_P2P_CLEAR_TEXT_FILE_MESSENGER_ROOM_MESSAGE);
+
+/*
+ ============================================================================================================
+ +
  + Internal Application :: Variables :: Allowed File Extensions
  +
  ============================================================================================================
@@ -2451,4 +2486,189 @@ $_GLOBAL_REMOTE_SERVER_ADDRESS
 } // [ + ] IF: Internal Application: Multimedia Messaging Service Application Form Variables Have Executed
 
 } // [ + ] IF: Option: Multimedia Messaging Service
+
+/*
+ ============================================================================================================
+ +
+ + IF: Internal Application :: P2P :: Is: Clear-Text
+ +
+ ============================================================================================================
+*/
+
+if ($_GET["P2P"] == "Clear_Text") {
+
+/*
+ ============================================================================================================
+ + Database Management System Server :: Query :: Select :: ALL :: Registered Member Account Entries
+ ============================================================================================================
+*/
+
+$_Application_Module_Member_Messenger_DB_Query_SELECT_ALL_MEMBERS					= $_GLOBAL_DATABASE_MANAGEMENT_SYSTEM_SERVER_DATABASE_CONNECTION->query("SELECT * FROM {$_ACCESS_DATABASE_SERVER_DATABASE_TABLE_PREFIX}_members ORDER BY id ASC");
+
+/*
+ ============================================================================================================
+ + WHILE: Database Management System Server :: Query :: Select :: ALL :: Registered Member Account Entries
+ ============================================================================================================
+*/
+
+while ($_Application_Module_Member_Messenger_DB_Query_SELECT_ALL_MEMBERS_Fetch_Array = $_Application_Module_Member_Messenger_DB_Query_SELECT_ALL_MEMBERS->fetch_array(MYSQLI_BOTH)) {
+
+$_Application_Module_Member_Messenger_LIST_MEMBER_ID							= $_Application_Module_Member_Messenger_DB_Query_SELECT_ALL_MEMBERS_Fetch_Array['id'];
+$_Application_Module_Member_Messenger_LIST_MEMBER_USERNAME						= $_Application_Module_Member_Messenger_DB_Query_SELECT_ALL_MEMBERS_Fetch_Array['member_username'];
+
+/*
+ ============================================================================================================
+ +
+ + IF: Internal Application :: Member :: Registered Member Account :: Is: ID Number
+ +
+ ============================================================================================================
+*/
+
+if ($_GET["MemberAccountID"] == "$_Application_Module_Member_Messenger_LIST_MEMBER_ID") {
+
+/*
+ ============================================================================================================
+ + IF: File DOES NOT Exist: Remote :: Registered Member Account :: Current Registered Member Account UserName :: Clear-Text File :: Messenger File
+ ============================================================================================================
+*/
+
+if (!file_exists("./Member/$_Application_Module_Member_Messenger_LIST_MEMBER_USERNAME/Files/Document/Messenger/Clear-Text/$_GLOBAL_COOKIE_MEMBER_USERNAME/Messenger.html")) {
+
+echo ("* Messenger: Clear-Text Messenger File Cannot Be Found In P2P Directory: ./Member/$_Application_Module_Member_Messenger_LIST_MEMBER_USERNAME/Files/Document/Messsenger/Clear-Text/$_GLOBAL_COOKIE_MEMBER_USERNAME/Messenger.html -- Automatically Creating Directory... Wait.<BR>");
+
+mkdir("./Member/$_Application_Module_Member_Messenger_LIST_MEMBER_USERNAME/Files/Document/Messenger/Clear-Text");
+mkdir("./Member/$_Application_Module_Member_Messenger_LIST_MEMBER_USERNAME/Files/Document/Messenger/Clear-Text/$_GLOBAL_COOKIE_MEMBER_USERNAME");
+
+echo ("[ Done ]<BR><BR>");
+
+echo ("* Messenger: Creating P2P Clear-Text Messenger File For: ./Member/$_Application_Module_Member_Messenger_LIST_MEMBER_USERNAME ... Wait.<BR>");
+
+$_Application_Module_Member_Messenger_GENERATE_FIND_CLEAR_TEXT_MESSENGER_MEMBER_REMOTE_FILE_NAME 	= fopen("./Member/$_Application_Module_Member_Messenger_LIST_MEMBER_USERNAME/Files/Document/Messenger/Clear-Text/$_GLOBAL_COOKIE_MEMBER_USERNAME/Messenger.html", "a");
+
+/*
+ ============================================================================================================
+ + IF: FWRITE: Remote :: Registered Member Account :: Clear-Text File :: Messenger File
+ ============================================================================================================
+*/
+
+if (fwrite($_Application_Module_Member_Messenger_GENERATE_FIND_CLEAR_TEXT_MESSENGER_MEMBER_REMOTE_FILE_NAME, "<LINK REL=\"stylesheet\" HREF=\"../../../../../../../Theme/Global/Style_Sheet/Style.css\" TYPE=\"text/css\"><BODY ONLOAD=\"window.scrollTo(0,document.body.scrollHeight);\">")) {
+
+echo ("[ Done ]<BR><BR>");
+
+} else {
+
+echo ("* Messenger: Cannot Create Clear-Text Messenger File In P2P Directory: ./Member/$_Application_Module_Member_Messenger_LIST_MEMBER_USERNAME/Files/Document/Messenger/Clear-Text/$_GLOBAL_COOKIE_MEMBER_USERNAME/Messenger.html<BR>");
+
+} // [ + ] IF: FWRITE: This Registered Member Account :: Files :: Document :: Messenger :: Clear-Text :: Current Registered Member Account UserName :: Messenger File
+
+} // [ + ] IF: File DOES NOT Exist: This Registered Member Account :: Document :: Messenger :: Clear-Text :: Current Registered Member Account UserName :: Messenger File
+
+/*
+ ============================================================================================================
+ + IF: File DOES NOT Exist: Local Registered Member Account :: Remote Registered Member Account UserName :: Clear-Text File :: Messenger File
+ ============================================================================================================
+*/
+
+if (!file_exists("./Member/$_GLOBAL_COOKIE_MEMBER_USERNAME/Files/Document/Messenger/Clear-Text/$_Application_Module_Member_Messenger_LIST_MEMBER_USERNAME/Messenger.html")) {
+
+echo ("* Messenger: Clear-Text Messenger File Cannot Be Found: ./Member/$_GLOBAL_COOKIE_MEMBER_USERNAME/Files/Document/Messsenger/Clear-Text/$_Application_Module_Member_Messenger_LIST_MEMBER_USERNAME/Messenger.html -- Automatically Creating Directory... Wait.<BR>");
+
+mkdir("./Member/$_GLOBAL_COOKIE_MEMBER_USERNAME/Files/Document/Messenger/Clear-Text");
+mkdir("./Member/$_GLOBAL_COOKIE_MEMBER_USERNAME/Files/Document/Messenger/Clear-Text/$_Application_Module_Member_Messenger_LIST_MEMBER_USERNAME");
+
+echo ("[ Done ]<BR><BR>");
+
+echo ("* Messenger: Creating Clear-Text Messenger File For: ./Member/$_Application_Module_Member_Messenger_LIST_MEMBER_USERNAME ... Wait.<BR>");
+
+$_Application_Module_Member_Messenger_GENERATE_FIND_CLEAR_TEXT_MESSENGER_MEMBER_LOCAL_FILE_NAME	= fopen("./Member/$_GLOBAL_COOKIE_MEMBER_USERNAME/Files/Document/Messenger/Clear-Text/$_Application_Module_Member_Messenger_LIST_MEMBER_USERNAME/Messenger.html", "a");
+
+/*
+ ============================================================================================================
+ + IF: FWRITE: Current Registered Member Account UserName :: Clear-Text File :: Messenger File
+ ============================================================================================================
+*/
+
+if (fwrite($_Application_Module_Member_Messenger_GENERATE_FIND_CLEAR_TEXT_MESSENGER_MEMBER_LOCAL_FILE_NAME, "<LINK REL=\"stylesheet\" HREF=\"../../../../../../../Theme/Global/Style_Sheet/Style.css\" TYPE=\"text/css\"><BODY ONLOAD=\"window.scrollTo(0,document.body.scrollHeight);\">")) {
+
+echo ("[ Done ]<BR><BR>");
+
+} else {
+
+echo ("* Messenger: Cannot Create Clear-Text Messenger File: ./Member/$_GLOBAL_COOKIE_MEMBER_USERNAME/Files/Document/Messenger/Clear-Text/$_GLOBAL_COOKIE_MEMBER_USERNAME/Messenger.html<BR>");
+
+} // [ + ] IF: FWRITE: Current Registered Member Account :: Files :: Document :: Messenger :: Clear-Text :: Messenger File
+
+} else {
+
+/*
+ =============================================================================================================
+ + IF: Display :: The :: Specified :: P2P :: Clear-Text File :: Messenger Room
+ =============================================================================================================
+*/
+
+if (!$_Application_Module_Member_Messenger_POST_P2P_CLEAR_TEXT_FILE_MESSENGER_ROOM_MESSAGE) {
+
+echo ("
+
+												<A HREF=\"?$_INTERNAL_APPLICATION_MODULE_MEMBER&#61;Messenger&amp;\" TITLE=\":: Instantly Reload This P2P :: Clear-Text File :: Messenger Room ::\">P2P :: Clear-Text :: Instant Messenger Conversation With</A>: <I><A HREF=\"./Member/$_GLOBAL_COOKIE_MEMBER_USERNAME/Files/Document/Messenger/Clear-Text/$_Application_Module_Member_Messenger_LIST_MEMBER_USERNAME/Messenger.html\" TITLE=\":: Open & Display :: This :: P2P :: Clear-Text File :: Messenger Room Log File ::\" TARGET=\"_NEW\">$_Application_Module_Member_Messenger_LIST_MEMBER_USERNAME</A></I><BR>
+												<OBJECT DATA=\"./Member/$_GLOBAL_COOKIE_MEMBER_USERNAME/Files/Document/Messenger/Clear-Text/$_Application_Module_Member_Messenger_LIST_MEMBER_USERNAME/Messenger.html\" WIDTH=\"100%\" HEIGHT=\"300\"></OBJECT><BR><BR>
+
+													<FORM ACTION=\"./$_INTERNAL_FILE_KERNEL?$_INTERNAL_APPLICATION_MODULE_MEMBER&#61;Messenger&amp;P2P&#61;Clear_Text&amp;MemberAccountID&#61;$_Application_Module_Member_Messenger_LIST_MEMBER_ID&amp;$_GLOBAL_SYSTEM_SECURITY_CACHE_CIRCUMVENTION_HTR_RANDOM_STRING_GENERATION\" METHOD=\"POST\">
+														* <I>Short or Extensive Message</I>:<BR>
+														[ Maximum Length: 5,000 Alpha-Numeric Characters ]<BR>
+															$_GLOBAL_PLUGIN_SYSTEM_TEXTEDITOR_BUTTONS<BR>
+															<TEXTAREA ROWS=\"10%\" COLS=\"80%\" MAXLENGTH=\"5000\" NAME=\"AMM_Messenger_P2P_Clear_Text_File_Messenger_Room_Message\" ID=\"WYSIWYG\">Write Messages Here...</TEXTAREA><BR>
+															<INPUT TYPE=\"hidden\" NAME=\"\" VALUE=\"\">
+														<INPUT TYPE=\"submit\" VALUE=\"Send Message\">
+													</FORM>
+													<BR><BR>
+
+												Available Files :: <A HREF=\"\" TITLE=\":: Open & Display :: The File List For This P2P :: Clear-Text File :: Messenger Room \" TARGET=\"_NEW\">All</A><BR>
+												<OBJECT DATA=\"\" WIDTH=\"90%\" HEIGHT=\"150\"></OBJECT><BR><BR>
+
+													<FORM ACTION=\"?$_INTERNAL_APPLICATION_MODULE_MEMBER&#61;Messenger&amp;\" METHOD=\"POST\" ENCTYPE=\"multipart/form-data\">
+														* <I>Upload Unique File To This P2P :: Clear-Text File :: Messenger Room</I>:<BR>
+														[ Permitted Files ]<BR>
+														* WAV, MP3, WMA, AAC, FLAC, OGG<BR>
+														<INPUT TYPE=\"file\" NAME=\"\" MAXLENGTH=\"100\"><BR>
+															<INPUT TYPE=\"hidden\" NAME=\"\" VALUE=\"\">
+														<INPUT TYPE=\"submit\" VALUE=\"Upload File\">
+													</FORM><BR><BR>
+
+														* This P2P :: Clear-Text File :: Messenger Room Refreshes Upon Reload<BR>
+														* This P2P :: Clear-Text File :: Messenger Room Name Is: <I></I><BR>
+														* This P2P :: Clear-Text File :: Messenger Room Was Created By: <I></I><BR>
+														* This P2P :: Clear-Text File :: Messenger Room Was Created On: <I></I>
+");
+
+} else {
+
+$_Application_Module_Member_Messenger_P2P_CLEAR_TEXT_FILE_MESSENGER_ROOM_MESSAGE				= "
+<IMG SRC=\"../../../../../../../Member/$_GLOBAL_COOKIE_MEMBER_USERNAME/Files/Image/Profile/$_GLOBAL_MEMBER_IMAGE_PROFILE\" WIDTH=\"125\" HEIGHT=\"125\" CLASS=\"MemberProfile\" ALT=\":: $_GLOBAL_COOKIE_MEMBER_USERNAME ::\"></IMG>&nbsp;&nbsp;<A HREF=\"?$_INTERNAL_FILE_KERNEL?$_INTERNAL_APPLICATION_MODULE_MEMBER&#61;Profile&amp;Name&#61;$_GLOBAL_COOKIE_MEMBER_USERNAME\" TITLE\":: Open & Display :: The Application Module :: Profile :: For :: Registered Member Account: $_GLOBAL_COOKIE_MEMBER_USERNAME\" TARGET=\"_NEW\">$_GLOBAL_COOKIE_MEMBER_USERNAME</A> Wrote:
+<HR ALIGN=\"LEFT\" WIDTH=\"50%\">
+<BIG><B>&quot;</B></BIG> <I>$_Application_Module_Member_Messenger_POST_P2P_CLEAR_TEXT_FILE_MESSENGER_ROOM_MESSAGE</I> <BIG><B>&quot;</B></BIG><BR><BR>
+<HR ALIGN=\"LEFT\" WIDTH=\"50%\">
+This Clear-Text Message Was Sent :: Date :: Standard :: Server :: Local: $_GLOBAL_LOCAL_SERVER_DATE_STANDARD<BR>
+This Clear-Text Message Was Sent :: Date :: Epoch :: Server :: Local: $_GLOBAL_LOCAL_SERVER_TIME_UNIX<BR>
+";
+
+$_Application_Module_Member_Messenger_FIND_WRITE_CLEAR_TEXT_MESSENGER_MEMBER_LOCAL_FILE_NAME	= fopen("./Member/$_GLOBAL_COOKIE_MEMBER_USERNAME/Files/Document/Messenger/Clear-Text/$_Application_Module_Member_Messenger_LIST_MEMBER_USERNAME/Messenger.html", "a");
+
+fwrite($_Application_Module_Member_Messenger_FIND_WRITE_CLEAR_TEXT_MESSENGER_MEMBER_LOCAL_FILE_NAME, "$_Application_Module_Member_Messenger_P2P_CLEAR_TEXT_FILE_MESSENGER_ROOM_MESSAGE");
+
+$_Application_Module_Member_Messenger_FIND_WRITE_CLEAR_TEXT_MESSENGER_MEMBER_REMOTE_FILE_NAME	= fopen("./Member/$_Application_Module_Member_Messenger_LIST_MEMBER_USERNAME/Files/Document/Messenger/Clear-Text/$_GLOBAL_COOKIE_MEMBER_USERNAME/Messenger.html", "a");
+
+fwrite($_Application_Module_Member_Messenger_FIND_WRITE_CLEAR_TEXT_MESSENGER_MEMBER_REMOTE_FILE_NAME, "$_Application_Module_Member_Messenger_P2P_CLEAR_TEXT_FILE_MESSENGER_ROOM_MESSAGE");
+
+	header("Location: ./$_INTERNAL_FILE_KERNEL?$_INTERNAL_APPLICATION_MODULE_MEMBER=Messenger&P2P=Clear_Text&MemberAccountID=$_Application_Module_Member_Messenger_LIST_MEMBER_ID&$_GLOBAL_SYSTEM_SECURITY_CACHE_CIRCUMVENTION_HTR_RANDOM_STRING_GENERATION");
+
+} // [ + ] IF: Internal Application: P2P :: Clear-Text File :: Messenger :: Input Form Variables HAVE NOT Executed
+	
+} // [ + ] IF: File DOES NOT Exist: This Registered Member Account :: Document :: Messenger :: Non-Encrypted :: Current Registered Member Account UserName :: Messenger File
+
+} // [ + ] WHILE: Retrieving :: All :: Registered Member Account :: Entries :: From The Database Management System Server Database
+
+} // [ + ] IF: Internal Application :: Member :: Is: Registered Member Account :: ID Number
+
+} // [ + ] IF: Internal Application :: P2P :: Is: Clear_Text
 ?>
