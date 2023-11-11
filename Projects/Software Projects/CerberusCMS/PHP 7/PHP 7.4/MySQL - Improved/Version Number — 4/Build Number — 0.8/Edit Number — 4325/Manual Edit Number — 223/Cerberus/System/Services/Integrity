@@ -183,6 +183,7 @@ while ($_System_Application_Integrity_DB_Query_List_Applications_Administration_
 $_System_Application_Integrity_LIST_APPLICATIONS_ADMINISTRATION_ENTRY_ID			= $_System_Application_Integrity_DB_Query_List_Applications_Administration_Fetch_Array['id'];
 $_System_Application_Integrity_LIST_APPLICATIONS_ADMINISTRATION_FILE_DATE_INSTALLATION		= $_System_Application_Integrity_DB_Query_List_Applications_Administration_Fetch_Array['application_file_date_installation'];
 $_System_Application_Integrity_LIST_APPLICATIONS_ADMINISTRATION_FILE_INTEGRITY			= $_System_Application_Integrity_DB_Query_List_Applications_Administration_Fetch_Array['application_file_integrity'];
+$_System_Application_Integrity_LIST_APPLICATIONS_ADMINISTRATION_FILE_INTEGRITY_INSTALLATION	= $_System_Application_Integrity_DB_Query_List_Applications_Administration_Fetch_Array['application_file_integrity_installation'];
 $_System_Application_Integrity_LIST_APPLICATIONS_ADMINISTRATION_FILE_NAME			= $_System_Application_Integrity_DB_Query_List_Applications_Administration_Fetch_Array['application_file_name'];
 $_System_Application_Integrity_LIST_APPLICATIONS_ADMINISTRATION_FILE_VERSION			= $_System_Application_Integrity_DB_Query_List_Applications_Administration_Fetch_Array['application_file_version'];
 
@@ -213,7 +214,7 @@ copy("./System/Security/Integrity/Backup/Applications/Administration/$_System_Ap
  ============================================================================================================
 */
 
-if ("$_System_Application_Integrity_LIST_APPLICATIONS_ADMINISTRATION_FILE_INTEGRITY" != "$_System_Application_Integrity_LIST_APPLICATIONS_ADMINISTRATION_FILE_INTEGRITY") {
+if ("$_System_Application_Integrity_LIST_APPLICATIONS_ADMINISTRATION_FILE_INTEGRITY" != "$_System_Application_Integrity_LIST_APPLICATIONS_ADMINISTRATION_FILE_INTEGRITY_INSTALLATION") {
 
 /*
  ============================================================================================================
@@ -281,6 +282,7 @@ while ($_System_Application_Integrity_DB_Query_List_Applications_Member_Fetch_Ar
 $_System_Application_Integrity_LIST_APPLICATIONS_MEMBER_ENTRY_ID				= $_System_Application_Integrity_DB_Query_List_Applications_Member_Fetch_Array['id'];
 $_System_Application_Integrity_LIST_APPLICATIONS_MEMBER_FILE_DATE_INSTALLATION			= $_System_Application_Integrity_DB_Query_List_Applications_Member_Fetch_Array['application_file_date_installation'];
 $_System_Application_Integrity_LIST_APPLICATIONS_MEMBER_FILE_INTEGRITY				= $_System_Application_Integrity_DB_Query_List_Applications_Member_Fetch_Array['application_file_integrity'];
+$_System_Application_Integrity_LIST_APPLICATIONS_MEMBER_FILE_INTEGRITY_INSTALLATION		= $_System_Application_Integrity_DB_Query_List_Applications_Member_Fetch_Array['application_file_integrity_installation'];
 $_System_Application_Integrity_LIST_APPLICATIONS_MEMBER_FILE_NAME				= $_System_Application_Integrity_DB_Query_List_Applications_Member_Fetch_Array['application_file_name'];
 $_System_Application_Integrity_LIST_APPLICATIONS_MEMBER_FILE_VERSION				= $_System_Application_Integrity_DB_Query_List_Applications_Member_Fetch_Array['application_file_version'];
 
@@ -311,7 +313,7 @@ copy("./System/Security/Integrity/Backup/Applications/Member/$_System_Applicatio
  ============================================================================================================
 */
 
-if ("$_System_Application_Integrity_LIST_APPLICATIONS_MEMBER_FILE_INTEGRITY" != "$_System_Application_Integrity_LIST_APPLICATIONS_MEMBER_FILE_INTEGRITY") {
+if ("$_System_Application_Integrity_LIST_APPLICATIONS_MEMBER_FILE_INTEGRITY" != "$_System_Application_Integrity_LIST_APPLICATIONS_MEMBER_FILE_INTEGRITY_INSTALLATION") {
 
 /*
  ============================================================================================================
@@ -376,10 +378,11 @@ while ($_System_Application_Integrity_DB_Query_List_Applications_Panel_Fetch_Arr
 */
 
 $_System_Application_Integrity_LIST_APPLICATIONS_PANEL_ENTRY_ID					= $_System_Application_Integrity_DB_Query_List_Applications_Panel_Fetch_Array['id'];
-$_System_Application_Integrity_LIST_APPLICATIONS_PANEL_FILE_DATE_INSTALLATION			= $_System_Application_Integrity_DB_Query_List_Applications_Panel_Fetch_Array['application_file_date_installation'];
-$_System_Application_Integrity_LIST_APPLICATIONS_PANEL_FILE_INTEGRITY				= $_System_Application_Integrity_DB_Query_List_Applications_Panel_Fetch_Array['application_file_integrity'];
-$_System_Application_Integrity_LIST_APPLICATIONS_PANEL_FILE_NAME				= $_System_Application_Integrity_DB_Query_List_Applications_Panel_Fetch_Array['application_file_name'];
-$_System_Application_Integrity_LIST_APPLICATIONS_PANEL_FILE_VERSION				= $_System_Application_Integrity_DB_Query_List_Applications_Panel_Fetch_Array['application_file_version'];
+$_System_Application_Integrity_LIST_APPLICATIONS_PANEL_FILE_DATE_INSTALLATION			= $_System_Application_Integrity_DB_Query_List_Applications_Panel_Fetch_Array['application_panel_file_date_installation'];
+$_System_Application_Integrity_LIST_APPLICATIONS_PANEL_FILE_INTEGRITY				= $_System_Application_Integrity_DB_Query_List_Applications_Panel_Fetch_Array['application_panel_file_integrity'];
+$_System_Application_Integrity_LIST_APPLICATIONS_PANEL_FILE_INTEGRITY_INSTALLATION		= $_System_Application_Integrity_DB_Query_List_Applications_Panel_Fetch_Array['application_panel_file_integrity_installation'];
+$_System_Application_Integrity_LIST_APPLICATIONS_PANEL_FILE_NAME				= $_System_Application_Integrity_DB_Query_List_Applications_Panel_Fetch_Array['application_panel_file_name'];
+$_System_Application_Integrity_LIST_APPLICATIONS_PANEL_FILE_VERSION				= $_System_Application_Integrity_DB_Query_List_Applications_Panel_Fetch_Array['application_panel_file_version'];
 
 /*
  ============================================================================================================
@@ -398,7 +401,7 @@ $_System_Application_Integrity_Check_File_Application_Panel					= hash_file('sha
 
 if (!file_exists($_System_Application_Integrity_Find_File_Application_Panel)) {
 
-copy("./System/Security/Integrity/Backup/Applications/Panel/$_System_Application_Integrity_LIST_APPLICATIONS_PANEL_FILE_NAME","./Applications/Panel/$_System_Application_Integrity_LIST_APPLICATIONS_PANEL_FILE_NAME");
+copy("./System/Security/Integrity/Backup/Applications/Panel/$_System_Application_Integrity_LIST_APPLICATIONS_PANEL_FILE_NAME.panel","./Applications/Panel/$_System_Application_Integrity_LIST_APPLICATIONS_PANEL_FILE_NAME.panel");
 
 } // [ + ] IF: File DOES NOT Exist: Application :: Panel: Flash Back: Application :: Panel
 
@@ -408,7 +411,7 @@ copy("./System/Security/Integrity/Backup/Applications/Panel/$_System_Application
  ============================================================================================================
 */
 
-if ("$_System_Application_Integrity_LIST_APPLICATIONS_PANEL_FILE_INTEGRITY" != "$_System_Application_Integrity_LIST_APPLICATIONS_PANEL_FILE_INTEGRITY") {
+if ("$_System_Application_Integrity_LIST_APPLICATIONS_PANEL_FILE_INTEGRITY" != "$_System_Application_Integrity_LIST_APPLICATIONS_PANEL_FILE_INTEGRITY_INSTALLATION") {
 
 /*
  ============================================================================================================
@@ -440,7 +443,7 @@ unlink($_System_Application_Integrity_Find_File_Application_Panel);
  ============================================================================================================
 */
 
-copy("./System/Security/Integrity/Backup/Applications/Panel/$_System_Application_Integrity_LIST_APPLICATIONS_PANEL_FILE_NAME","./Applications/Panel/$_System_Application_Integrity_LIST_APPLICATIONS_PANEL_FILE_NAME");
+copy("./System/Security/Integrity/Backup/Applications/Panel/$_System_Application_Integrity_LIST_APPLICATIONS_PANEL_FILE_NAME.panel","./Applications/Panel/$_System_Application_Integrity_LIST_APPLICATIONS_PANEL_FILE_NAME.panel");
 
 } // [ + ] WHILE: Retrieving :: All :: Applications :: Member :: From The Database Management System Server Database
 
