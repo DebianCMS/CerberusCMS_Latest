@@ -5,9 +5,9 @@
  + ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
  + Cerberus Content Management System
  + ----------------------------------------------------------------------------------------------------------
- + - Author			 : Gary Christopher Johnson of Oildale and SouthGate In Southern California
+ + - Author			 : Gary Christopher Johnson of Rosedale In Southern California, U.S.A.
  + - Company			 : Tinke Software, Free and Open Source Software
- + - Company Address		 : Oildale In Southern California, United States of America
+ + - Company Address		 : Rosedale In Southern California, United States of America
  + - Electronic Mail Address	 : CerberusCMS@Protonmail.com, TinkeSoftware@Protonmail.com
  + - Document Notes		 : View this file in a non-formatting text editor without word-wrap for the
  +				 : correct display of this programming code and its indentation.
@@ -17,7 +17,7 @@
  +  ------
  + Index Application
  + ----------------------------------------------------------------------------------------------------------
- + - This File, Location	 : Master Root Directory => Root Directory => index.php
+ + - This File, Location	 : Root Directory => Upload => Executable => Linux => index.php
  + - This File, Version		 : 0.7.1
  + - This File, Programming Code : Pure Pre-Hyper-Text-Post-Processor
  + - Programming Code Model	 : Procedural, Functional, Object Oriented :: Pre-Order Algebraic
@@ -48,7 +48,7 @@
  +
  +
  +
- + [ ^ ] Master Index File
+ + [ ^ ] Directory Master Index
  +
  +
  +
@@ -58,54 +58,34 @@
 /*
  ============================================================================================================
  +
- + Master Index File :: Variables
+ +
+ + [ @ ] Directory Master Index :: Variables
+ +
  +
  ============================================================================================================
 */
 
 /*
  ============================================================================================================
- + Master Index File :: Variables :: Installation Application File
+ + Directory Master Index :: Variables :: Directory Listing Denial File
  ============================================================================================================
 */
 
-$_Project_File_Installation				= "./Architect.php";
+$_DIRECTORY_FILE_DENIAL					= "../../../System/Default/Messages/Directory_Denial.php";
 
 /*
  ============================================================================================================
- + Master Index File :: Variables :: Kernel Application File
+ + Directory Listing Denial: IF Directory Denial File Exists, Include It
  ============================================================================================================
 */
 
-$_Project_File_Kernel					= "./Cerberus.php?Application_Member=News";
+if (file_exists("$_DIRECTORY_FILE_DENIAL")) {
 
-/*
- ============================================================================================================
- + Master Index File :: Variables :: Root Index File
- ============================================================================================================
-*/
-
-$_Project_File_Index					= "./index.php";
-
-/*
- ============================================================================================================
- + Check For Installation File: If It Exists, Redirect To It
- ============================================================================================================
-*/
-
-if (file_exists($_Project_File_Installation)) {
-
-	header("location: $_Project_File_Installation");
-
-/*
- ============================================================================================================
- + Check For Installation File: If It Does Not Exists, Redirect To Kernel File
- ============================================================================================================
-*/
+	include_once "$_DIRECTORY_FILE_DENIAL";
 
 } else {
 
-	header("location: $_Project_File_Kernel");
+	echo ("Kernel Message: Missing Path: $_DIRECTORY_FILE_DENIAL");
 
-} // [ + ] IF: File Exists: Architect Installation Application
+} // [ + ] IF: File Exists: Directory Denial Index File: Redirect To Master Directory Index Listing Denial File
 ?>
