@@ -1,0 +1,556 @@
+<?php
+/*
+ ============================================================================================================
+ + ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+ + ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+ + Cerberus Content Management System
+ + ----------------------------------------------------------------------------------------------------------
+ + - Author			 : Gary Christopher Johnson of Oildale and SouthGate In Southern California
+ + - Company			 : Tinke Software, Free and Open Source Software
+ + - Company Address		 : Oildale In Southern California, United States of America
+ + - Electronic Mail Address	 : CerberusCMS@Protonmail.com, TinkeSoftware@Protonmail.com
+ + - Document Notes		 : View this file in a non-formatting text editor without word-wrap for the
+ +				 : correct display of this programming code and its indentation.
+ + ----------------------------------------------------------------------------------------------------------
+ +    ()  ()  ()
+ +  ()  ()  ()
+ +  ------------------------------
+ +  Application Module
+ + ----------------------------------------------------------------------------------------------------------
+ + - This File, Location	 : Root Directory => Applications => Member => Statistics
+ + - This File, Version		 : 0.7.1
+ + - This File, Programming Code : Pure Pre-Hyper-Text-Post-Processor
+ + - Programming Code Model	 : Procedural, Functional, Object Oriented :: Pre-Order Algebraic
+ + -				 :					   :: Pre-Order Logical
+ + - Compatibility		 : Pre-Hyper-Text-Post-Processor 	   :: Version Numbers: 5, 7, 8
+ + -				 : Zend Engine				   :: Version Numbers: 3, 4
+ + - Official Release Date	 : Wednesday, November 1st of 2023
+ + ----------------------------------------------------------------------------------------------------------
+ + -------------------------------------------------------------------------------	 - Nyx -
+ + --[][]--[][][]--[][][]--[][][]---[][][]--[][][]--[]--[]------[][][]------------   []++++||=======>
+ + -[]-----[]------[]--[]--[]---[]--[]------[]--[]--[]--[]------[]----------------
+ + -[]-----[]------[]--[]--[]---[]--[]------[]--[]--[]--[]------[]----------------    |'-._/\_.-'|
+ + -[]-----[]------[]--[]--[]---[]--[]------[]--[]--[]--[]------[]----------------    |    []    |
+ + -[]-----[]------[]--[]--[]---[]--[]------[]--[]--[]--[]------[]----------------    |___-[]-___|
+ + -[]-----[][][]--[][][]--[][][]---[][][]--[][][]--[]--[]------[]----------------    |__((**))__|
+ + -[]-----[]------[]--[]--[]---[]--[]------[]--[]--[]--[]------[]----------------    \   -[]-   /
+ + -[]-----[]------[]--[]--[]---[]--[]------[]--[]--[]--[]------[]------------/-\-     \   []   /
+ + -[]-----[]------[]--[]--[]---[]--[]------[]--[]--[]--[]------[]---VERSION--|4|-	\  []  /
+ + --[][]--[][][]--[]--[]--[][][]---[][][]--[]--[]--[][][]--[][][]------------\-/-	 '.[].'
+ + -------------------------------------------------------------------------------
+ + ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ Build Number: 0.8 - Final
+ + ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ Edit Number : 4,325
+ ============================================================================================================
+*/
+
+/*
+ ============================================================================================================
+ +
+ +
+ +
+ + [ ^ ] Application Module :: Member :: Statistics
+ +
+ +
+ +
+ ============================================================================================================
+*/
+
+/*
+ ============================================================================================================
+ + Application Module Header
+ ============================================================================================================
+*/
+
+												echo ($_Application_Module_Member_Message_Statistics_Header);
+
+/*
+ ============================================================================================================
+ +
+ + Fetch Statistics Data From The Database Server
+ +
+ ============================================================================================================
+*/
+
+/*
+ ============================================================================================================
+ + Find :: Statistics Data
+ ============================================================================================================
+*/
+
+$_Application_Module_Member_Statistics_DB_Query_SELECT_ALL_STATISTICS					= $_GLOBAL_DATABASE_MANAGEMENT_SYSTEM_SERVER_DATABASE_CONNECTION->query("SELECT * FROM {$_ACCESS_DATABASE_SERVER_DATABASE_TABLE_PREFIX}_statistics ORDER BY id ASC LIMIT 1");
+$_Application_Module_Member_Statistics_DB_Query_SELECT_ALL_MEMBERS					= $_GLOBAL_DATABASE_MANAGEMENT_SYSTEM_SERVER_DATABASE_CONNECTION->query("SELECT * FROM {$_ACCESS_DATABASE_SERVER_DATABASE_TABLE_PREFIX}_members ORDER BY id ASC");
+$_Application_Module_Member_Statistics_DB_Query_SELECT_ALL_MEMBERS_ACTIVE				= $_GLOBAL_DATABASE_MANAGEMENT_SYSTEM_SERVER_DATABASE_CONNECTION->query("SELECT * FROM {$_ACCESS_DATABASE_SERVER_DATABASE_TABLE_PREFIX}_members WHERE member_status_account_active='1' ORDER BY id ASC");
+$_Application_Module_Member_Statistics_DB_Query_SELECT_ALL_MEMBERS_INACTIVE				= $_GLOBAL_DATABASE_MANAGEMENT_SYSTEM_SERVER_DATABASE_CONNECTION->query("SELECT * FROM {$_ACCESS_DATABASE_SERVER_DATABASE_TABLE_PREFIX}_members WHERE member_status_account_active='0' ORDER BY id ASC");
+$_Application_Module_Member_Statistics_DB_Query_SELECT_ALL_COMMENTS					= $_GLOBAL_DATABASE_MANAGEMENT_SYSTEM_SERVER_DATABASE_CONNECTION->query("SELECT * FROM {$_ACCESS_DATABASE_SERVER_DATABASE_TABLE_PREFIX}_comments");
+$_Application_Module_Member_Statistics_DB_Query_SELECT_ALL_FILES					= $_GLOBAL_DATABASE_MANAGEMENT_SYSTEM_SERVER_DATABASE_CONNECTION->query("SELECT * FROM {$_ACCESS_DATABASE_SERVER_DATABASE_TABLE_PREFIX}_files");
+$_Application_Module_Member_Statistics_DB_Query_SELECT_ALL_FORUM					= $_GLOBAL_DATABASE_MANAGEMENT_SYSTEM_SERVER_DATABASE_CONNECTION->query("SELECT * FROM {$_ACCESS_DATABASE_SERVER_DATABASE_TABLE_PREFIX}_forum_forum");
+$_Application_Module_Member_Statistics_DB_Query_SELECT_ALL_FORUM_TOPICS					= $_GLOBAL_DATABASE_MANAGEMENT_SYSTEM_SERVER_DATABASE_CONNECTION->query("SELECT * FROM {$_ACCESS_DATABASE_SERVER_DATABASE_TABLE_PREFIX}_forum_topic");
+$_Application_Module_Member_Statistics_DB_Query_SELECT_ALL_FORUM_TOPIC_MESSAGES				= $_GLOBAL_DATABASE_MANAGEMENT_SYSTEM_SERVER_DATABASE_CONNECTION->query("SELECT * FROM {$_ACCESS_DATABASE_SERVER_DATABASE_TABLE_PREFIX}_forum_topic_message");
+
+/*
+ ============================================================================================================
+ + Count :: Number of Rows
+ ============================================================================================================
+*/
+
+$_Application_Module_Member_Statistics_DB_Query_SELECT_ALL_FORUM_NUMBER_OF_ROWS				= $_Application_Module_Member_Statistics_DB_Query_SELECT_ALL_FORUM->num_rows;
+$_Application_Module_Member_Statistics_DB_Query_SELECT_ALL_FORUM_NUMBER_OF_ROWS_TOPICS			= $_Application_Module_Member_Statistics_DB_Query_SELECT_ALL_FORUM_TOPICS->num_rows;
+$_Application_Module_Member_Statistics_DB_Query_SELECT_ALL_FORUM_NUMBER_OF_ROWS_TOPIC_MESSAGES		= $_Application_Module_Member_Statistics_DB_Query_SELECT_ALL_FORUM_TOPIC_MESSAGES->num_rows;
+$_Application_Module_Member_Statistics_DB_Query_SELECT_ALL_FILES_NUMBER_OF_ROWS				= $_Application_Module_Member_Statistics_DB_Query_SELECT_ALL_FILES->num_rows;
+$_Application_Module_Member_Statistics_DB_Query_SELECT_ALL_COMMENTS_NUMBER_OF_ROWS			= $_Application_Module_Member_Statistics_DB_Query_SELECT_ALL_COMMENTS->num_rows;
+$_Application_Module_Member_Statistics_DB_Query_SELECT_ALL_MEMBERS_NUMBER_OF_ROWS			= $_Application_Module_Member_Statistics_DB_Query_SELECT_ALL_MEMBERS->num_rows;
+$_Application_Module_Member_Statistics_DB_Query_SELECT_ALL_MEMBERS_NUMBER_OF_ROWS_ACTIVE		= $_Application_Module_Member_Statistics_DB_Query_SELECT_ALL_MEMBERS_ACTIVE->num_rows;
+$_Application_Module_Member_Statistics_DB_Query_SELECT_ALL_MEMBERS_NUMBER_OF_ROWS_INACTIVE		= $_Application_Module_Member_Statistics_DB_Query_SELECT_ALL_MEMBERS_INACTIVE->num_rows;
+
+/*
+ ============================================================================================================
+ + List :: Statistics Data :: Miscellanious
+ ============================================================================================================
+*/
+
+$_Application_Module_Member_Statistics_DB_Query_FETCH_ARRAY_STATISTICS					= $_Application_Module_Member_Statistics_DB_Query_SELECT_ALL_STATISTICS->fetch_array(MYSQLI_BOTH);
+
+$_Application_Module_Member_Statistics_LIST_TOTAL_NUMBER_OF_DOCUMENT_EXECUTIONS_NON_UNIQUE		= $_Application_Module_Member_Statistics_DB_Query_FETCH_ARRAY_STATISTICS['statistics_total_number_of_document_executions_non_unique'];
+$_Application_Module_Member_Statistics_LIST_TOTAL_NUMBER_OF_DOCUMENT_EXECUTIONS_UNIQUE			= $_Application_Module_Member_Statistics_DB_Query_FETCH_ARRAY_STATISTICS['statistics_total_number_of_document_executions_unique'];
+$_Application_Module_Member_Statistics_LIST_INSTALLATION_DATE						= $_Application_Module_Member_Statistics_DB_Query_FETCH_ARRAY_STATISTICS['statistics_installation_date'];
+
+/*
+ ============================================================================================================
+ + Is GZIP Compression On or Off ?
+ ============================================================================================================
+*/
+
+if ($_GLOBAL_SYSTEM_STATUS_GZIP <= 0) {
+
+	$_Application_Module_Member_Statistics_Status_GZIP		= "Off";
+
+} else { // [ + ] IF: G.N.U. ZIP Compression System Setting Is: Off
+
+	$_Application_Module_Member_Statistics_Status_GZIP		= "On";
+
+} // [ + ] IF: G.N.U. ZIP Compression System Setting Is: On
+
+/*
+ ============================================================================================================
+ + Is The Camera Plug-In On or Off ?
+ ============================================================================================================
+*/
+
+if ($_GLOBAL_SYSTEM_PLUGIN_STATUS_CAMERA <= 0) {
+
+	$_Application_Module_Member_Statistics_PlugIn_Status_Camera	= "Off";
+
+} else { // [ + ] IF: The Camera Plug-In System Setting Is: Off
+
+	$_Application_Module_Member_Statistics_PlugIn_Status_SafeHTML	= "On";
+
+} // [ + ] IF: The Camera Plug-In System Setting Is: On
+
+/*
+ ============================================================================================================
+ + Is The Location Plug-In On or Off ?
+ ============================================================================================================
+*/
+
+if ($_GLOBAL_SYSTEM_PLUGIN_STATUS_LOCATION <= 0) {
+
+	$_Application_Module_Member_Statistics_PlugIn_Status_Location	= "Off";
+
+} else { // [ + ] IF: The Location Plug-In System Setting Is: Off
+
+	$_Application_Module_Member_Statistics_PlugIn_Status_Location	= "On";
+
+} // [ + ] IF: The Location Plug-In System Setting Is: On
+
+/*
+ ============================================================================================================
+ + Is The Microphone Plug-In On or Off ?
+ ============================================================================================================
+*/
+
+if ($_GLOBAL_SYSTEM_PLUGIN_STATUS_MICROPHONE <= 0) {
+
+	$_Application_Module_Member_Statistics_PlugIn_Status_Microphone	= "Off";
+
+} else { // [ + ] IF: The Microphone Plug-In System Setting Is: Off
+
+	$_Application_Module_Member_Statistics_PlugIn_Status_Microphone	= "On";
+
+} // [ + ] IF: The Microphone Plug-In System Setting Is: On
+
+/*
+ ============================================================================================================
+ + Is The Microphone Plug-In On or Off ?
+ ============================================================================================================
+*/
+
+if ($_GLOBAL_SYSTEM_PLUGIN_STATUS_NOTIFICATIONS <= 0) {
+
+	$_Application_Module_Member_Statistics_PlugIn_Status_Notifications	= "Off";
+
+} else { // [ + ] IF: The Notifications Plug-In System Setting Is: Off
+
+	$_Application_Module_Member_Statistics_PlugIn_Status_Notifications	= "On";
+
+} // [ + ] IF: The Notifications Plug-In System Setting Is: On
+
+/*
+ ============================================================================================================
+ + Is The Safe-HTML Plug-In On or Off ?
+ ============================================================================================================
+*/
+
+if ($_GLOBAL_SYSTEM_PLUGIN_STATUS_SAFEHTML <= 0) {
+
+	$_Application_Module_Member_Statistics_PlugIn_Status_SafeHTML	= "Off";
+
+} else { // [ + ] IF: The Safe-HTML Plug-In System Setting Is: Off
+
+	$_Application_Module_Member_Statistics_PlugIn_Status_SafeHTML	= "On";
+
+} // [ + ] IF: The Safe-HTML Plug-In System Setting Is: On
+
+/*
+ ============================================================================================================
+ + Is The Secure-Delete Plug-In On or Off ?
+ ============================================================================================================
+*/
+
+if ($_GLOBAL_SYSTEM_PLUGIN_STATUS_SECURE_DELETE <= 0) {
+
+	$_Application_Module_Member_Statistics_PlugIn_Status_Secure_Delete	= "Off";
+
+} else { // [ + ] IF: The Secure-Delete Plug-In System Setting Is: Off
+
+	$_Application_Module_Member_Statistics_PlugIn_Status_Secure_Delete	= "On";
+
+} // [ + ] IF: The Secure-Delete Plug-In System Setting Is: On
+
+/*
+ ============================================================================================================
+ + Is The Text-Editor Plug-In On or Off ?
+ ============================================================================================================
+*/
+
+if ($_GLOBAL_SYSTEM_PLUGIN_STATUS_TEXT_EDITOR <= 0) {
+
+	$_Application_Module_Member_Statistics_PlugIn_Status_Text_Editor	= "Off";
+
+} else { // [ + ] IF: The Text-Editor Plug-In System Setting Is: Off
+
+	$_Application_Module_Member_Statistics_PlugIn_Status_Text_Editor	= "On";
+
+} // [ + ] IF: The Text-Editor Plug-In System Setting Is: On
+
+/*
+ ============================================================================================================
+ +
+ + Display :: System Settings and System Statistical Information
+ +
+ ============================================================================================================
+*/
+
+echo ("
+											<B>System Statistical Information</B><HR>
+												*&nbsp;Installation Date: $_Application_Module_Member_Statistics_LIST_INSTALLATION_DATE<BR>
+												*&nbsp;Total Number of :: Web-Page Document Executions :: Unique: $_Application_Module_Member_Statistics_LIST_TOTAL_NUMBER_OF_DOCUMENT_EXECUTIONS_UNIQUE<BR>
+												*&nbsp;Total Number of :: Web-Page Document Executions :: Non-Unique: $_Application_Module_Member_Statistics_LIST_TOTAL_NUMBER_OF_DOCUMENT_EXECUTIONS_NON_UNIQUE<BR><BR>
+
+											<B>Settings :: System :: Current</B><HR>
+
+											<B>Settings :: System :: Web-Page Document :: Output Data :: Compression</B><BR>
+												*&nbsp;G.N.U. ZIP ( GZIP ) Data Compression: $_GLOBAL_SYSTEM_STATUS_GZIP_DISPLAY<BR><BR>
+
+											<B>Settings :: System :: Graphical User Interface :: Theme</B><BR>
+												*&nbsp;System :: Theme :: File Format :: Audio: $_GLOBAL_SYSTEM_SOUND_EXTENSION<BR>
+												*&nbsp;System :: Theme :: File Format :: Image: $_GLOBAL_SYSTEM_IMAGE_EXTENSION<BR>
+												*&nbsp;System :: Theme :: Directory: $_GLOBAL_SYSTEM_THEME_DIRECTORY<BR><BR>
+
+											<B>Settings :: System :: Language</B><BR>
+												*&nbsp;System :: Language: $_GLOBAL_SYSTEM_LANGUAGE_DIRECTORY<BR><BR>
+
+											<B>Settings :: System :: Plug-Ins :: Current</B><HR><BR>
+
+											<B>Settings :: System :: Plug-Ins :: Hardware Devices
+											</B><HR ALIGN=\"LEFT\" WIDTH=\"20%\">
+
+											<B>Settings :: System :: Plug-Ins :: Camera</B><BR>
+												*&nbsp;Plug-In :: Camera :: Directory: $_GLOBAL_SYSTEM_PLUGIN_DIRECTORY_CAMERA<BR>
+												*&nbsp;Plug-In :: Camera :: Status: $_GLOBAL_SYSTEM_PLUGIN_STATUS_CAMERA<BR><BR>
+
+											<B>Settings :: System :: Plug-Ins :: Microphone</B><BR>
+												*&nbsp;Plug-In :: Microphone :: Directory: $_GLOBAL_SYSTEM_PLUGIN_DIRECTORY_MICROPHONE<BR>
+												*&nbsp;Plug-In :: Microphone :: Status: $_GLOBAL_SYSTEM_PLUGIN_STATUS_MICROPHONE<BR><BR>
+
+											<B>Settings :: System :: Plug-Ins :: Location</B><BR>
+												*&nbsp;Plug-In :: Location :: Directory: $_GLOBAL_SYSTEM_PLUGIN_DIRECTORY_LOCATION<BR>
+												*&nbsp;Plug-In :: Location :: Status: $_GLOBAL_SYSTEM_PLUGIN_STATUS_LOCATION<BR><BR>
+
+											<B>Settings :: System :: Plug-Ins :: Notifications</B><BR>
+												*&nbsp;Plug-In :: Notifications :: Directory: $_GLOBAL_SYSTEM_PLUGIN_DIRECTORY_NOTIFICATIONS<BR>
+												*&nbsp;Plug-In :: Notifications :: Status: $_GLOBAL_SYSTEM_PLUGIN_STATUS_NOTIFICATIONS<BR><BR>
+
+											<B>Settings :: System :: Plug-Ins :: Data Processing
+											</B><HR ALIGN=\"LEFT\" WIDTH=\"20%\">
+
+											<B>Settings :: System :: Plug-Ins :: Safe-HTML</B><BR>
+												*&nbsp;Plug-In :: Safe-HTML :: Directory: $_GLOBAL_SYSTEM_PLUGIN_DIRECTORY_SAFEHTML<BR>
+												*&nbsp;Plug-In :: Safe-HTML :: Status: $_GLOBAL_SYSTEM_PLUGIN_STATUS_SAFEHTML<BR><BR>
+
+											<B>Settings :: System :: Plug-Ins :: Text-Editor</B><BR>
+												*&nbsp;Plug-In :: Text-Editor :: Directory: $_GLOBAL_SYSTEM_PLUGIN_DIRECTORY_TEXT_EDITOR<BR>
+												*&nbsp;Plug-In :: Text-Editor :: Status: $_GLOBAL_SYSTEM_PLUGIN_STATUS_TEXT_EDITOR<BR><BR>
+
+											<B>Settings :: System :: Plug-Ins :: Data Sanitization
+											</B><HR ALIGN=\"LEFT\" WIDTH=\"20%\">
+
+											<B>Settings :: System :: Plug-Ins :: Secure-Delete</B><BR>
+												*&nbsp;Plug-In :: Secure-Delete :: Directory: $_GLOBAL_SYSTEM_PLUGIN_DIRECTORY_SECURE_DELETE<BR>
+												*&nbsp;Plug-In :: Secure-Delete :: Status: $_GLOBAL_SYSTEM_PLUGIN_STATUS_SECURE_DELETE<BR><BR>
+
+											<B>Settings :: System :: Plug-Ins :: Terminal and Console
+											</B><HR ALIGN=\"LEFT\" WIDTH=\"20%\">
+
+											<B>System :: Settings :: Plug-Ins :: Graphical</B><BR>
+												*&nbsp;Plug-In :: Smileys and Emojis :: Directory: $_GLOBAL_SYSTEM_SMILEYS_DIRECTORY<BR><BR>
+
+											<B>System Security Settings</B><HR><BR>
+
+											<B>Settings :: System :: Security :: Data Sanitization
+											</B><HR ALIGN=\"LEFT\" WIDTH=\"20%\">
+
+											<B>Settings :: Security :: Security Modules</B><BR>
+												*&nbsp;Security Module :: Master Sanitization Module :: Directory :: $_GLOBAL_SETTING_SYSTEM_SECURITY_MODULE_DIRECTORY_MASTER_SANITIZATION<BR>
+												*&nbsp;Security Module :: Master Sanitization Module :: Status :: $_GLOBAL_SETTING_SYSTEM_SECURITY_MODULE_STATUS_MASTER_SANITIZATION<BR><BR>
+
+											<B>Settings :: System :: Security :: Web-Page Output :: Cache :: Cache-Circumvention
+											</B><HR ALIGN=\"LEFT\" WIDTH=\"20%\">
+
+											<B>Settings :: Security :: Cache Circumvention</B><BR>
+												*&nbsp;Security :: Setting :: Cache Circumvention :: Status :: $_GLOBAL_SETTING_SYSTEM_SECURITY_SETTING_STATUS_CACHE_CIRCUMVENTION<BR><BR>
+
+											<B>Settings :: System :: Security :: Account Control :: Authorization
+											</B><HR ALIGN=\"LEFT\" WIDTH=\"20%\">
+
+											<B>Settings :: Security :: Account Authorization</B><BR>
+												*&nbsp;Account Restrictions :: MAC Address: $_GLOBAL_SYSTEM_SETTING_ACCOUNT_SECURITY_RESTRICT_AUTHORIZED_MAC_ADDRESS<BR>
+												*&nbsp;Account Restrictions :: Internet Protocol Address: $_GLOBAL_SYSTEM_SETTING_ACCOUNT_SECURITY_RESTRICT_AUTHORIZED_INTERNET_PROTOCOL_ADDRESS<BR>
+												*&nbsp;Account Restrictions :: Web Browser: $_GLOBAL_SYSTEM_SETTING_ACCOUNT_SECURITY_RESTRICT_AUTHORIZED_WEB_BROWSER<BR><BR>
+
+											<B>Settings :: Security :: Cache-Circumvention :: Random Generated Strings</B><BR>
+												*&nbsp;=> Secure HASH Algorithm, 512 :: Hyper-Text Reference<BR>
+												$_GLOBAL_SYSTEM_SECURITY_CACHE_CIRCUMVENTION_HTR_RANDOM_STRING_GENERATION<BR>
+												*&nbsp;=> Secure HASH Algorithm, 512 :: Audio<BR>
+												$_GLOBAL_SYSTEM_SECURITY_CACHE_CIRCUMVENTION_AUDIO_RANDOM_STRING_GENERATION<BR>
+												*&nbsp;=> Secure HASH Algorithm, 512 :: Document<BR>
+												$_GLOBAL_SYSTEM_SECURITY_CACHE_CIRCUMVENTION_DOCUMENT_RANDOM_STRING_GENERATION<BR>
+												*&nbsp;=> Secure HASH Algorithm, 512 :: Image<BR>
+												$_GLOBAL_SYSTEM_SECURITY_CACHE_CIRCUMVENTION_IMAGE_RANDOM_STRING_GENERATION<BR>
+												*&nbsp;=> Secure HASH Algorithm, 512 :: Video<BR>
+												$_GLOBAL_SYSTEM_SECURITY_CACHE_CIRCUMVENTION_VIDEO_RANDOM_STRING_GENERATION<BR>
+												*&nbsp;=> Secure HASH Algorithm, 512 :: Internal File Inclusion<BR>
+												$_GLOBAL_SYSTEM_SECURITY_CACHE_CIRCUMVENTION_FILEINCLUSION_RANDOM_STRING_GENERATION<BR><BR>
+
+											<B>System-Wide Social Interaction Information & Statistics</B><HR>
+
+											<B>System-Wide :: Forum Information & Statistics</B><BR>
+												*&nbsp;Total Number of Forums: $_Application_Module_Member_Statistics_DB_Query_SELECT_ALL_FORUM_NUMBER_OF_ROWS<BR>
+												*&nbsp;Total Number of Forum' Topics: $_Application_Module_Member_Statistics_DB_Query_SELECT_ALL_FORUM_NUMBER_OF_ROWS_TOPICS<BR>
+												*&nbsp;Total Number of Forum' Topic' Messages: $_Application_Module_Member_Statistics_DB_Query_SELECT_ALL_FORUM_NUMBER_OF_ROWS_TOPIC_MESSAGES<BR><BR>
+
+											<B>System-Wide :: Commentation Information & Statistics</B><BR>
+												*&nbsp;Total Number of Comments: $_Application_Module_Member_Statistics_DB_Query_SELECT_ALL_COMMENTS_NUMBER_OF_ROWS<BR><BR>
+
+											<B>System-Wide :: Registered Member Accounts Information & Statistics</B><BR>
+												*&nbsp;Total Number of Registered Member Accounts: $_Application_Module_Member_Statistics_DB_Query_SELECT_ALL_MEMBERS_NUMBER_OF_ROWS<BR>
+												*&nbsp;Total Number of Registered Member Accounts :: Currently Active: $_Application_Module_Member_Statistics_DB_Query_SELECT_ALL_MEMBERS_NUMBER_OF_ROWS_ACTIVE<BR>
+												*&nbsp;Total Number of Registered Member Accounts :: Currently Inactive: $_Application_Module_Member_Statistics_DB_Query_SELECT_ALL_MEMBERS_NUMBER_OF_ROWS_INACTIVE<BR><BR>
+
+											<B>System-Wide :: File System Information & Statistics</B><BR>
+												*&nbsp;Total Number of Files Within The File System: $_Application_Module_Member_Statistics_DB_Query_SELECT_ALL_FILES_NUMBER_OF_ROWS<BR><BR>
+
+												<B>File Categories</B><BR>
+												*&nbsp;File Size Upload Limitations :: In BITS :: File System :: $_GLOBAL_SYSTEM_UPLOAD_SIZE_PUBLIC_FILE_CATEGORIES<BR><BR>
+
+												<B>Registered Member Account :: Data</B><BR>
+												*&nbsp;File Size Upload Limitations :: In BITS :: Registered Member Account :: Data :: Audio: $_GLOBAL_SYSTEM_UPLOAD_SIZE_PRIVATE_MEMBER_AUDIO<BR>
+												*&nbsp;File Size Upload Limitations :: In BITS :: Registered Member Account :: Data :: Document: $_GLOBAL_SYSTEM_UPLOAD_SIZE_PRIVATE_MEMBER_DOCUMENT<BR>
+												*&nbsp;File Size Upload Limitations :: In BITS :: Registered Member Account :: Data :: Image: $_GLOBAL_SYSTEM_UPLOAD_SIZE_PRIVATE_MEMBER_IMAGE<BR>
+												*&nbsp;File Size Upload Limitations :: In BITS :: Registered Member Account :: Data :: Video: $_GLOBAL_SYSTEM_UPLOAD_SIZE_PRIVATE_MEMBER_VIDEO<BR><BR>
+
+												<B>Registered Member Account :: Streams</B><BR>
+												*&nbsp;File Size Upload Limitations :: In BITS :: Registered Member Account :: Streams :: Individual Files :: Audio: $_GLOBAL_SYSTEM_UPLOAD_SIZE_PRIVATE_MEMBER_STREAMS_AUDIO<BR>
+												*&nbsp;File Size Upload Limitations :: In BITS :: Registered Member Account :: Streams :: Individual Files :: Document: $_GLOBAL_SYSTEM_UPLOAD_SIZE_PRIVATE_MEMBER_STREAMS_DOCUMENT<BR>
+												*&nbsp;File Size Upload Limitations :: In BITS :: Registered Member Account :: Streams :: Individual Files :: Image: $_GLOBAL_SYSTEM_UPLOAD_SIZE_PRIVATE_MEMBER_STREAMS_IMAGE<BR>
+												*&nbsp;File Size Upload Limitations :: In BITS :: Registered Member Account :: Streams :: Individual Files :: Video: $_GLOBAL_SYSTEM_UPLOAD_SIZE_PRIVATE_MEMBER_STREAMS_VIDEO<BR><BR>
+
+												<B>Instant Messenger :: Data</B><BR>
+												*&nbsp;File Size Upload Limitations :: In BITS :: Instant Messenger :: Audio: $_GLOBAL_SYSTEM_UPLOAD_SIZE_PUBLIC_FILE_MESSENGER_AUDIO<BR>
+												*&nbsp;File Size Upload Limitations :: In BITS :: Instant Messenger :: Document: $_GLOBAL_SYSTEM_UPLOAD_SIZE_PUBLIC_FILE_MESSENGER_DOCUMENT<BR>
+												*&nbsp;File Size Upload Limitations :: In BITS :: Instant Messenger :: Image: $_GLOBAL_SYSTEM_UPLOAD_SIZE_PUBLIC_FILE_MESSENGER_IMAGE<BR>
+												*&nbsp;File Size Upload Limitations :: In BITS :: Instant Messenger :: Video: $_GLOBAL_SYSTEM_UPLOAD_SIZE_PUBLIC_FILE_MESSENGER_VIDEO<BR><BR>
+
+											<B>Network Connection and Web Server Information</B><HR>
+
+											<B>Visitor' :: Network :: Connection Information</B><BR>
+												*&nbsp;Visitor' :: Network :: Server Request Method :: $_GLOBAL_LOCAL_SERVER_REQUEST_METHOD<BR>
+												*&nbsp;Visitor' :: Network :: Server Request Time :: $_GLOBAL_LOCAL_SERVER_REQUEST_TIME<BR>
+												*&nbsp;Visitor' :: Network :: Server Connection Type :: $_GLOBAL_LOCAL_SERVER_HTTP_CONNECTION_TYPE<BR>
+												*&nbsp;Visitor' :: Network :: Internet Protocol Address :: <A HREF=\"$_SYSTEM_SERVER_NETWORKING_RESOLVER_WHOIS/$_GLOBAL_REMOTE_SERVER_ADDRESS\" TITLE=\":: Open & Display :: The :: Who-Is Information :: For :: Internet Protocol Address: $_GLOBAL_REMOTE_SERVER_ADDRESS :: \" TARGET=\"_NEW\">$_GLOBAL_REMOTE_SERVER_ADDRESS</A><BR>
+												*&nbsp;Visitor' :: Network :: Internet Protocol Address :: Connecting Port Number :: $_GLOBAL_REMOTE_SERVER_PORT<BR>
+												*&nbsp;Visitor' :: Network :: Web-Browser :: User-Agent :: $_GLOBAL_REMOTE_SERVER_HTTP_USER_AGENT_DISPLAY<BR>
+												*&nbsp;Visitor' :: Location :: Global-Positioning-System :: Coordinates :: X, Y, Z ::
+												&nbsp;<A ID=\"getLocationOutputLatitude\" TITLE=\":: Global-Positioning-System :: Coordinates :: Latitude ::\"></A>,
+												<A ID=\"getLocationOutputLongitude\" TITLE=\":: Global-Positioning-System :: Coordinates ::: Longitude ::\"></A>
+												&nbsp;With Altitude Above Sea-Level:&nbsp;<A ID=\"getLocationOutputAltitude\" TITLE=\":: Global-Positioning-System :: Coordinates :: Altitude ::\"></A>
+												&nbsp;<SPAN ID=\"OutputLocation\"></SPAN><BR><BR>
+
+											<B>Local Web Server :: Information</B><BR>
+												*&nbsp;Local Hyper-Text-Transfer-Protocol Host :: $_GLOBAL_LOCAL_SERVER_HTTP_HOST<BR>
+												*&nbsp;Local Server Gateway Interface :: $_GLOBAL_LOCAL_SERVER_GATEWAY_INTERFACE<BR>
+												*&nbsp;Local Server Address :: <A HREF=\"$_SYSTEM_SERVER_NETWORKING_RESOLVER_WHOIS/$_GLOBAL_LOCAL_SERVER_ADDRESS\" TITLE=\":: Open & Display :: The :: Who-Is Information :: For :: Internet Protocol Address: $_GLOBAL_LOCAL_SERVER_ADDRESS ::\" TARGET=\"_NEW\">$_GLOBAL_LOCAL_SERVER_ADDRESS</A><BR>
+												*&nbsp;Local Server Address :: Connecting Port Number: $_GLOBAL_LOCAL_SERVER_PORT<BR>
+												*&nbsp;Local Server Software :: $_GLOBAL_LOCAL_SERVER_SOFTWARE<BR>
+												*&nbsp;Local Server Request Time :: $_GLOBAL_LOCAL_SERVER_REQUEST_TIME<BR>
+												*&nbsp;Local Server Request Time ( Float ) :: $_GLOBAL_LOCAL_SERVER_REQUEST_TIME_FLOAT<BR>
+												*&nbsp;Local Server Document Root :: $_GLOBAL_LOCAL_SERVER_DOCUMENT_ROOT<BR>
+												*&nbsp;Local Server Hyper-Text-Transfer-Protocol Accept Type :: $_GLOBAL_LOCAL_SERVER_HTTP_ACCEPT<BR>
+												*&nbsp;Local Server Hyper-Text-Transfer-Protocol Character Set :: $_GLOBAL_LOCAL_SERVER_HTTP_ACCEPT_CHARACTER_SET<BR>
+												*&nbsp;Local Server Hyper-Text-Transfer-Protocol Encoding :: $_GLOBAL_LOCAL_SERVER_HTTP_ACCEPT_ENCODING<BR>
+												*&nbsp;Local Server Hyper-Text-Transfer-Protocol Loading Type :: $_GLOBAL_LOCAL_SERVER_HTTP_ACCEPT_LOADING<BR>
+												*&nbsp;Local Server Hyper-Text-Transfer-Protocol Language :: $_GLOBAL_LOCAL_SERVER_HTTP_ACCEPT_LANGUAGE<BR><BR>
+
+											<B>Current System Date and Time Settings</B><HR>
+												<B>Server :: Local :: Date</B><BR>
+												*&nbsp;Local Server :: Date :: Standard :: Timestamp :: $_GLOBAL_LOCAL_SERVER_DATE_STANDARD<BR>
+												*&nbsp;Local Server :: Date :: In Years :: $_GLOBAL_LOCAL_SERVER_DATE_NUMERICAL_YEAR_FULL<BR>
+												*&nbsp;Local Server :: Date :: In Months :: $_GLOBAL_LOCAL_SERVER_DATE_NUMERICAL_MONTH_FULL<BR>
+												*&nbsp;Local Server :: Date :: In Days :: $_GLOBAL_LOCAL_SERVER_DATE_NUMERICAL_MONTH_DAY_FULL<BR><BR>
+
+												<B>Server :: Local :: Time</B><BR>
+												*&nbsp;Local Server :: Time :: In Hours: $_GLOBAL_LOCAL_SERVER_TIME_HOURS<BR>
+												*&nbsp;Local Server :: Time :: In Minutes: $_GLOBAL_LOCAL_SERVER_TIME_MINUTES<BR>
+												*&nbsp;Local Server :: Time :: In Seconds: $_GLOBAL_LOCAL_SERVER_TIME_SECONDS<BR>
+												*&nbsp;Local Server :: Time :: In Microseconds: $_GLOBAL_LOCAL_SERVER_TIME_MICROSECONDS<BR>
+												*&nbsp;Local Server :: Time :: In Unix-Epoch: $_GLOBAL_LOCAL_SERVER_TIME_UNIX<BR><BR>
+
+												<B>Unix-Epoch :: Time :: Built-In</B><HR ALIGN=\"LEFT\" WIDTH=\"20%\">
+												<B>Time</B>
+												*&nbsp;Local Server :: Time :: In Microtime: $_GLOBAL_LOCAL_SERVER_TIME_MICROTIME<BR>
+												*&nbsp;Local Server :: Time :: In Unix-Epoch Start Time: January, 1st of 1970<BR>
+												*&nbsp;Local Server :: Time :: In Unix-Epoch: $_GLOBAL_LOCAL_SERVER_TIME_UNIX<BR><BR>
+
+												<B>Unix-Epoch :: Time :: Built-In</B></BR>
+												*&nbsp;Local Server :: Time :: In Unix-Epoch :: Seconds: $_GLOBAL_LOCAL_SERVER_TIME_UNIX<BR>
+												*&nbsp;Local Server :: Time :: In Unix-Epoch :: Minutes: $_GLOBAL_LOCAL_SERVER_TIME_UNIX_MINUTES<BR>
+												*&nbsp;Local Server :: Time :: In Unix-Epoch :: Hours: $_GLOBAL_LOCAL_SERVER_TIME_UNIX_HOURS<BR>
+												*&nbsp;Local Server :: Time :: In Unix-Epoch :: Days: $_GLOBAL_LOCAL_SERVER_TIME_UNIX_DAYS<BR>
+												*&nbsp;Local Server :: Time :: In Unix-Epoch :: Months: $_GLOBAL_LOCAL_SERVER_TIME_UNIX_MONTHS<BR>
+												*&nbsp;Local Server :: Time :: In Unix-Epoch :: Years: ~ $_GLOBAL_LOCAL_SERVER_TIME_UNIX_YEARS<BR><BR>
+
+												<B>Unix-Epoch :: Date-Time :: Built-In</B><BR>
+												*&nbsp;Local Server :: Date-Time :: In Unix-Epoch :: Years: $_GLOBAL_LOCAL_SERVER_DATE_TIME_UNIX_YEARS<BR>
+												*&nbsp;Local Server :: Date-Time :: In Unix-Epoch :: Months: $_GLOBAL_LOCAL_SERVER_DATE_TIME_UNIX_MONTHS<BR>
+												*&nbsp;Local Server :: Date-Time :: In Unix-Epoch :: Days: $_GLOBAL_LOCAL_SERVER_DATE_TIME_UNIX_DAYS<BR>
+												*&nbsp;Local Server :: Date-Time :: In Unix-Epoch :: Hours: $_GLOBAL_LOCAL_SERVER_DATE_TIME_UNIX_HOURS<BR>
+												*&nbsp;Local Server :: Date-Time :: In Unix-Epoch :: Minutes: $_GLOBAL_LOCAL_SERVER_DATE_TIME_UNIX_MINUTES<BR>
+												*&nbsp;Local Server :: Date-Time :: In Unix-Epoch :: Seconds: $_GLOBAL_LOCAL_SERVER_DATE_TIME_UNIX_SECONDS<BR><BR>
+
+												<B>Unix-Epoch :: Date-Time :: Manually Programmed :: Non-Leap Year</B><BR>
+												*&nbsp;Local Server :: Date-Time :: In Unix-Epoch :: Years: $_GLOBAL_LOCAL_SERVER_DATE_TIME_UNIX_EPOCH_MANUAL_YEARS<BR>
+												*&nbsp;Local Server :: Date-Time :: In Unix-Epoch :: Months: $_GLOBAL_LOCAL_SERVER_DATE_TIME_UNIX_EPOCH_MANUAL_MONTHS<BR>
+												*&nbsp;Local Server :: Date-Time :: In Unix-Epoch :: Days: $_GLOBAL_LOCAL_SERVER_DATE_TIME_UNIX_EPOCH_MANUAL_DAYS<BR>
+												*&nbsp;Local Server :: Date-Time :: In Unix-Epoch :: Hours: $_GLOBAL_LOCAL_SERVER_DATE_TIME_UNIX_EPOCH_MANUAL_HOURS<BR>
+												*&nbsp;Local Server :: Date-Time :: In Unix-Epoch :: Minutes: $_GLOBAL_LOCAL_SERVER_DATE_TIME_UNIX_EPOCH_MANUAL_MINUTES<BR>
+												*&nbsp;Local Server :: Date-Time :: In Unix-Epoch :: Seconds: $_GLOBAL_LOCAL_SERVER_DATE_TIME_UNIX_EPOCH_MANUAL_SECONDS<BR><BR>
+
+												<B>Server :: Remote</B><BR><BR>
+
+												<B><A HREF=\"https://en.Wikipedia.org/wiki/Gregorian_calendar\" TITLE=\":: Open & Display :: The :: Official Wikipedia Article Entry :: For :: Gregorian Calendar ::\" TARGET=\"_NEW\">Gregorian Calendar</A> :: Non-Leap Year</B><BR>
+												*&nbsp;Number of Seconds In 365 Days With 24 Hours In Each Day: 60 Seconds * 60 Minutes * 24 Hours * 365 Days = 31,536,000 Seconds<BR>
+												*&nbsp;Number of Minutes In 365 Days With 24 Hours In Each Day: 60 Minutes * 24 Hours * 365 Days = 31,536,000 Minutes<BR>
+												*&nbsp;Number of Hours In 365 Days With 24 Hours In Each Day: 24 Hours * 365 Days = 8,760 Hours<BR>
+												*&nbsp;Number of Days In 365 Days With 24 Hours In Each Day: 365 Days / 1 = 365 Days<BR>
+												*&nbsp;Number of Weeks In 365 Days With 24 Hours In Each Day: 365 / 7 = 52.1428571429 Weeks<BR><BR>
+
+												<B>Celestial</B><BR><BR>
+
+											<B>Web Server Technologies</B><HR>
+
+											<B>Hyper-Text-Transfer-Protocol Engine Information :: General</B><BR>
+											*&nbsp;Apache Hyper-Text-Transfer-Protocol Engine, Currently Loaded :: $_PROJECT_WEB_SERVER_TECHNOLOGY_VERSION<BR><BR>
+
+											<B>Hyper-Text-Transfer-Protocol Engine Information :: Apache</B><BR>
+											*&nbsp;Apache Hyper-Text-Transfer-Protocol Engine, Currently Loaded :: $_PROJECT_WEB_SERVER_TECHNOLOGY_VERSION_APACHE<BR><BR>
+
+											<B>My-Structured-Query-Language Engine Information</B><BR>
+											*&nbsp;My-Structured-Query-Language Engine Version Number, Currently Loaded :: $_PROJECT_WEB_SERVER_TECHNOLOGY_VERSION_MYSQL<BR><BR>
+
+											<B>Operating System Environment Information</B><BR>
+											*&nbsp;Operating System Environment, Currently Loaded :: $_PROJECT_WEB_SERVER_TECHNOLOGY_VERSION_OPERATING_SYSTEM<BR><BR>
+
+											<B>Pre-Hyper-Text-Post-Processor Engine Information</B><BR>
+											*&nbsp;Pre-Hyper-Text-Post-Processor :: Parser Engine :: Version Number :: Configuration File :: $_ACCESS_PHP_ENGINE_VERSION<BR>
+											*&nbsp;Pre-Hyper-Text-Post-Processor :: Parser Engine :: Version Number :: Currently Loaded :: $_PROJECT_WEB_SERVER_TECHNOLOGY_VERSION_PHP<BR>
+											*&nbsp;Pre-Hyper-Text-Post-Processor :: Zend Engine :: Version Number, Currently Loaded :: $_PROJECT_WEB_SERVER_TECHNOLOGY_VERSION_PHP_ZEND<BR><BR>
+											
+											<HR>
+											<CENTER><B>[ <A HREF=\"$_PROJECT_SERVER_URL_SECURE/Projects/CerberusCMS/Validation/Validate.php?Version&#61;$_PROJECT_VERSION_SHORT\" TITLE=\":: Validate This $_PROJECT_STRING_NAME_EXTENDED Installation ::\">$_PROJECT_VERSION_EXTENDED</A> ]</B></CENTER><HR>
+");
+
+/*
+ ============================================================================================================
+ + Kill SQL Database Server Query: Select From Statistics
+ ============================================================================================================
+*/
+
+// [ C ] $_Application_Module_Member_Statistics_DB_Query_SELECT_ALL_STATISTICS->free_result();
+
+/*
+ ============================================================================================================
+ + Kill SQL Database Server Query: Select From Members
+ ============================================================================================================
+*/
+
+// [ C ] $_Application_Module_Member_Statistics_DB_Query_SELECT_ALL_MEMBERS->free_result();
+
+/*
+ ============================================================================================================
+ + Kill SQL Database Server Query: Select From Comments
+ ============================================================================================================
+*/
+
+// [ C ] $_Application_Module_Member_Statistics_DB_Query_SELECT_ALL_COMMENTS->free_result();
+
+/*
+ ============================================================================================================
+ + Kill SQL Database Server Query: Select From Files
+ ============================================================================================================
+*/
+
+// [ C ] $_Application_Module_Member_Statistics_DB_Query_SELECT_ALL_FILES->free_result();
+
+/*
+ ============================================================================================================
+ + Kill SQL Database Server Query: Select From Forum
+ ============================================================================================================
+*/
+
+// [ C ] $_Application_Module_Member_Statistics_DB_Query_SELECT_ALL_FORUM_NUMBER_OF_ROWS->free_result();
+
+/*
+ ============================================================================================================
+ + Kill SQL Database Server Query: Select From Forum Topics
+ ============================================================================================================
+*/
+
+// [ C ] $_Application_Module_Member_Statistics_DB_Query_SELECT_ALL_FORUM_NUMBER_OF_ROWS_TOPICS->free_result();
+
+/*
+ ============================================================================================================
+ + Kill SQL Database Server Query: Select From Forum Topic Messages
+ ============================================================================================================
+*/
+
+// [ C ] $_Application_Module_Member_Statistics_DB_Query_SELECT_ALL_FORUM_NUMBER_OF_ROWS_TOPIC_MESSAGES->free_result();
+?>
