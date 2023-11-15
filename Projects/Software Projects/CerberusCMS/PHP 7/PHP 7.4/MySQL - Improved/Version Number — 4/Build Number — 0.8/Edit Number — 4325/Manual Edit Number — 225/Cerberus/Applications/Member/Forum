@@ -1261,8 +1261,12 @@ echo ("
 												<SELECT NAME=\"AMM_Forum_Quick_Options_Jump_To\">
 													<OPTION VALUE=\"ForumID&#61;All\">:: Options ::</OPTION>
 													<OPTION VALUE=\"ForumID&#61;All\">-----------------</OPTION>
-													<OPTION VALUE=\"Display&#61;CreateForum\">:: Create :: New :: Forum Entry</OPTION>
+													<OPTION VALUE=\"ForumID&#61;All\">Options :: Forum :: Forum Topic Entries ::</OPTION>
+													<OPTION VALUE=\"ForumID&#61;All\">-----------------</OPTION>
 													<OPTION VALUE=\"Display&#61;CreateForumTopic\">:: Create :: New :: Forum Topic Entry</OPTION>
+													<OPTION VALUE=\"ForumID&#61;All\">-----------------</OPTION>
+													<OPTION VALUE=\"ForumID&#61;All\">Options :: Forum :: Forum Topic Message Entries ::</OPTION>
+													<OPTION VALUE=\"ForumID&#61;All\">-----------------</OPTION>
 													<OPTION VALUE=\"Display&#61;CreateForumTopicMessageEntry\">:: Create :: New :: Forum Topic Message Entry</OPTION>
 													<OPTION VALUE=\"ForumID&#61;All\">-----------------</OPTION>
 													<OPTION VALUE=\"ForumID&#61;All\">:: Forum Entries ::</OPTION>
@@ -1280,13 +1284,35 @@ while ($_Application_Module_Member_Forum_Quick_Options_DB_Query_SELECT_FORUM_JUM
 $_Application_Module_Member_Forum_QUICK_OPTIONS_LIST_FORUM_ID				= $_Application_Module_Member_Forum_Quick_Options_DB_Query_SELECT_FORUM_JUMP_TO_Fetch_Array['id'];
 $_Application_Module_Member_Forum_QUICK_OPTIONS_LIST_FORUM_TITLE			= $_Application_Module_Member_Forum_Quick_Options_DB_Query_SELECT_FORUM_JUMP_TO_Fetch_Array['forum_title'];
 
-											echo ("<OPTION VALUE=\"?$_INTERNAL_APPLICATION_MODULE_MEMBER&#61;Forum&amp;ForumID&#61;$_Application_Module_Member_Forum_QUICK_OPTIONS_LIST_FORUM_ID\">:: Forum :: $_Application_Module_Member_Forum_QUICK_OPTIONS_LIST_FORUM_TITLE</OPTION>");
+											echo ("<OPTION VALUE=\"?$_INTERNAL_APPLICATION_MODULE_MEMBER&#61;Forum&amp;ForumID&#61;$_Application_Module_Member_Forum_QUICK_OPTIONS_LIST_FORUM_ID\">:: Forum Entry :: $_Application_Module_Member_Forum_QUICK_OPTIONS_LIST_FORUM_TITLE</OPTION>");
 
 } // [ + ] WHILE: Retrieving :: Forum Entries :: From The Database Management System Server Database
 
 echo ("
 													<OPTION VALUE=\"\">-----------------</OPTION>
 													<OPTION VALUE=\"\">:: Forum :: Forum Topic Entries ::</OPTION>
+													<OPTION VALUE=\"\">-----------------</OPTION>
+");
+
+/*
+ ============================================================================================================
+ + WHILE: Retrieving :: Forum Entries :: From The Database Management System Server Database
+ ============================================================================================================
+*/
+
+$_Application_Module_Member_Forum_Quick_Options_DB_Query_SELECT_FORUM_TOPIC_JUMP_TO	= $_GLOBAL_DATABASE_MANAGEMENT_SYSTEM_SERVER_DATABASE_CONNECTION->query("SELECT * FROM {$_ACCESS_DATABASE_SERVER_DATABASE_TABLE_PREFIX}_forum_topic ORDER BY topic_title ASC");
+
+while ($_Application_Module_Member_Forum_Quick_Options_DB_Query_SELECT_FORUM_TOPIC_JUMP_TO_Fetch_Array = $_Application_Module_Member_Forum_Quick_Options_DB_Query_SELECT_FORUM_TOPIC_JUMP_TO->fetch_array(MYSQLI_BOTH)) {
+
+$_Application_Module_Member_Forum_QUICK_OPTIONS_LIST_FORUM_TOPIC_ID			= $_Application_Module_Member_Forum_Quick_Options_DB_Query_SELECT_FORUM_TOPIC_JUMP_TO_Fetch_Array['id'];
+$_Application_Module_Member_Forum_QUICK_OPTIONS_LIST_FORUM_TOPIC_TITLE			= $_Application_Module_Member_Forum_Quick_Options_DB_Query_SELECT_FORUM_TOPIC_JUMP_TO_Fetch_Array['topic_title'];
+
+											echo ("<OPTION VALUE=\"TopicID&#61;$_Application_Module_Member_Forum_QUICK_OPTIONS_LIST_FORUM_TOPIC_ID\">:: Forum :: Forum Topic Entry :: $_Application_Module_Member_Forum_QUICK_OPTIONS_LIST_FORUM_TOPIC_TITLE</OPTION>");
+
+} // [ + ] WHILE: Retrieving :: Forum :: Forum Topic Entries :: From The Database Management System Server Database
+
+echo ("
+
 													<OPTION VALUE=\"\">-----------------</OPTION>
 												</SELECT><BR>
 												<INPUT TYPE=\"SUBMIT\" VALUE=\"Quick Jump\">
@@ -1295,7 +1321,7 @@ echo ("
 
 } else {
 
-echo ("Forum :: Quick Options :: Activated :: ?$_INTERNAL_APPLICATION_MODULE_MEMBER=Forum&$_Application_Module_Member_Forum_POST_QUICK_OPTIONS_JUMP_TO");
+echo ("Forum :: Quick Options :: Activated :: ?$_INTERNAL_APPLICATION_MODULE_MEMBER=Forum&ForumID=$_Application_Module_Member_Forum_POST_QUICK_OPTIONS_JUMP_TO");
 
 	header("Location: ?$_INTERNAL_APPLICATION_MODULE_MEMBER=Forum&$_Application_Module_Member_Forum_POST_QUICK_OPTIONS_JUMP_TO");
 
@@ -1308,4 +1334,5 @@ echo ("Forum :: Quick Options :: Activated :: ?$_INTERNAL_APPLICATION_MODULE_MEM
 */
 
 // [ C ] $_Application_Module_Member_Forum_Quick_Options_DB_Query_SELECT_FORUM_JUMP_TO->free_result();
+// [ C ] $_Application_Module_Member_Forum_Quick_Options_DB_Query_SELECT_FORUM_TOPIC_JUMP_TO->free_result();
 ?>
