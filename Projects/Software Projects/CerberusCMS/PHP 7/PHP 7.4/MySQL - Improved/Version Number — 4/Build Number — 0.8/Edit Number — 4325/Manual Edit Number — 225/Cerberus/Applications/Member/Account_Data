@@ -396,6 +396,54 @@ $_Application_Module_Member_Account_Data_POST_CREATE_DIRECTORY_GALLERY_IMAGE				
 $_Application_Module_Member_Account_Data_POST_CREATE_DIRECTORY_GALLERY_VIDEO				= $_POST['AMM_Account_Data_Create_Directory_Gallery_Video'];
 $_Application_Module_Member_Account_Data_POST_CREATE_DIRECTORY_GALLERY_VIDEO_LIVE			= $_POST['AMM_Account_Data_Create_Directory_Gallery_Video_Live'];
 
+/*
+ ============================================================================================================
+ + IF: Application Variables :: Post Variables :: Gallery :: Directory :: Delete :: Audio :: Is: Backup
+ ============================================================================================================
+*/
+
+if ($_Application_Module_Member_Account_Data_POST_DELETE_DIRECTORY_GALLERY_AUDIO_SELECTION == "Backup") {
+
+$_Application_Module_Member_Account_Data_POST_DELETE_DIRECTORY_GALLERY_AUDIO_SELECTION		= "";
+
+} // [ + ] IF: Application Variables :: Post Variables :: Gallery :: Directory :: Delete :: Audio :: Is: Backup, Replace Value
+
+/*
+ ============================================================================================================
+ + IF: Application Variables :: Post Variables :: Gallery :: Directory :: Delete :: Document:: Is: Backup
+ ============================================================================================================
+*/
+
+if ($_Application_Module_Member_Account_Data_POST_DELETE_DIRECTORY_GALLERY_DOCUMENT_SELECTION == "Backup") {
+
+$_Application_Module_Member_Account_Data_POST_DELETE_DIRECTORY_GALLERY_DOCUMENT_SELECTION	= "";
+
+} // [ + ] IF: Application Variables :: Post Variables :: Gallery :: Directory :: Delete :: Document :: Is: Backup, Replace Value
+
+/*
+ ============================================================================================================
+ + IF: Application Variables :: Post Variables :: Gallery :: Directory :: Delete :: Image :: Is: Backup
+ ============================================================================================================
+*/
+
+if ($_Application_Module_Member_Account_Data_POST_DELETE_DIRECTORY_GALLERY_IMAGE_SELECTION == "Backup") {
+
+$_Application_Module_Member_Account_Data_POST_DELETE_DIRECTORY_GALLERY_IMAGE_SELECTION		= "";
+
+} // [ + ] IF: Application Variables :: Post Variables :: Gallery :: Directory :: Delete :: Image :: Is: Backup, Replace Value
+
+/*
+ ============================================================================================================
+ + IF: Application Variables :: Post Variables :: Gallery :: Directory :: Delete :: Video :: Is: Backup
+ ============================================================================================================
+*/
+
+if ($_Application_Module_Member_Account_Data_POST_DELETE_DIRECTORY_GALLERY_VIDEO_SELECTION == "Backup") {
+
+$_Application_Module_Member_Account_Data_POST_DELETE_DIRECTORY_GALLERY_VIDEO_SELECTION		= "";
+
+} // [ + ] IF: Application Variables :: Post Variables :: Gallery :: Directory :: Delete :: Video :: Is: Backup, Replace Value
+
 
 echo ("
 	<CENTER>
