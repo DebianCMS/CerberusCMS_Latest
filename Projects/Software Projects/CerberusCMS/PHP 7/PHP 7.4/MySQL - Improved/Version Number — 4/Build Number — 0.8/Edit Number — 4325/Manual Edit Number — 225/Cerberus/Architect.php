@@ -3484,6 +3484,7 @@ copy("./System/Default/Friend/Friend.$_INTERNAL_FILE_EXTENSION","./Member/Master
 	echo ("./Member/$_PROJECT_STRING_NAME_SHORT/Files/Archive<BR>");
 	echo ("./Member/$_PROJECT_STRING_NAME_SHORT/Files/Audio<BR>");
 	echo ("./Member/$_PROJECT_STRING_NAME_SHORT/Files/Audio/Gallery<BR>");
+	echo ("./Member/$_PROJECT_STRING_NAME_SHORT/Files/Audio/Gallery/Backup<BR>");
 	echo ("./Member/$_PROJECT_STRING_NAME_SHORT/Files/Audio/Live<BR>");
 	echo ("./Member/$_PROJECT_STRING_NAME_SHORT/Files/Audio/Music<BR>");
 	echo ("./Member/$_PROJECT_STRING_NAME_SHORT/Files/Audio/Recordings<BR>");
@@ -3491,6 +3492,7 @@ copy("./System/Default/Friend/Friend.$_INTERNAL_FILE_EXTENSION","./Member/Master
 
 	mkdir("./Member/$_PROJECT_STRING_NAME_SHORT/Files/Audio");
 	mkdir("./Member/$_PROJECT_STRING_NAME_SHORT/Files/Audio/Gallery");
+	mkdir("./Member/$_PROJECT_STRING_NAME_SHORT/Files/Audio/Gallery/Backup");
 	mkdir("./Member/$_PROJECT_STRING_NAME_SHORT/Files/Audio/Live");
 	mkdir("./Member/$_PROJECT_STRING_NAME_SHORT/Files/Audio/Music");
 	mkdir("./Member/$_PROJECT_STRING_NAME_SHORT/Files/Audio/Push-To-Talk");
@@ -3508,6 +3510,7 @@ copy("./System/Default/Friend/Friend.$_INTERNAL_FILE_EXTENSION","./Member/Master
 	mkdir("./Member/$_PROJECT_STRING_NAME_SHORT/Files/Document/Friends");
 
 	mkdir("./Member/$_PROJECT_STRING_NAME_SHORT/Files/Document/Gallery");
+	mkdir("./Member/$_PROJECT_STRING_NAME_SHORT/Files/Document/Gallery/Backup");
 	mkdir("./Member/$_PROJECT_STRING_NAME_SHORT/Files/Document/GPS");
 	mkdir("./Member/$_PROJECT_STRING_NAME_SHORT/Files/Document/GPS/Coordinates");
 	mkdir("./Member/$_PROJECT_STRING_NAME_SHORT/Files/Document/GPS/GLO");
@@ -3530,11 +3533,13 @@ copy("./System/Default/Friend/Friend.$_INTERNAL_FILE_EXTENSION","./Member/Master
 
 	echo ("./Member/$_PROJECT_STRING_NAME_SHORT/Files/Image<BR>");
 	echo ("./Member/$_PROJECT_STRING_NAME_SHORT/Files/Image/Gallery<BR>");
+	echo ("./Member/$_PROJECT_STRING_NAME_SHORT/Files/Image/Gallery/Backup<BR>");
 	echo ("./Member/$_PROJECT_STRING_NAME_SHORT/Files/Image/Profile<BR>");
 	echo ("./Member/$_PROJECT_STRING_NAME_SHORT/Files/Image/Streams<BR>");
 
 	mkdir("./Member/$_PROJECT_STRING_NAME_SHORT/Files/Image");
 	mkdir("./Member/$_PROJECT_STRING_NAME_SHORT/Files/Image/Gallery");
+	mkdir("./Member/$_PROJECT_STRING_NAME_SHORT/Files/Image/Gallery/Backup");
 	mkdir("./Member/$_PROJECT_STRING_NAME_SHORT/Files/Image/Profile");
 	mkdir("./Member/$_PROJECT_STRING_NAME_SHORT/Files/Image/Streams");
 
@@ -3544,6 +3549,7 @@ copy("./System/Default/Friend/Friend.$_INTERNAL_FILE_EXTENSION","./Member/Master
 
 	echo ("./Member/$_PROJECT_STRING_NAME_SHORT/Files/Video<BR>");
 	echo ("./Member/$_PROJECT_STRING_NAME_SHORT/Files/Video/Gallery<BR>");
+	echo ("./Member/$_PROJECT_STRING_NAME_SHORT/Files/Video/Gallery/Backup<BR>");
 	echo ("./Member/$_PROJECT_STRING_NAME_SHORT/Files/Video/Live<BR>");
 	echo ("./Member/$_PROJECT_STRING_NAME_SHORT/Files/Video/Movies<BR>");
 	echo ("./Member/$_PROJECT_STRING_NAME_SHORT/Files/Video/Profile<BR>");
@@ -3551,6 +3557,7 @@ copy("./System/Default/Friend/Friend.$_INTERNAL_FILE_EXTENSION","./Member/Master
 
 	mkdir("./Member/$_PROJECT_STRING_NAME_SHORT/Files/Video");
 	mkdir("./Member/$_PROJECT_STRING_NAME_SHORT/Files/Video/Gallery");
+	mkdir("./Member/$_PROJECT_STRING_NAME_SHORT/Files/Video/Gallery/Backup");
 	mkdir("./Member/$_PROJECT_STRING_NAME_SHORT/Files/Video/Live");
 	mkdir("./Member/$_PROJECT_STRING_NAME_SHORT/Files/Video/Movies");
 	mkdir("./Member/$_PROJECT_STRING_NAME_SHORT/Files/Video/Profile");
@@ -3578,6 +3585,7 @@ copy("./Member/Setup/Indexes/Files/Files.php","./Member/$_PROJECT_STRING_NAME_SH
 copy("./Member/Setup/Indexes/Files/Archive/Archive.php","./Member/$_PROJECT_STRING_NAME_SHORT/Files/Archive/index.php");
 copy("./Member/Setup/Indexes/Files/Audio/Audio.php","./Member/$_PROJECT_STRING_NAME_SHORT/Files/Audio/index.php");
 copy("./Member/Setup/Indexes/Files/Audio/Audio.php","./Member/$_PROJECT_STRING_NAME_SHORT/Files/Audio/Gallery/index.php");
+copy("./Member/Setup/Indexes/Files/Audio/Audio.php","./Member/$_PROJECT_STRING_NAME_SHORT/Files/Audio/Gallery/Backup/index.php");
 copy("./Member/Setup/Indexes/Files/Audio/Audio.php","./Member/$_PROJECT_STRING_NAME_SHORT/Files/Audio/Live/index.php");
 copy("./Member/Setup/Indexes/Files/Audio/Audio.php","./Member/$_PROJECT_STRING_NAME_SHORT/Files/Audio/Music/index.php");
 copy("./Member/Setup/Indexes/Files/Audio/Audio.php","./Member/$_PROJECT_STRING_NAME_SHORT/Files/Audio/Push-To-Talk/index.php");
@@ -3594,6 +3602,7 @@ copy("./Member/Setup/Indexes/Files/Document/Document.php","./Member/$_PROJECT_ST
 copy("./Member/Setup/Indexes/Files/Document/Electronic_Mail/Electronic_Mail.php","./Member/$_PROJECT_STRING_NAME_SHORT/Files/Document/Electronic_Mail/index.php");
 
 copy("./Member/Setup/Indexes/Files/Document/Gallery/Gallery.php","./Member/$_PROJECT_STRING_NAME_SHORT/Files/Document/Gallery/index.php");
+copy("./Member/Setup/Indexes/Files/Document/Gallery/Gallery.php","./Member/$_PROJECT_STRING_NAME_SHORT/Files/Document/Gallery/Backup/index.php");
 copy("./Member/Setup/Indexes/Files/Document/GPS/GPS.php","./Member/$_PROJECT_STRING_NAME_SHORT/Files/Document/GPS/index.php");
 copy("./Member/Setup/Indexes/Files/Document/GPS/Coordinates/Coordinates.php","./Member/$_PROJECT_STRING_NAME_SHORT/Files/Document/GPS/Coordinates/index.php");
 copy("./Member/Setup/Indexes/Files/Document/GPS/GLO/GLO.php","./Member/$_PROJECT_STRING_NAME_SHORT/Files/Document/GPS/GLO/index.php");
@@ -3612,6 +3621,7 @@ copy("./Member/Setup/Indexes/Files/Document/Streams/Wall/Wall.php","./Member/$_P
 
 copy("./Member/Setup/Indexes/Files/Image/Image.php","./Member/$_PROJECT_STRING_NAME_SHORT/Files/Image/index.php");
 copy("./Member/Setup/Indexes/Files/Image/Image.php","./Member/$_PROJECT_STRING_NAME_SHORT/Files/Image/Gallery/index.php");
+copy("./Member/Setup/Indexes/Files/Image/Image.php","./Member/$_PROJECT_STRING_NAME_SHORT/Files/Image/Gallery/Backup/index.php");
 copy("./Member/Setup/Indexes/Files/Image/Image.php","./Member/$_PROJECT_STRING_NAME_SHORT/Files/Image/Profile/index.php");
 copy("./Member/Setup/Indexes/Files/Image/Image.php","./Member/$_PROJECT_STRING_NAME_SHORT/Files/Image/Streams/index.php");
 copy("./Member/Setup/Indexes/Files/Image/Profile/Profile.php","./Member/$_PROJECT_STRING_NAME_SHORT/Files/Image/Profile/index.php");
@@ -3620,6 +3630,7 @@ copy("./Member/Setup/Indexes/Files/Image/Profile/Profile.php","./Member/$_PROJEC
 
 copy("./Member/Setup/Indexes/Files/Video/Video.php","./Member/$_PROJECT_STRING_NAME_SHORT/Files/Video/index.php");
 copy("./Member/Setup/Indexes/Files/Video/Video.php","./Member/$_PROJECT_STRING_NAME_SHORT/Files/Video/Gallery/index.php");
+copy("./Member/Setup/Indexes/Files/Video/Video.php","./Member/$_PROJECT_STRING_NAME_SHORT/Files/Video/Gallery/Backup/index.php");
 copy("./Member/Setup/Indexes/Files/Video/Video.php","./Member/$_PROJECT_STRING_NAME_SHORT/Files/Video/Live/index.php");
 copy("./Member/Setup/Indexes/Files/Video/Video.php","./Member/$_PROJECT_STRING_NAME_SHORT/Files/Video/Movies/index.php");
 copy("./Member/Setup/Indexes/Files/Video/Video.php","./Member/$_PROJECT_STRING_NAME_SHORT/Files/Video/Profile/index.php");
