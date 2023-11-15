@@ -845,7 +845,7 @@ if ($_Application_Module_Member_Forum_DB_Query_INSERT_FORUM_TOPIC) {
 
 echo ("
 $_Application_Module_Member_Message_Forum_CREATE_FORUM_TOPIC_ENTRY_SUCCESSFUL<BR><BR>
-<CENTER><A HREF=\"?$_INTERNAL_APPLICATION_MODULE_MEMBER&#61;Forum&amp;Display&#61;CreateForumTopicMessage&amp;$_GLOBAL_SYSTEM_SECURITY_CACHE_CIRCUMVENTION_HTR_RANDOM_STRING_GENERATION\" TITLE=\":: Open & Display :: The Application :: Create Forum Topic Message Entry ::\">Click or Press here to Create the first Forum Topic Message Entry</A></CENTER>
+<CENTER><A HREF=\"?$_INTERNAL_APPLICATION_MODULE_MEMBER&#61;Forum&amp;Display&#61;CreateForumTopicMessageEntry&amp;$_GLOBAL_SYSTEM_SECURITY_CACHE_CIRCUMVENTION_HTR_RANDOM_STRING_GENERATION\" TITLE=\":: Open & Display :: The Application :: Create Forum Topic Message Entry ::\">Click or Press here to Create the First Forum Topic Message Entry</A></CENTER>
 ");
 
 } else {
@@ -890,14 +890,14 @@ $_Application_Module_Member_Message_Forum_CREATE_FORUM_TOPIC_ENTRY_SUCCESSFUL<BR
  =============================================================================================================
 */
 
-if ($_GET["Display"] == "CreateForumTopicMessage") {
+if ($_GET["Display"] == "CreateForumTopicMessageEntry") {
 
-$_Application_Module_Member_Forum_POST_CREATE_FORUM_TOPIC_MESSAGE_ACCESS_LEVEL				= $_POST['AMM_Forum_Create_Forum_Topic_Message_Access_Level'];
-$_Application_Module_Member_Forum_POST_CREATE_FORUM_TOPIC_MESSAGE_TOPIC_ID				= $_POST['AMM_Forum_Create_Forum_Topic_Message_Topic_ID_Option'];
-$_Application_Module_Member_Forum_POST_CREATE_FORUM_TOPIC_MESSAGE_DATA					= $_POST['AMM_Forum_Create_Forum_Topic_Message_Data'];
+$_Application_Module_Member_Forum_POST_CREATE_FORUM_TOPIC_MESSAGE_ENTRY_ACCESS_LEVEL		= $_POST['AMM_Forum_Create_Forum_Topic_Message_Access_Level'];
+$_Application_Module_Member_Forum_POST_CREATE_FORUM_TOPIC_MESSAGE_ENTRY_TOPIC_ID		= $_POST['AMM_Forum_Create_Forum_Topic_Message_Topic_ID_Option'];
+$_Application_Module_Member_Forum_POST_CREATE_FORUM_TOPIC_MESSAGE_ENTRY_DATA			= $_POST['AMM_Forum_Create_Forum_Topic_Message_Data'];
 
-$_Application_Module_Member_Forum_POST_CREATE_FORUM_TOPIC_MESSAGE_DATA					= str_replace($_GLOBAL_PLUGIN_SAFEHTML_CODE, $_GLOBAL_PLUGIN_SAFEHTML_CODE_REPLACE, $_Application_Module_Member_Forum_POST_CREATE_FORUM_TOPIC_MESSAGE_DATA);
-$_Application_Module_Member_Forum_POST_CREATE_FORUM_TOPIC_MESSAGE_DATA					= str_replace($_GLOBAL_PLUGIN_SAFEHTML_SMILEYS, $_GLOBAL_PLUGIN_SAFEHTML_SMILEYS_REPLACE, $_Application_Module_Member_Forum_POST_CREATE_FORUM_TOPIC_MESSAGE_DATA);
+$_Application_Module_Member_Forum_POST_CREATE_FORUM_TOPIC_MESSAGE_ENTRY_DATA			= str_replace($_GLOBAL_PLUGIN_SAFEHTML_CODE, $_GLOBAL_PLUGIN_SAFEHTML_CODE_REPLACE, $_Application_Module_Member_Forum_POST_CREATE_FORUM_TOPIC_MESSAGE_ENTRY_DATA);
+$_Application_Module_Member_Forum_POST_CREATE_FORUM_TOPIC_MESSAGE_ENTRY_DATA			= str_replace($_GLOBAL_PLUGIN_SAFEHTML_SMILEYS, $_GLOBAL_PLUGIN_SAFEHTML_SMILEYS_REPLACE, $_Application_Module_Member_Forum_POST_CREATE_FORUM_TOPIC_MESSAGE_ENTRY_DATA);
 
 /*
  =============================================================================================================
@@ -905,11 +905,11 @@ $_Application_Module_Member_Forum_POST_CREATE_FORUM_TOPIC_MESSAGE_DATA					= str
  =============================================================================================================
 */
 
-if (!$_Application_Module_Member_Forum_POST_CREATE_FORUM_TOPIC_MESSAGE_TOPIC_ID) {
+if (!$_Application_Module_Member_Forum_POST_CREATE_FORUM_TOPIC_MESSAGE_ENTRY_TOPIC_ID) {
 
 echo ("
-											<FORM ACTION=\"?$_INTERNAL_APPLICATION_MODULE_MEMBER&#61;Forum&amp;Display&#61;CreateForumTopicMessage&amp;$_GLOBAL_SYSTEM_SECURITY_CACHE_CIRCUMVENTION_HTR_RANDOM_STRING_GENERATION\" METHOD=\"POST\">
-												Forum :: Forum Topic Entry<BR>
+											<FORM ACTION=\"?$_INTERNAL_APPLICATION_MODULE_MEMBER&#61;Forum&amp;Display&#61;CreateForumTopicMessageEntry&amp;$_GLOBAL_SYSTEM_SECURITY_CACHE_CIRCUMVENTION_HTR_RANDOM_STRING_GENERATION\" METHOD=\"POST\">
+												Create :: Forum :: Forum Topic Entry<BR>
 													<SELECT NAME=\"AMM_Forum_Create_Forum_Topic_Message_Topic_ID_Option\">
 ");
 
@@ -967,7 +967,7 @@ echo ("
  =============================================================================================================
 */
 
-$_Application_Module_Member_Forum_DB_Query_INSERT_FORUM_TOPIC_MESSAGE				= $_GLOBAL_DATABASE_MANAGEMENT_SYSTEM_SERVER_DATABASE_CONNECTION->query("INSERT INTO {$_ACCESS_DATABASE_SERVER_DATABASE_TABLE_PREFIX}_forum_topic_message(message_access_level,message_author,message_data,message_forum_topic_id,message_timestamp,message_timestamp_last_update)VALUES('$_Application_Module_Member_Forum_POST_CREATE_FORUM_TOPIC_MESSAGE_ACCESS_LEVEL','$_GLOBAL_COOKIE_MEMBER_USERNAME','$_Application_Module_Member_Forum_POST_CREATE_FORUM_TOPIC_MESSAGE_DATA','$_Application_Module_Member_Forum_POST_CREATE_FORUM_TOPIC_MESSAGE_TOPIC_ID','$_GLOBAL_LOCAL_SERVER_DATE_STANDARD','$_GLOBAL_LOCAL_SERVER_DATE_STANDARD')");
+$_Application_Module_Member_Forum_DB_Query_INSERT_FORUM_TOPIC_MESSAGE				= $_GLOBAL_DATABASE_MANAGEMENT_SYSTEM_SERVER_DATABASE_CONNECTION->query("INSERT INTO {$_ACCESS_DATABASE_SERVER_DATABASE_TABLE_PREFIX}_forum_topic_message(message_access_level,message_author,message_data,message_forum_topic_id,message_timestamp,message_timestamp_last_update)VALUES('$_Application_Module_Member_Forum_POST_CREATE_FORUM_TOPIC_MESSAGE_ENTRY_ACCESS_LEVEL','$_GLOBAL_COOKIE_MEMBER_USERNAME','$_Application_Module_Member_Forum_POST_CREATE_FORUM_TOPIC_MESSAGE_ENTRY_DATA','$_Application_Module_Member_Forum_POST_CREATE_FORUM_TOPIC_MESSAGE_ENTRY_TOPIC_ID','$_GLOBAL_LOCAL_SERVER_DATE_STANDARD','$_GLOBAL_LOCAL_SERVER_DATE_STANDARD')");
 
 /*
  =============================================================================================================
@@ -977,7 +977,7 @@ $_Application_Module_Member_Forum_DB_Query_INSERT_FORUM_TOPIC_MESSAGE				= $_GLO
 
 if ($_Application_Module_Member_Forum_DB_Query_INSERT_FORUM_TOPIC_MESSAGE) {
 
-												echo ("$_Application_Module_Member_Message_Forum_CREATE_FORUM_TOPIC_MESSAGE_ENTRY<BR><BR><A HREF=\"?$_INTERNAL_APPLICATION_MODULE_MEMBER&#61;Forum&amp;TopicID&#61;$_Application_Module_Member_Forum_POST_CREATE_FORUM_TOPIC_MESSAGE_TOPIC_ID&amp;$_GLOBAL_SYSTEM_SECURITY_CACHE_CIRCUMVENTION_HTR_RANDOM_STRING_GENERATION\" TITLE=\":: Open & Display :: This :: Forum :: Forum Topic :: Forum Topic Message Entry ::\">Click or Press Here To Display This Forum Topic Message Entry</A></CENTER>");
+												echo ("$_Application_Module_Member_Message_Forum_CREATE_FORUM_TOPIC_MESSAGE_ENTRY<BR><BR><A HREF=\"?$_INTERNAL_APPLICATION_MODULE_MEMBER&#61;Forum&amp;TopicID&#61;$_Application_Module_Member_Forum_POST_CREATE_FORUM_TOPIC_MESSAGE_ENTRY_TOPIC_ID&amp;$_GLOBAL_SYSTEM_SECURITY_CACHE_CIRCUMVENTION_HTR_RANDOM_STRING_GENERATION\" TITLE=\":: Open & Display :: This :: Forum :: Forum Topic :: Forum Topic Message Entry ::\">Click or Press Here To Display This Forum Topic Message Entry</A></CENTER>");
 } else {
 
 												echo ($_Application_Module_Member_Message_Forum_CREATE_FORUM_TOPIC_MESSAGE_ENTRY_ERROR);
@@ -1261,9 +1261,9 @@ echo ("
 												<SELECT NAME=\"AMM_Forum_Quick_Options_Jump_To\">
 													<OPTION>:: Options ::</OPTION>
 													<OPTION>---------------------------</OPTION>
-													<OPTION VALUE=\"Display&#61;CreateForum\">:: Create :: New :: Forum Entry</OPTION>
+													<OPTION VALUE=\"\">:: Create :: New :: Forum Entry</OPTION>
 													<OPTION VALUE=\"Display&#61;CreateForumTopic\">:: Create :: New :: Forum Topic Entry</OPTION>
-													<OPTION VALUE=\"Display&#61;CreateForumTopicMessage\">:: Create :: New :: Forum Topic Message Entry</OPTION>
+													<OPTION VALUE=\"Display&#61;CreateForumTopicMessageEntry\">:: Create :: New :: Forum Topic Message Entry</OPTION>
 													<OPTION>---------------------------</OPTION>
 													<OPTION>:: Forum Entries ::</OPTION>
 													<OPTION>---------------------------</OPTION>
