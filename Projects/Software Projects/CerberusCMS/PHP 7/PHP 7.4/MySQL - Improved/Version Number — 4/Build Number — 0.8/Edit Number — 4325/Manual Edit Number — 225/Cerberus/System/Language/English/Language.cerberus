@@ -499,8 +499,8 @@ $_Application_Module_Administration_Message_Forum_FORUM_DELETE_ERROR							= "<C
  ============================================================================================================
 */
 
-$_Application_Module_Administration_Message_Forum_FORUM_TOPIC_DELETED_SUCCESSFULLY					= "<CENTER>Cerberus: I have Deleted the Forum Topic Successfully.</CENTER>";
-$_Application_Module_Administration_Message_Forum_FORUM_TOPIC_DELETE_ERROR						= "<CENTER>Cerberus: I was not able to Delete the Forum Topic. Try Again ?</CENTER>";
+$_Application_Module_Administration_Message_Forum_FORUM_TOPIC_DELETED_SUCCESSFULLY					= "<CENTER>Cerberus: I Have Deleted This Forum Topic Successfully.</CENTER>";
+$_Application_Module_Administration_Message_Forum_FORUM_TOPIC_DELETE_ERROR						= "<CENTER>Cerberus: I Was Not Able to Delete This Forum Topic. Try Again ?</CENTER>";
 
 /*
  ============================================================================================================
@@ -508,8 +508,8 @@ $_Application_Module_Administration_Message_Forum_FORUM_TOPIC_DELETE_ERROR						
  ============================================================================================================
 */
 
-$_Application_Module_Administration_Message_Forum_FORUM_TOPIC_UPDATED_SUCCESSFULLY					= "<CENTER>Cerberus: I have updated the Forum Topic Successfully.</CENTER>";
-$_Application_Module_Administration_Message_Forum_FORUM_TOPIC_UPDATE_ERROR						= "<CENTER>Cerberus: I was not able to update the Forum Topic</CENTER>";
+$_Application_Module_Administration_Message_Forum_FORUM_TOPIC_UPDATED_SUCCESSFULLY					= "<CENTER>Cerberus: I Have Updated The Forum Topic Successfully.</CENTER>";
+$_Application_Module_Administration_Message_Forum_FORUM_TOPIC_UPDATE_ERROR						= "<CENTER>Cerberus: I Was Not Able To Update This Forum Topic Entry. Try Again ?</CENTER>";
 
 /*
  ============================================================================================================
@@ -517,8 +517,8 @@ $_Application_Module_Administration_Message_Forum_FORUM_TOPIC_UPDATE_ERROR						
  ============================================================================================================
 */
 
-$_Application_Module_Administration_Message_Forum_FORUM_TOPIC_MESSAGE_POSTED_SUCCESSFULLY				= "<CENTER>Cerberus: I have posted the Message to the Forum Topic Successfully.";
-$_Application_Module_Administration_Message_Forum_FORUM_TOPIC_MESSAGE_POST_ERROR					= "<CENTER>Cerberus: I have posted the Message to the Forum Topic Successfully.";
+$_Application_Module_Administration_Message_Forum_FORUM_TOPIC_MESSAGE_POSTED_SUCCESSFULLY				= "<CENTER>Cerberus: I Have Posted This Message Entry To The Forum Topic Successfully.";
+$_Application_Module_Administration_Message_Forum_FORUM_TOPIC_MESSAGE_POST_ERROR					= "<CENTER>Cerberus: I Was Not Able To Post This Message Entry To The Forum Topic. Try Again ?";
 
 /*
  ============================================================================================================
@@ -1300,9 +1300,9 @@ $_Application_Module_Member_Message_Forum_CREATE_FORUM_TOPIC_FORUM_NULL							= 
  ============================================================================================================
 */
 
-$_Application_Module_Member_Message_Forum_CREATE_FORUM_TOPIC_MESSAGE_ENTRY						= "<CENTER>Cerberus: I have Posted the Forum Topic Message Entry Successfully";
-$_Application_Module_Member_Message_Forum_CREATE_FORUM_TOPIC_MESSAGE_ENTRY_ERROR					= "<CENTER>Cerberus: I was not able to Post the Forum Topic Message Entry.</CENTER>";
-$_Application_Module_Member_Message_Forum_CREATE_FORUM_TOPIC_MESSAGE_ENTRY_TOPIC_NULL					= "<CENTER>Cerberus: You can not Create a Forum Topic Message Entry without a Topic Entry</CENTER>";
+$_Application_Module_Member_Message_Forum_CREATE_FORUM_TOPIC_MESSAGE_ENTRY						= "<CENTER>Cerberus: I Have Posted This Forum Topic Message Entry Successfully</CENTER>";
+$_Application_Module_Member_Message_Forum_CREATE_FORUM_TOPIC_MESSAGE_ENTRY_ERROR					= "<CENTER>Cerberus: I Was Not Able To Post This Forum Topic Message Entry. Try Again ?</CENTER>";
+$_Application_Module_Member_Message_Forum_CREATE_FORUM_TOPIC_MESSAGE_ENTRY_TOPIC_NULL					= "<CENTER>Cerberus: Forum Topic Message Entries Cannot Be Created Without a Forum Topic Entry Selected</CENTER>";
 
 /*
  ============================================================================================================
@@ -1312,8 +1312,8 @@ $_Application_Module_Member_Message_Forum_CREATE_FORUM_TOPIC_MESSAGE_ENTRY_TOPIC
 
 $_Application_Module_Member_Message_Forum_CREATE_FORUM_TOPIC_ENTRY_TITLE_ERROR						= "<CENTER>Cerberus: The Forum Topic Entry Title is too long. Reduce the character length to less than 100 characters</CENTER>";
 $_Application_Module_Member_Message_Forum_CREATE_FORUM_TOPIC_ENTRY_DESCRIPTION_ERROR					= "<CENTER>Cerberus: The Forum Topic Entry Description is too long. Reduce the character length to less than 100 characters</CENTER>";
-$_Application_Module_Member_Message_Forum_CREATE_FORUM_TOPIC_ENTRY_SUCCESSFUL						= "<CENTER>Cerberus: I have Created the Forum Topic Entry Successfully.";
-$_Application_Module_Member_Message_Forum_CREATE_FORUM_TOPIC_ENTRY_ERROR						= "<CENTER>Cerberus: I was not able to Create the Forum Topic Entry. Try Again ?</CENTER>";
+$_Application_Module_Member_Message_Forum_CREATE_FORUM_TOPIC_ENTRY_SUCCESSFUL						= "<CENTER>Cerberus: I Have Created This Forum Topic Entry Successfully.";
+$_Application_Module_Member_Message_Forum_CREATE_FORUM_TOPIC_ENTRY_ERROR						= "<CENTER>Cerberus: I Was Not Able To Create This Forum Topic Entry. Try Again ?</CENTER>";
 
 /*
  ============================================================================================================
@@ -1330,10 +1330,10 @@ $_Application_Module_Member_Message_Forum_CREATE_FORUM_TOPIC_ENTRY_ACCESS_LEVEL_
 */
 
 $_Application_Module_Member_Message_Forum_UPDATE_FORUM_TOPIC_MESSAGE_ENTRY_DENIED					= "<CENTER>Cerberus: You are not the Author of this Forum Topic Message Entry</CENTER>";
-$_Application_Module_Member_Message_Forum_UPDATE_FORUM_TOPIC_MESSAGE_ENTRY_SUCCESSFUL					= "<CENTER>Cerberus: I have Updated the Forum Topic Message Entry Successfully.";
-$_Application_Module_Member_Message_Forum_UPDATE_FORUM_TOPIC_MESSAGE_ENTRY_ERROR					= "<CENTER>Cerberus: I was not able to Update this Forum Topic Message Entry</CENTER>";
-$_Application_Module_Member_Message_Forum_UPDATE_MEMBER_EXPERIENCE_AMOUNT						= "<CENTER>Cerberus: You have Earned 10 Experience Points for posting this Forum Topic Message Entry</CENTER>";
-$_Application_Module_Member_Message_Forum_UPDATE_MEMBER_EXPERIENCE_AMOUNT_ERROR						= "<CENTER>Cerberus: I was not able to Give you any Experience Points for this Forum Topic Message Entry.</CENTER>";
+$_Application_Module_Member_Message_Forum_UPDATE_FORUM_TOPIC_MESSAGE_ENTRY_SUCCESSFUL					= "<CENTER>Cerberus: I Have Updated the Forum Topic Message Entry Successfully.";
+$_Application_Module_Member_Message_Forum_UPDATE_FORUM_TOPIC_MESSAGE_ENTRY_ERROR					= "<CENTER>Cerberus: I Was Not Able To Update This Forum Topic Message Entry</CENTER>";
+$_Application_Module_Member_Message_Forum_UPDATE_MEMBER_EXPERIENCE_AMOUNT						= "<CENTER>Cerberus: You Yave Earned 10 Experience Points For Posting This Forum Topic Message Entry</CENTER>";
+$_Application_Module_Member_Message_Forum_UPDATE_MEMBER_EXPERIENCE_AMOUNT_ERROR						= "<CENTER>Cerberus: I Was Not Able to Give You Any Experience Points For This Forum Topic Message Entry</CENTER>";
 
 /*
  ============================================================================================================
