@@ -804,8 +804,8 @@ mkdir("./Member/$_Application_Module_Member_Register_POST_REGISTRAR_USERNAME/Fil
 copy("./Member/Setup/Indexes/Files/Files.php","./Member/$_Application_Module_Member_Register_POST_REGISTRAR_USERNAME/Files/index.php");
 copy("./Member/Setup/Indexes/Files/Archive/Archive.php","./Member/$_Application_Module_Member_Register_POST_REGISTRAR_USERNAME/Files/Archive/index.php");
 copy("./Member/Setup/Indexes/Files/Audio/Audio.php","./Member/$_Application_Module_Member_Register_POST_REGISTRAR_USERNAME/Files/Audio/index.php");
-copy("./Member/Setup/Indexes/Files/Audio/Audio.php","./Member/$_Application_Module_Member_Register_POST_REGISTRAR_USERNAME/Files/Audio/Backup/index.php");
 copy("./Member/Setup/Indexes/Files/Audio/Audio.php","./Member/$_Application_Module_Member_Register_POST_REGISTRAR_USERNAME/Files/Audio/Gallery/index.php");
+copy("./Member/Setup/Indexes/Files/Audio/Audio.php","./Member/$_Application_Module_Member_Register_POST_REGISTRAR_USERNAME/Files/Audio/Gallery/Backup/index.php");
 copy("./Member/Setup/Indexes/Files/Audio/Audio.php","./Member/$_Application_Module_Member_Register_POST_REGISTRAR_USERNAME/Files/Audio/Live/index.php");
 copy("./Member/Setup/Indexes/Files/Audio/Audio.php","./Member/$_Application_Module_Member_Register_POST_REGISTRAR_USERNAME/Files/Audio/Music/index.php");
 copy("./Member/Setup/Indexes/Files/Audio/Audio.php","./Member/$_Application_Module_Member_Register_POST_REGISTRAR_USERNAME/Files/Audio/Push-To-Talk/index.php");
@@ -817,9 +817,9 @@ copy("./Member/Setup/Indexes/Files/Audio/Audio.php","./Member/$_Application_Modu
 copy("./Member/Setup/Indexes/Files/Document/Activity_Logging/Activity_Logging.php","./Member/$_Application_Module_Member_Register_POST_REGISTRAR_USERNAME/Files/Document/Activity_Logging/index.php");
 copy("./Member/Setup/Files/Document/Activity_Logging/Activity_Log.php","./Member/$_Application_Module_Member_Register_POST_REGISTRAR_USERNAME/Files/Document/Activity_Logging/Activity_Log.php");
 copy("./Member/Setup/Indexes/Files/Document/Document.php","./Member/$_Application_Module_Member_Register_POST_REGISTRAR_USERNAME/Files/Document/index.php");
-copy("./Member/Setup/Indexes/Files/Document/Document.php","./Member/$_Application_Module_Member_Register_POST_REGISTRAR_USERNAME/Files/Document/Backup/index.php");
 copy("./Member/Setup/Indexes/Files/Document/Electronic_Mail/Electronic_Mail.php","./Member/$_Application_Module_Member_Register_POST_REGISTRAR_USERNAME/Files/Document/Electronic_Mail/index.php");
 copy("./Member/Setup/Indexes/Files/Document/Gallery/Gallery.php","./Member/$_Application_Module_Member_Register_POST_REGISTRAR_USERNAME/Files/Document/Gallery/index.php");
+copy("./Member/Setup/Indexes/Files/Document/Document.php","./Member/$_Application_Module_Member_Register_POST_REGISTRAR_USERNAME/Files/Document/Gallery/Backup/index.php");
 copy("./Member/Setup/Indexes/Files/Document/GPS/GPS.php","./Member/$_Application_Module_Member_Register_POST_REGISTRAR_USERNAME/Files/Document/GPS/index.php");
 copy("./Member/Setup/Indexes/Files/Document/GPS/Coordinates/Coordinates.php","./Member/$_Application_Module_Member_Register_POST_REGISTRAR_USERNAME/Files/Document/GPS/Coordinates/index.php");
 copy("./Member/Setup/Indexes/Files/Document/GPS/GLO/GLO.php","./Member/$_Application_Module_Member_Register_POST_REGISTRAR_USERNAME/Files/Document/GPS/GLO/index.php");
@@ -834,8 +834,8 @@ copy("./Member/Setup/Indexes/Files/Document/Streams/Wall/Wall.php","./Member/$_A
 // Image
 
 copy("./Member/Setup/Indexes/Files/Image/Image.php","./Member/$_Application_Module_Member_Register_POST_REGISTRAR_USERNAME/Files/Image/index.php");
-copy("./Member/Setup/Indexes/Files/Image/Image.php","./Member/$_Application_Module_Member_Register_POST_REGISTRAR_USERNAME/Files/Image/Backup/index.php");
 copy("./Member/Setup/Indexes/Files/Image/Image.php","./Member/$_Application_Module_Member_Register_POST_REGISTRAR_USERNAME/Files/Image/Gallery/index.php");
+copy("./Member/Setup/Indexes/Files/Image/Image.php","./Member/$_Application_Module_Member_Register_POST_REGISTRAR_USERNAME/Files/Image/Gallery/Backup/index.php");
 copy("./Member/Setup/Indexes/Files/Image/Image.php","./Member/$_Application_Module_Member_Register_POST_REGISTRAR_USERNAME/Files/Image/Profile/index.php");
 copy("./Member/Setup/Indexes/Files/Image/Image.php","./Member/$_Application_Module_Member_Register_POST_REGISTRAR_USERNAME/Files/Image/Streams/index.php");
 copy("./Member/Setup/Indexes/Files/Image/Profile/Profile.php","./Member/$_Application_Module_Member_Register_POST_REGISTRAR_USERNAME/Files/Image/Profile/index.php");
@@ -843,8 +843,8 @@ copy("./Member/Setup/Indexes/Files/Image/Profile/Profile.php","./Member/$_Applic
 // Video
 
 copy("./Member/Setup/Indexes/Files/Video/Video.php","./Member/$_Application_Module_Member_Register_POST_REGISTRAR_USERNAME/Files/Video/index.php");
-copy("./Member/Setup/Indexes/Files/Video/Video.php","./Member/$_Application_Module_Member_Register_POST_REGISTRAR_USERNAME/Files/Video/Backup/index.php");
 copy("./Member/Setup/Indexes/Files/Video/Video.php","./Member/$_Application_Module_Member_Register_POST_REGISTRAR_USERNAME/Files/Video/Gallery/index.php");
+copy("./Member/Setup/Indexes/Files/Video/Video.php","./Member/$_Application_Module_Member_Register_POST_REGISTRAR_USERNAME/Files/Video/Gallery/Backup/index.php");
 copy("./Member/Setup/Indexes/Files/Video/Video.php","./Member/$_Application_Module_Member_Register_POST_REGISTRAR_USERNAME/Files/Video/Live/index.php");
 copy("./Member/Setup/Indexes/Files/Video/Video.php","./Member/$_Application_Module_Member_Register_POST_REGISTRAR_USERNAME/Files/Video/Movies/index.php");
 copy("./Member/Setup/Indexes/Files/Video/Video.php","./Member/$_Application_Module_Member_Register_POST_REGISTRAR_USERNAME/Files/Video/Profile/index.php");
