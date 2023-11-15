@@ -1259,14 +1259,14 @@ echo ("
 											Quick Options<HR>
 											<FORM ACTION=\"?$_INTERNAL_APPLICATION_MODULE_MEMBER&#61;Forum&amp;ForumID&#61;All&amp;$_GLOBAL_SYSTEM_SECURITY_CACHE_CIRCUMVENTION_HTR_RANDOM_STRING_GENERATION\" METHOD=\"POST\">
 												<SELECT NAME=\"AMM_Forum_Quick_Options_Jump_To\">
-													<OPTION>:: Options ::</OPTION>
-													<OPTION>---------------------------</OPTION>
-													<OPTION VALUE=\"\">:: Create :: New :: Forum Entry</OPTION>
+													<OPTION VALUE=\"ForumID&#61;All\">:: Options ::</OPTION>
+													<OPTION VALUE=\"ForumID&#61;All\">-----------------</OPTION>
+													<OPTION VALUE=\"Display&#61;CreateForum\">:: Create :: New :: Forum Entry</OPTION>
 													<OPTION VALUE=\"Display&#61;CreateForumTopic\">:: Create :: New :: Forum Topic Entry</OPTION>
 													<OPTION VALUE=\"Display&#61;CreateForumTopicMessageEntry\">:: Create :: New :: Forum Topic Message Entry</OPTION>
-													<OPTION>---------------------------</OPTION>
-													<OPTION>:: Forum Entries ::</OPTION>
-													<OPTION>---------------------------</OPTION>
+													<OPTION VALUE=\"ForumID&#61;All\">-----------------</OPTION>
+													<OPTION VALUE=\"ForumID&#61;All\">:: Forum Entries ::</OPTION>
+													<OPTION VALUE=\"ForumID&#61;All\">-----------------</OPTION>
 ");
 
 /*
@@ -1285,9 +1285,9 @@ $_Application_Module_Member_Forum_QUICK_OPTIONS_LIST_FORUM_TITLE			= $_Applicati
 } // [ + ] WHILE: Retrieving :: Forum Entries :: From The Database Management System Server Database
 
 echo ("
-													<OPTION>---------------------------</OPTION>
-													<OPTION>:: Forum :: Forum Topic Entries ::</OPTION>
-													<OPTION>---------------------------</OPTION>
+													<OPTION VALUE=\"\">-----------------</OPTION>
+													<OPTION VALUE=\"\">:: Forum :: Forum Topic Entries ::</OPTION>
+													<OPTION VALUE=\"\">-----------------</OPTION>
 												</SELECT><BR>
 												<INPUT TYPE=\"SUBMIT\" VALUE=\"Quick Jump\">
 											</FORM>
