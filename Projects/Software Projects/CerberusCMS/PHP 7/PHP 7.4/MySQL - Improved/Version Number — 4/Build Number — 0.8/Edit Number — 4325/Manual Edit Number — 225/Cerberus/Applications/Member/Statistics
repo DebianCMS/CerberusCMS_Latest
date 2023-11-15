@@ -260,6 +260,70 @@ if ($_GLOBAL_SETTING_SYSTEM_SECURITY_MODULE_STATUS_MASTER_SANITIZATION <= 0) {
 
 /*
  ============================================================================================================
+ + IF: System :: Services :: Status :: Commander :: Is: 0, Define AS OFF :: ELSE :: Is: 1, Define AS ON
+ ============================================================================================================
+*/
+
+if ($_GLOBAL_SYSTEM_SERVICES_MODULE_FILE_COMMANDER <= 0) {
+
+	$_Application_Module_Member_Statistics_System_Services_Status_Commander			= "Off";
+
+} else { // [ + ] IF: The System :: Services :: Status :: Commander :: Is: On OR Off
+
+	$_Application_Module_Member_Statistics_System_Services_Status_Commander			= "On";
+
+} // [ + ] IF: The System :: Services :: Status :: Commander :: Is: On OR Off
+
+/*
+ ============================================================================================================
+ + IF: System :: Services :: Status :: Integrity :: Is: 0, Define AS OFF :: ELSE :: Is: 1, Define AS ON
+ ============================================================================================================
+*/
+
+if ($_GLOBAL_SYSTEM_SERVICES_MODULE_FILE_INTEGRITY <= 0) {
+
+	$_Application_Module_Member_Statistics_System_Services_Status_Integrity			= "Off";
+
+} else { // [ + ] IF: The System :: Services :: Status :: Integrity :: Is: On OR Off
+
+	$_Application_Module_Member_Statistics_System_Services_Status_Integrity			= "On";
+
+} // [ + ] IF: The System :: Services :: Status :: Integrity :: Is: On OR Off
+
+/*
+ ============================================================================================================
+ + IF: System :: Services :: Status :: Loops :: Is: 0, Define AS OFF :: ELSE :: Is: 1, Define AS ON
+ ============================================================================================================
+*/
+
+if ($_GLOBAL_SYSTEM_SERVICES_MODULE_FILE_LOOPS <= 0) {
+
+	$_Application_Module_Member_Statistics_System_Services_Status_Loops			= "Off";
+
+} else { // [ + ] IF: The System :: Services :: Status :: Loops :: Is: On OR Off
+
+	$_Application_Module_Member_Statistics_System_Services_Status_Loops			= "On";
+
+} // [ + ] IF: The System :: Services :: Status :: Loops :: Is: On OR Off
+
+/*
+ ============================================================================================================
+ + IF: System :: Services :: Status :: Services :: Is: 0, Define AS OFF :: ELSE :: Is: 1, Define AS ON
+ ============================================================================================================
+*/
+
+if ($_GLOBAL_SYSTEM_SERVICES_MODULE_FILE_SERVICES <= 0) {
+
+	$_Application_Module_Member_Statistics_System_Services_Status_Services			= "Off";
+
+} else { // [ + ] IF: The System :: Services :: Status :: Services :: Is: On OR Off
+
+	$_Application_Module_Member_Statistics_System_Services_Status_Services			= "On";
+
+} // [ + ] IF: The System :: Services :: Status :: Services :: Is: On OR Off
+
+/*
+ ============================================================================================================
  +
  + Display :: System Settings and System Statistical Information
  +
@@ -329,6 +393,20 @@ echo ("
 
 											<B>System :: Settings :: Plug-Ins :: Graphical</B><BR>
 												*&nbsp;Plug-In :: Smileys and Emojis :: Directory: $_GLOBAL_SYSTEM_SMILEYS_DIRECTORY<BR><BR>
+
+											<B>Settings :: System :: Services :: Current</B><HR><BR>
+
+											<B>System :: Settings :: Services :: Commander</B><BR>
+												*&nbsp;System :: Services :: Status: $_Application_Module_Member_Statistics_System_Services_Status_Commander<BR><BR>
+
+											<B>System :: Settings :: Services :: Integrity</B><BR>
+												*&nbsp;System :: Services :: Status: $_Application_Module_Member_Statistics_System_Services_Status_Integrity<BR><BR>
+
+											<B>System :: Settings :: Services :: Loops</B><BR>
+												*&nbsp;System :: Services :: Status: $_Application_Module_Member_Statistics_System_Services_Status_Loops<BR><BR>
+
+											<B>System :: Settings :: Services :: Services</B><BR>
+												*&nbsp;System :: Services :: Status: $_Application_Module_Member_Statistics_System_Services_Status_Services<BR><BR>
 
 											<B>System Security Settings</B><HR><BR>
 
